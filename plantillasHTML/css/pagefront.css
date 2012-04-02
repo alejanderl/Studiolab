@@ -14,3 +14,94 @@ body {
     
 }
 
+#top-menu {
+    padding-top:20px;
+    
+}
+
+#menu-static,#menu-globes {
+display: inline;
+float: right;
+    
+}
+#menu-static li{
+    
+display: inline-table;
+
+text-align: center;   
+margin-left: 20px;
+padding-top: 10px;
+    
+}
+
+#menu-globes li{
+    padding-top: 10px;
+margin: 0;
+background: url(../cssimgs/blue_globe.png) no-repeat center;
+ margin-left: 20px;
+
+height: 45px;
+width: 100px;
+display: inline-table;
+float: left;
+text-align: center;   
+}
+#topmid-menu ul{
+    float:right;
+    
+    }
+    
+
+#topmid-menu li{
+    float:left;    
+
+}
+/*       /end header            */
+
+/*          big-slider       */
+#big-slider-centered ul{
+    position:absolute;
+}
+
+#big-slider li {
+    
+position:relative;
+float:left;
+top: 0;
+
+
+}
+
+#big-slider li img {
+    
+position:relative;
+top: 0;
+
+
+}
+
+#big-slider .inner-text {
+    position: relative;
+    z-index: 1;
+    top: 150px;
+    left: 20px;
+  }
+  
+
+
+/*         end big-slider                 */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+    clear: both;
+    width: 100%;
+	display: inline-block;
+}
