@@ -10,6 +10,52 @@
 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript" >
+
+
+// defines an class to manage the slider in the page front
+    var sliderFront=function (divID){
+        
+          this.divID=divID;
+          
+          var _this=this;
+                 
+         $(window).resize(function() {
+           
+            _this.rescale ();
+            
+            });
+          
+         this.rescale=function () {
+            
+            element_width= $(this.divID + " ul li").eq(1).outerWidth()*$(this.divID  + " ul li").length;
+            //console.log ($(this.divID + " ul li").eq(1).outerWidth());
+            $(this.divID ).width(element_width);
+           
+            
+        }
+        
+        // constructor 
+        this.rescale ();
+
+        
+    }
+   
+    
+    
+    $(document).ready (function (){
+        themainID=new sliderFront ("#big-slider-centered");
+       
+        
+       
+        
+        });
+    
+</script>
+
 </head>
 
 <body>
@@ -58,17 +104,20 @@
                     <img src="images/logoStudiolab.png"/>
                 </div>
                 <div id="big-menu">
-                    <ul>
+                    <ul id="all">
                         <li><a href="#">ALL</a></li>
                     </ul>
-                      <ul >
+                    <br/>
+                      <ul id="blue-menu">
                         <li><a href="#" class="big-blue-menu">WATER</a></li>
                         <li><a href="#" class="big-blue-menu">BIOLOGY</a></li>
                         <li><a href="#" class="big-blue-menu">SOCIAL INTERACTION</a></li>
                     </ul>
-                    
-                    
+                   
+                                       
                 </div>
+                
+                <div class="clearfix"></div>                 
                 
             </div>
         
@@ -76,35 +125,76 @@
     </div>  <!-- header -->
     
     <div id="big-slider">
-      <div id="big-slider-centered" class="centered" >
-            <ul>
+      <div id="big-slider-centered"  >
+            <ul id="big-slide-list">
                 <li>
+                    <img src="./images/imagen-slider1.jpg" width="460" height="310"/>
                     <div class="inner-text">
-                        <h2 ><a href="#">MediaLabPrado</a></h2>
-                        <p class="intro-text">Loren ipsum is a text loren ipsum</p>
-                        <p class="dates water-spot" >MADRID 12/08<span class="hash"></span></p>
+                        
+                        <h2 ><a href="#">MediaLabPrado</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >MADRID 12/08<span class="hash">#firsthash</span></div>
                     </div>
-                    <img src="./images/imagen-slider1.jpg" />
+                    
                     
                     
                 </li>
                  <li>
+                     <img src="./images/imagen-slider2.jpg" width="460" height="310"/>
                     <div class="inner-text">
-                        <h2 ><a href="#">MediaLabPrado</a></h2>
-                        <p class="intro-text">Loren ipsum is a text loren ipsum</p>
-                        <p class="dates water-spot" >MADRID 12/08<span class="hash"></span></p>
+                        <h2 ><a href="#">MediaLabPrado</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >MADRID 12/08<span class="hash">#lorenipsum</span></div>
                     </div>
-                    <img src="./images/imagen-slider2.jpg" />
+                   
                     
                     
                 </li>
                   <li>
+                    <img src="./images/imagen-slider3.jpg" width="460" height="310"/>
                     <div class="inner-text">
-                        <h2 ><a href="#">MediaLabPrado</a></h2>
-                        <p class="intro-text">Loren ipsum is a text loren ipsum</p>
-                        <p class="dates water-spot" >MADRID 12/08<span class="hash"></span></p>
+                        
+                        <h2 ><a href="#">Science Gallery</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >DUBLIN 17/10<span class="hash">#thisisahash</span></div>
                     </div>
-                    <img src="./images/imagen-slider3.jpg" />
+                    
+                    
+                    
+                </li>
+                
+                <li>
+                    <img src="./images/imagen-slider1.jpg" width="460" height="310"/>
+                    <div class="inner-text">
+                        
+                        <h2 ><a href="#">MediaLabPrado</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >MADRID 12/08<span class="hash">#firsthash</span></div>
+                    </div>
+                    
+                    
+                    
+                </li>
+                 <li>
+                     <img src="./images/imagen-slider2.jpg" width="460" height="310"/>
+                    <div class="inner-text">
+                        <h2 ><a href="#">MediaLabPrado</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >MADRID 12/08<span class="hash">#lorenipsum</span></div>
+                    </div>
+                   
+                    
+                    
+                </li>
+                  <li>
+                    <img src="./images/imagen-slider3.jpg" width="460" height="310"/>
+                    <div class="inner-text">
+                        
+                        <h2 ><a href="#">Science Gallery</a></h2><br/>
+                        <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
+                        <div class="dates water-spot" >DUBLIN 17/10<span class="hash">#thisisahash</span></div>
+                    </div>
+                    
                     
                     
                 </li>
