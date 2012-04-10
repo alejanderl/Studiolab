@@ -15,3 +15,30 @@
     
     
 }
+
+#back-slider {    
+    top: 0;
+    font-size: 44px;
+    z-index: 4;
+   width:100px;
+    float: left;
+    position: relative;
+    height: 310px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+ 
+}
+
+#advance-slider {    
+    top: 0;
+    font-size: 44px;
+    z-index: 4;
+    
+    float: left;
+    position: relative;
+    height: 310px;
+    width:100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+ 
+}
