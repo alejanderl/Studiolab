@@ -87,3 +87,8 @@ text-align: center;
     width: 100%;
 	display: inline-block;
 }
+
+.clearfix {
+    clear: both;    
+
+}
