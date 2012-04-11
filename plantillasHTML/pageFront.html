@@ -7,138 +7,20 @@
 <link type="text/css" rel="stylesheet" href="./css/pagefront.css" />
 <link type="text/css" rel="stylesheet" href="./css/typo.css" />
 <link type="text/css" rel="stylesheet" href="./css/borrar.css" />
+<link type="text/css" rel="stylesheet" href="./css/FullScreenSlider.css" />
 
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./js/FullScreenSlider.js"></script>
 
 <script type="text/javascript" >
 
-
-// defines a class to manage the slider in the page front
-    var sliderFront=function (divID){
-        
-          this.divID=divID;
-          this.position_top=($(this.divID).position().top);
-          this.element_total=$(this.divID  + " ul li").length;
-          this.element_width = $(this.divID + " ul li").eq(1).outerWidth()*this.element_number;
-          this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
-          var _this=this;
-          this.element_number=0;
-                 
-         $(window).resize(function() {
-           
-            _this.rescale ();
-             _this.placeControllers ();
-            });
-          
-         this.rescale=function () {
-             
-            
-            //console.log ($(this.divID + " ul li").eq(1).outerWidth());
-            $(this.divID ).width(this.element_width);     
-            
-        }
-        
-        this.moving=function (where2move) {
-            
-            //$('.caja-ficha:eq('+(elContador)+')').animate({ left : "+="+anchoCaja+"px" }, 1000);
-            counter=0;
-            distance=where2move*100;
-             this.placeControllers();
-            
-	while (counter<this.element_total){
-             
-             counter ++;             
-        }
-             
-             $(this.divID + " li:eq(0)" ).animate({ marginLeft : distance }, 1000,function (){
-                $(_this.divID + " li").css("display","none");
-                for (i=0;i<_this.element_total;i++){
-                    
-                    if ((i)>(_this.element_number-2)&&i<(_this.element_number+2)){
-                        alert (i);
-                    $(_this.divID + " li:eq("+i+")" ).css("display","true");
-                   
-                    }
-                }
-                 this.placeControllers();
-                
-             });
-             
-             
-             this.element_number+=where2move;
-             
-        
-        }
-        
-
-        
-       //relocate in the middle of the screen
-        //$(_this.divID).css("margin-left",-($(this.divID + " ul li").eq(1).outerWidth()/2) + "px" )
-        //add the UI controllers
-        $(_this.divID).append('<div id="back-slider" ><p><<</p></div>');
-        $(_this.divID).append('<div id="advance-slider"><p>>></p></div>');
-        
-        this.placeControllers=function (){
-           
-            //delete controller in case we are in the limit
-            
-            switch (_this.element_number) {
-                case 0:
-                    
-                    $(_this.divID+" div").css("display","block");
-                    $(_this.divID+" #back-slider").css("display","none");
-                    break;
-                case (this.element_total):
-                
-                    $(_this.divID+" div").css("display","block");
-                    $(_this.divID+" #advance-slider").css("display","none");
-                 break;
-                
-                default:
-                     
-                    $(_this.divID+" div").css("display","block");
-                  break;
-                
-            }
-
-        
-        //locate the contrallers advance slider
-        
-        $(_this.divID+" #back-slider").css("top",this.position_top+"px");
-        $(_this.divID+" #advance-slider").css("top",(this.position_top)+"px");
-        
-        $(_this.divID+" #advance-slider").css("left",($(window).width()- ($(_this.divID+" #advance-slider").outerWidth()))+"px");
-        
-        $(_this.divID+" #advance-slider").click(function (){
-            
-            _this.moving(-1);
-        })
-        
-                $(_this.divID+" #back-slider").click(function (){
-            
-            _this.moving(1);
-        })
-        
-        
-        }
-                // constructor 
-        this.rescale ();
-        this.placeControllers();
-    }
-   
-    
-    
+     
     $(document).ready (function (){
         themainID=new sliderFront ("#big-slider-centered");
-       
-        
-       
-        
-        });
-    
+         });
 </script>
 
 </head>
