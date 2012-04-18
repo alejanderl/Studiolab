@@ -1,39 +1,39 @@
 
 
 // defines a class to manage the slider in the page front
-    var sliderFront=function (divID){
-        
-        this.divID=divID;
+var sliderFront = function (divID) {
+        "use strict";
+
+        this.divID = divID;
         //add the styles
-         //$("head ").append('<link type="text/css" rel="stylesheet" href="./css/FullScreenSLider.css" />');
-          
+        //$("head ").append('<link type="text/css" rel="stylesheet" href="./css/FullScreenSLider.css" />');
         //set the end of the loop
-         $(this.divID + " ul").prepend('<li class="black forward"><p>black1</p></div>');
-         //$(this.divID + " ul").append('<div class="clearfix"></div>');
-         $(this.divID ).append('<div class="clearfix"></div>');
-         this.position_top=($(this.divID).position().top);
-          this.element_total=$(this.divID  + " ul li").length;
-           this.single_element_width = $(this.divID + " ul li").eq(1).outerWidth();
-          this.element_width = this.single_element_width*this.element_total;
-          this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
-          var _this=this;          
-          this.li_index=0;
-          console.log (this.single_element_width);
-          // match first element as active.
-          $(this.divID + " ul li").eq(0).addClass("active");      
+        $(this.divID + " ul").prepend('<li class="black forward"><p>black1</p></div>');
+        //$(this.divID + " ul").append('<div class="clearfix"></div>');
+        $(this.divID ).append('<div class="clearfix"></div>');
+        this.position_top = ($(this.divID).position().top);
+        this.element_total = $(this.divID  + " ul li").length;
+        this.single_element_width = $(this.divID + " ul li").eq(1).outerWidth();
+        this.element_width = this.single_element_width*this.element_total;
+        this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
+        var _this = this;          
+        this.li_index = 0;
+        console.log (this.single_element_width);
+        // match first element as active.
+         $(this.divID + " ul li").eq(0).addClass("active");      
           
         
          $(window).resize(function() {           
             _this.rescale ();
             _this.placeControllers ();
             });
-          
-         this.rescale=function () {
-                $(this.divID ).width(this.element_width);             
+        
+        this.rescale=function () {
+        $(this.divID).width(this.element_width);
         }
        
-        this.infinite_carrousel=function (){
-            for (i=0;i<_this.element_total-4;i++){
+        this.infinite_carrousel = function (){
+            for (var i=0;i<_this.element_total-4;i++){
                 if ($(_this.divID + " ul li").eq(0).position().left<(_this.single_element_width*(-2))){
                     var first_element=$(_this.divID + " ul li").eq(0);
                     var newPos=$(_this.divID + " ul li").eq(0).position().left+$(this.divID + " ul li").eq(0).width()+20;
@@ -43,14 +43,14 @@
                    
                 }else if ($(_this.divID + " ul li").eq(0).position().left>-500){
                    
-                    last_element=$(_this.divID + " ul li").eq(_this.element_total-1);
+                    var last_element = $(_this.divID + " ul li").eq(_this.element_total-1);
                       $(_this.divID + " ul li").eq(_this.element_total-1).remove();
                     
                     
                     $(_this.divID + " ul").prepend(last_element);
                     
                    
-                    newPos=$(_this.divID + " ul li").eq(0).position().left-($(_this.divID + " ul li").eq(0).width()+100);
+                    var newPos = $(_this.divID + " ul li").eq(0).position().left-($(_this.divID + " ul li").eq(0).width()+100);
                     $(_this.divID + " li" ).css({top:0,left:newPos});
                 }
                 
@@ -62,7 +62,7 @@
         
         this.moving=function (where2move) {
             
-             distance=where2move*_this.single_element_width;
+             var distance = where2move*_this.single_element_width;
              //deleting side controllers if correspond
              _this.placeControllers();
              
@@ -120,23 +120,7 @@
          
         this.placeControllers=function (){
            
-            //delete controller in case we are in the top/low limit
-            /*switch (_this.li_index) {
-                case 0:
-                    
-                    $(_this.divID+" div").css("display","block");
-                    $(_this.divID+" #back-slider").css("display","none");
-                    break;
-                case ((_this.element_total-2)):                
-                    $(_this.divID+" div").css("display","block");
-                    $(_this.divID+" #advance-slider").css("display","none");
-                 break;
-                
-                default:
-                    $(_this.divID+" div").css("display","block");
-                  break;                
-            }    */
-        //place the contrallers advance slider        
+       //place the contrallers advance slider        
         $(_this.divID+" #back-slider").css("top",this.position_top+"px");
         $(_this.divID+" #advance-slider").css("top",(this.position_top)+"px");       
         $(_this.divID+" #advance-slider").css("left",($(window).width()- ($(_this.divID+" #advance-slider").outerWidth()))+"px");        
