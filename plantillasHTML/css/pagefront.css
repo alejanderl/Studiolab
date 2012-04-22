@@ -92,3 +92,112 @@ text-align: center;
     clear: both;    
 
 }
+
+.floatLeft {
+    
+    float: left;
+}
+.floatRigth {
+    
+    float:right;
+}
+
+/* social icons */
+
+
+/************* logos sociales *******************/
+
+#socialIcons {
+margin-left:45px;
+float:right;
+
+
+}
+
+
+#socialIcons span{
+display:none;
+
+
+}
+.creativecommons {
+margin-top:15px;
+float:left;
+
+}
+
+
+#logoRssPortada {
+margin-top:2px;
+
+float:left;
+width:24px;
+height:24px;
+background:url('../cssimgs/logos-sociales/logoSocial_rssConOver.png') no-repeat;
+
+}
+
+
+#logoRssPortada:hover {
+background:url('../cssimgs/logos-sociales/logoSocial_rssConOver.png') no-repeat;
+
+background-position:0% 100%;
+}
+
+
+
+
+
+
+#logotwitterPortada {
+margin-right:6px;
+float:left;
+width:24px;
+height:24px;
+background:url('../cssimgs/logos-sociales/logoSocial_twitterConOver.png') no-repeat;
+
+}
+
+
+#logotwitterPortada:hover {
+background:url('../cssimgs/logos-sociales/logoSocial_twitterConOver.png') no-repeat;
+
+background-position:0% 100%;
+}
+
+#logoFacebookPortada {
+margin-right:5px;
+float:left;
+width:24px;
+height:24px;
+margin-top:1px;
+background:url('../cssimgs/logos-sociales/logoSocial_FacebookConOver.png') no-repeat;
+
+}
+
+#logoFacebookPortada:hover {
+background:url('../cssimgs/logos-sociales/logoSocial_FacebookConOver.png') no-repeat;
+background-position:0% 100%;
+}
+
+
+#logoFlickrPortada {
+margin-top:1px;
+margin-right:6px;	
+float:left;
+width:24px;
+height:24px;
+background:url('../cssimgs/logos-sociales/logoSocial_FlickrConOver.png') no-repeat;
+
+}
+
+
+#logoFlickrPortada:hover {
+background:url('../cssimgs/logos-sociales/logoSocial_FlickrConOver.png') no-repeat;
+background-position:0% 100%;
+}
+
+
+
+
+

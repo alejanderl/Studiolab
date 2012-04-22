@@ -18,7 +18,6 @@ var sliderFront = function (divID) {
         this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
         var _this = this;          
         this.li_index = 0;
-        console.log (this.single_element_width);
         // match first element as active.
          $(this.divID + " ul li").eq(0).addClass("active");      
           
@@ -129,10 +128,11 @@ var sliderFront = function (divID) {
         _this.moving(-1);
         this.rescale ();
         this.placeControllers();
+         $(_this.divID + " .controller").fadeOut(1000);
         this.mover=function () {           
             _this.moviendo="";
             clearInterval (_this.moviendo);
-            _this.moviendo=setInterval(function(){_this.moving(-1)},2700);
+            _this.moviendo=setInterval(function(){_this.moving(-1)},3700);
         }
         this.mover ();
         $(_this.divID).on("mouseenter",function (){
@@ -142,7 +142,6 @@ var sliderFront = function (divID) {
         });
         $(_this.divID ).on("mouseleave",function (){
            _this.mover ();
-           console.log("moviendo="+_this.moviendo);
            $(_this.divID + " .controller").fadeOut(400);
            
             
