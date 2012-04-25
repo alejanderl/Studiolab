@@ -199,6 +199,31 @@ background:url('../cssimgs/logos-sociales/logoSocial_FlickrConOver.png') no-repe
 background-position:0% 100%;
 }
 
+/*
+* List of items
+*/
+
+#std-item-list ul{
+    
+    
+
+}
+
+#std-item-list li{
+   width:230px;
+   float:left;
+   list-style: none;
+    
+
+}
+
+#std-item-list img{
+    border-radius:10px;
+    
+
+}
+
+
 
 
 
