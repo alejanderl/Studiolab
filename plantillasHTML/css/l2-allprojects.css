@@ -1,0 +1,28 @@
+
+/*
+* List of items
+*/
+
+ul#std-item-list {
+    
+ 
+    margin:0;
+    padding:0;
+
+}
+
+#std-item-list li{
+    width: 233px;
+    display: inline-table;
+    list-style: none;
+    vertical-align: top;
+    overflow-x: hidden;
+}
+
+#std-item-list img{
+    border-radius:10px;
+    
+
+}
+
+
