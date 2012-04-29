@@ -10,3 +10,26 @@
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
+function miKrumo($var){
+	 
+	if(!user_is_admin()) return false;
+		
+		if (!function_exists('krumo')){
+			
+	 include_once  drupal_get_path('module', 'devel'). '/krumo/class.krumo.php';
+			}
+	krumo($var);
+	
+  }
+  
+   function user_is_admin(){
+	global $user;
+	$adminRoles= array('administrador','administrator');
+	$check = array_intersect($adminRoles, array_values($user->roles));
+	
+	//krumo($user);
+	
+	$adminAble = empty($check) ? FALSE : TRUE;
+	return $adminAble;
+
+	} 
