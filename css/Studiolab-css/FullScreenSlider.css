@@ -1,0 +1,84 @@
+/*          big-slider       */
+#big-slider {
+    width: 100%;
+    overflow: hidden;
+}
+#big-slider-centered ul{   
+    width:100%;
+}
+#big-slider li {    
+padding:0 30px;
+float:left;
+position: relative;
+list-style: none;
+}
+#big-slider li img {    
+position:relative;
+top: 0;
+border-radius: 15px;
+}
+#big-slider .inner-text {    
+    position: relative;
+    z-index: 1;
+    margin-top: -200px;
+  }  
+#big-slide-list .inner-text h2 {    
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    width: auto;
+    padding: 5px 15px;
+    display: inline;
+    margin-left: 10px; 
+    
+}
+#big-slide-list .inner-text div {    
+background: rgba(0, 0, 0, 0.8);
+border-radius: 10px;
+width: auto;
+padding: 5px;
+display: inline-block;
+margin: 10px 5px;       
+}
+#big-slider  li.black {    
+    background: rgba(0, 0, 0, 0.8);
+    width:20px;
+    height:310px;}
+#back-slider {    
+    top: 0;
+    font-size: 44px;
+    z-index: 4;
+   width:100px;
+    float: left;
+    position: relative;
+    height: 310px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+ 
+}
+
+#advance-slider {    
+    top: 0;
+    font-size: 44px;
+    z-index: 4;
+    
+    float: left;
+    position: relative;
+    height: 310px;
+    width:100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+ 
+}
+
+.controller p {
+        color: #fff;
+        padding: 40px;
+        
+}
+.controller {
+        
+        cursor: pointer;
+}
+
+/*         end big-slider                 */
+
