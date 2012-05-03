@@ -88,6 +88,9 @@
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
+ 
+  <?php $is_front_page=drupal_is_front_page(); ?>
+
   <?php if ($add_respond_js): ?>
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
@@ -97,18 +100,115 @@
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
   <?php endif; ?>
+     <script src="<?php print $base_path .$directory; ?>/css/Studiolab-css/FullScreenSlider.css"></script> 
+
+<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+<?php if($is_front_page): ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js"></script>
+  <script type="text/javascript" >
+    $(document).ready (function (){
+        themainID=new sliderFront ("#big-slider-centered");
+         });
+</script>
+<?php endif; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<div id="top-menu">
+  <div class="centered">
 
+                
+                <?php
+        $block = module_invoke('superfish', 'block_view', 1);
+        print render($block['content']);
+        //print render($block);
+      ?>
+      </div>
+      
+      
+    
+    
+    
+                
+                <div class="clearfix"></div>
+</div><!-- //top-menu -->
+
+
+
+<header id="header" role="banner">
+        <div id="header-centered" class="centered">
+            
+            
+            <div id="topmid-menu">
+            
+                <div id="logo">
+                    <a href="<?= $base_path; ?>"><img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/></a>
+                </div>
+                <div id="big-menu">
+                <nav>
+                <ul class="oswald-bold">
+                <li><a href="<?= $base_path; ?>projects/food"><div class="theme menu theme-food "></div><span>Food/ </span></a></li>
+                <li><a href="<?= $base_path; ?>projects/water"><div class="theme menu theme-water "></div><span>Water/ </span></a></li>
+                <li><a href="<?= $base_path; ?>projects/biology"><div class="theme menu theme-biology "></div><span>Biology/ </span></a></li>
+                <li><a href="<?= $base_path; ?>projects/social-interaction"><div class="theme menu theme-social-interaction "></div><span>Social Interaction/ </span></a></li>
+                <li><a href="<?= $base_path; ?>projects/all"><span>All</span></a>
+                </ul>
+                    
+                      <?php
+                          /*
+                          $block2 = module_invoke('menu', 'block_view', 'menu-projects-menu');
+                          print render($block2['content']);
+                          //print render($block);//*/
+                        ?>
+                    </nav>
+                      
+
+
+                   
+                                       
+                </div>
+                
+                <div class="clearfix"></div>                 
+                
+            </div>
+        
+        </div>
+           <?php //print render($page['header']); ?>
+    </header>  <!-- header -->
   <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
       <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
     </p>
-    
-     
   <?php endif; ?>
+  <?php if(!$is_front):?>
+     <div id="search-twitter">
+        <div class="centered">
+        
+             <?php
+              print drupal_render(drupal_get_form('search_form'));?>
+            <div id="socialIcons" class="floatRight">
+             <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
+             <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
+             <a href="http://www.flickr.com/photos/" alt="Flickr Auditorio de Tenerife" title="Flickr Auditorio de Tenerife"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
+             <a href="http://www.youtube.com/user/" alt="YouTube  Auditorio de Tenerife" title="YouTube  Auditorio de Tenerife"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
+             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+           </div> 
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <?php endif;?>
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <div id="footer">
+        <div id="studioLabText" class="centered">
+         <img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="37" width="146"/> <p>For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com</p>
+        </div>
+        <div id="sevencapacitiesText" class="centered">
+             <img src="<?= $base_path.$directory; ?>/images/7capacities.png" height="46" width="59"/> <p>For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091 info@sciencegallery.com   www.sciencegallery.com</p>
+        
+        </div>
+    </div>
 </body>
 </html>

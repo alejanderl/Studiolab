@@ -70,113 +70,6 @@
  */
 ?>
  
-
-   
-
-    <?php if ($site_name || $site_slogan): ?>
-      <hgroup id="name-and-slogan">
-        <?php if ($site_name): ?>
-          <h1 id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-          </h1>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-        <?php endif; ?>
-      </hgroup><!-- /#name-and-slogan -->
-    <?php endif; ?>
-
-  
- 
-
-
-
-
-    <header id="header" role="banner">
-        <div id="header-centered" class="centered">
-            <div id="top-menu">
-                
-                
-                <ul id="menu-globes" class="ubuntu-400">
-                   
-                    
-                </ul>
-                
-                
-                <ul id="menu-static" class="ubuntu-400">
-                    <li>
-                        studiolab/
-                    </li>
-                    <li>
-                        themes/
-                    </li>
-                    <li>
-                        strands/
-                    </li>
-                    <li>
-                        blogs/
-                    </li>
-                    <li>
-                        contact/
-                    </li>
-                     <li>
-                        what's on/
-                    </li>
-                    <li>
-                        community/
-                    </li>
-                </ul>
-                
-    
-                
-                <div class="clearfix"></div>
-            </div><!-- //top-menu -->
-            
-            <div id="topmid-menu">
-            
-                <div id="logo">
-                    <img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/>
-                </div>
-                <div id="big-menu">
-                    <ul id="all">
-                        <li><a href="#">ALL</a></li>
-                    </ul>
-                    <br/>
-                      <ul id="blue-menu">
-                        <li><a href="#" class="big-blue-menu">WATER</a></li>
-                        <li><a href="#" class="big-blue-menu">BIOLOGY</a></li>
-                        <li><a href="#" class="big-blue-menu">SOCIAL INTERACTION</a></li>
-                    </ul>
-                    
-                      <?php if ($secondary_menu): ?>
-      <nav id="secondary-menu" role="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => $secondary_menu_heading,
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </nav>
-    <?php endif; ?>
-
-                   
-                                       
-                </div>
-                
-                <div class="clearfix"></div>                 
-                
-            </div>
-        
-        </div>
-           <?php print render($page['header']); ?>
-    </header>  <!-- header -->
-    
       <div id="big-slider">
         <div id="big-slider-centered"  >
               <ul id="big-slide-list">
@@ -204,7 +97,7 @@
              <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div> 
         </div>
-          <?php print $messages; ?>
+          <?php if ($is_admin){print $messages; }?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
@@ -219,15 +112,7 @@
         </div>
     </div>
     <div class="clearfix"></div>  
-    <div id="footer">
-        <div id="studioLabText" class="centered">
-         <img src="images/logoStudiolab.png" height="37" width="146"/> For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com
-        </div>
-        <div id="sevencapacitiesText" class="centered">
-             <img src="images/7capacities.png" height="46" width="59"/> For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com
-        
-        </div>
-    </div>
+
     
 
 

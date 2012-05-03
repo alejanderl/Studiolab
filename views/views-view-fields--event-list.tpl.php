@@ -33,7 +33,7 @@ $date=format_date($predate[0],"short");
 ?>
   <li>
     
-        <?php //miKrumo($fields);?>
+        
         <?= $image; ?>
                                 <span class=""><?= $place; ?> // <?= $date; ?>. Type of event </span><h3 ><a href="#"><?= $title; ?></a></h3>
         

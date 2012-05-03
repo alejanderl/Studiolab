@@ -69,152 +69,29 @@
  * @see template_process()
  */
 ?>
- 
 
-   
-
-    <?php if ($site_name || $site_slogan): ?>
-      <hgroup id="name-and-slogan">
-        <?php if ($site_name): ?>
-          <h1 id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-          </h1>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-        <?php endif; ?>
-      </hgroup><!-- /#name-and-slogan -->
-    <?php endif; ?>
-
-  
- 
-
-
-
-
-    <header id="header" role="banner">
-        <div id="header-centered" class="centered">
-            <div id="top-menu">
-                
-                
-                <ul id="menu-globes" class="ubuntu-400">
-                   
-                    
-                </ul>
-                
-                
-                <ul id="menu-static" class="ubuntu-400">
-                    <li>
-                        studiolab/
-                    </li>
-                    <li>
-                        themes/
-                    </li>
-                    <li>
-                        strands/
-                    </li>
-                    <li>
-                        blogs/
-                    </li>
-                    <li>
-                        contact/
-                    </li>
-                     <li>
-                        what's on/
-                    </li>
-                    <li>
-                        community/
-                    </li>
-                </ul>
-                
-    
-                
-                <div class="clearfix"></div>
-            </div><!-- //top-menu -->
-            
-            <div id="topmid-menu">
-            
-                <div id="logo">
-                    <img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/>
-                </div>
-                <div id="big-menu">
-                    <ul id="all">
-                        <li><a href="#">ALL</a></li>
-                    </ul>
-                    <br/>
-                      <ul id="blue-menu">
-                        <li><a href="#" class="big-blue-menu">WATER</a></li>
-                        <li><a href="#" class="big-blue-menu">BIOLOGY</a></li>
-                        <li><a href="#" class="big-blue-menu">SOCIAL INTERACTION</a></li>
-                    </ul>
-                    
-                      <?php if ($secondary_menu): ?>
-      <nav id="secondary-menu" role="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => $secondary_menu_heading,
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </nav>
-    <?php endif; ?>
-
-                   
-                                       
-                </div>
-                
-                <div class="clearfix"></div>                 
-                
-            </div>
-        
-        </div>
-           <?php print render($page['header']); ?>
-    </header>  <!-- header -->
-    
-   
-    
-    
-    <div id="search-twitter">
-        <div class="centered">
-            <form action="#" method="post" class="floatLeft">
-                <input type="text" id="search-text"><INPUT type="submit" value="Send">
-            </form> 
-            <div id="socialIcons" class="floatRight">
-             <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
-             <a href="http://www.flickr.com/photos/" alt="Flickr Auditorio de Tenerife" title="Flickr Auditorio de Tenerife"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
-             <a href="http://www.youtube.com/user/" alt="YouTube  Auditorio de Tenerife" title="YouTube  Auditorio de Tenerife"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
-           </div> 
-        </div>
-          <?php print $messages; ?>
+              <?php print $messages; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-    </div>
+    
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
-        <?php //miKrumo ($node); ?>
+        <?php miKrumo ($node); ?>
             <div id="project-header">
                 <div id="ph-left">
                 <h1 class="project-title"> <?php print $title; ?> </h1>
-                <br/>
-                <span class="theme-water terms"><?php print  $stdlab_theme; ?> / <?php print  $stdlab_strand; ?></span> //
+                              
+                <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> / <?php print render($node_content['field_stlab_strand']); ?></span> //
                 <br/>
                 <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
                 <br/>
-                <p class="intro-tex"><?=  $node->body['und']['0']['summary'];?></p>
+                <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
                 
-                <p class="hashtag"><?=  $node->field_stlab_hashtag['und']['0']['safe_value'];?></p>
+                <p class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></p>
                 
                 </div>
                 
@@ -228,7 +105,7 @@
             <div id="project-contents">
                 <span><?= t('INTRODUCTION TO THE PROJECT'); ?> //</span>
                 <br/>
-                <?=  $node->body['und']['0']['safe_value'];?>
+                <?php print render($node_content['body']); ?>
                 <div id="related-videos">
                     <?= t('Related assets'); ?>
                     <ul>
@@ -248,6 +125,7 @@
                 $viewName='event_list';
                 $display_id='default';
                 $myArgs=1;
+                
                 //$myArgs=$argumentos_para_view;
                 print views_embed_view($viewName, $display_id, $myArgs);               
                 ?>
@@ -267,15 +145,7 @@
         </div>
     </div>
     <div class="clearfix"></div>  
-    <div id="footer">
-        <div id="studioLabText" class="centered">
-         <img src="images/logoStudiolab.png" height="37" width="146"/> For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com
-        </div>
-        <div id="sevencapacitiesText" class="centered">
-             <img src="images/7capacities.png" height="46" width="59"/> For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com
-        
-        </div>
-    </div>
+    
     
 
 

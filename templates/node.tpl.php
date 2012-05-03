@@ -83,6 +83,45 @@
  * @see template_process()
  */
 ?>
+<?php if($teaser):?>
+
+<?php
+
+  
+  $title=$node->title;
+  $summary=render($content['body']);
+  $hashtag=render($content['field_stlab_hashtag']);
+  $image=field_view_field('node',$node,'field_stlab_listimage');
+  $image_uri=image_style_url('225x90imagelist', $node->field_stlab_listimage['und'][0]['uri']);
+  $imagelist=theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));
+ 
+  //$theme=field_view_value('node',$node,'field_stlab_theme');//$content['field_stlab_theme']['und'][0]['tid'];
+  
+
+
+
+
+?>
+<?php  //miKrumo ($node);?>
+
+
+
+          <div class="assets-list">
+          
+          
+                <?php print render($content['field_stlab_listimage']); ?>
+                
+                <div class="theme-icons">
+                
+               <?php print render($content['field_stlab_theme']); ?>
+               <?php print render($content['field_stlab_strand']); ?>
+               </div>
+                <h2 class="list"><?= l($title,'node/'.$node->nid); ?>//</h2>
+                <?= $summary ?>
+                
+            </div>
+
+<?php else: ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
@@ -118,3 +157,4 @@
   <?php print render($content['comments']); ?>
 
 </article><!-- /.node -->
+<?php endif; ?>

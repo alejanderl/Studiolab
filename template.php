@@ -131,9 +131,8 @@ function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
 	$adminAble = empty($check) ? FALSE : TRUE;
 	return $adminAble;
 
-	} 
+    } 
  function miKrumo($var){
-	 
 	if(!user_is_admin()) return false;
 		
 		if (!function_exists('krumo')){
@@ -174,21 +173,35 @@ function Studiolab_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 
+function Studiolab_preprocess_page(&$variables) {
+  $nid = arg(1);
+  if (arg(0) == 'node' && is_numeric($nid)) {
+    if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
+      $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
+    }
+  }
+}
+
+
 
 function Studiolab_process_page(&$variables) {
-	
+   
+	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
-    
+        }
+   
     // NO trailing slash!
     $nid = arg(1);
   if (arg(0) == 'node' && is_numeric($nid)) {
     if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
 	
-	
+	//miKrumo($variables['node']->type);
       $variables['node_content'] =$variables['page']['content']['system_main']['nodes'][$nid];
-      $variables['stdlab_theme']=$variables['node_content']['field_stlab_theme'][0]['#title'];
-      $variables['stdlab_strand']=$variables['node_content']['field_stlab_strand'][0]['#title'];
-      $variables['stdlab_startdate']=$variables['node_content']['field_stlab_strand'][0]['#title'];
+      if ($variables['node']->type!="site_pages"){
+      //$variables['stdlab_theme']=$variables['node_content']['field_stlab_theme'][0]['#title'];
+      //$variables['stdlab_strand']=$variables['node_content']['field_stlab_strand'][0]['#title'];
+      //$variables['stdlab_startdate']=$variables['node_content']['field_stlab_strand'][0]['#title'];
+      }
     }
   }
 }
