@@ -1,11 +1,14 @@
 #project-header {
     text-align: center;
     
-
+margin-bottom: 20px;
 }
 
 #project-header img {
   border-radius:15px;
+  box-shadow: 0 10px 30px -15px #000;
+
+  
 }
 
 #ph-left {
@@ -82,12 +85,14 @@ margin-bottom: 10px;
 display: table-cell;
 float: left;
 font-size:12px;
+min-height: 110px;
 }
 
 #project-timeline ul img  {
 float:left;
 border-radius: 10px;
 margin-right:10px;
+box-shadow: 0 10px 20px -10px black;
 }
 #project-timeline h3 {
     margin: 0;
@@ -113,4 +118,42 @@ h1.project-title {
 .pager li {
     font-size: 14px;
     width: 50px !important;
+}
+#related-assets  a {
+    color: #000;
+    text-decoration: none;
+    
+}
+
+#related-assets h3 {
+    font-size: 14px;
+    margin:0;
+    padding:0;
+    
+}
+#related-assets ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    
+}
+#related-assets li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    min-height: 80px;
+    margin-bottom:10px;
+    
+}
+#related-assets .flickr-citation {
+    display: none;
+    
+}
+#related-assets img {
+    float:left;
+    margin-right:5px;
+    border-radius: 5px;
+    
 }

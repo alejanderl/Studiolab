@@ -80,14 +80,15 @@
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
-        <?php //miKrumo ($node); ?>
+        <?php miKrumo ($node_content); ?>
             <div id="project-header">
                 <div id="ph-left">
+                <div class="event-pre-title"><?php print t('EVENT:').render($node_content['field_stlab_eventtype'])?></div>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
                               
                 <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> / <?php print render($node_content['field_stlab_strand']); ?></span> //
                 <br/>
-                <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
+                <span class="date"><?php print render($node_content['field_stlab_eventdate']); ?></span>
                 <br/>
                 <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
                 
@@ -99,59 +100,51 @@
                
                 <img src="<?= $image_uri ?>"/>
             </div>
-            <div class="project-separator">
-                <span class="about">About this project</span><span class="related-projects"><a href="#seeotherrelatedprojects">See other projects related +</a> </span>
-            </div>
-            <div id="project-contents">
-                <span><?= t('INTRODUCTION TO THE PROJECT'); ?> //</span>
-                <br/>
+            <div class="event-separator clearfix">
+                </div>
+            <div id="event-contents">
+                
+                
                 <?php print render($node_content['body']); ?>
                 <div id="related-assets">
                     <?= t('Related assets'); ?>
-                    
-                         <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                    <ul>
+                      <?php //$argumentos_para_view= implode (',',$nodepasafotos);
                             
                              $viewName='element_list';
                              $display_id='default';
-                             $myArgs=$node->nid;
+                             $myArgs=$node_content['field_stlab_relproject']['#items']['0']['nid'];
                              
                              //$myArgs=$argumentos_para_view;
                              $view = views_get_view($viewName);
                              $view->set_arguments($myArgs);
                              $view->init_display();
                              $view->execute();
-                             $eventsIdsrelated=array();
-                             /**
-                              *Need to get the ids of all related nodes to look for all the media assets related to the project.
-                             */
-                             foreach($view->result as $event ){
-                                 
-                                array_push($eventsIdsrelated,$event->nid);
-                             }
-                                array_push($eventsIdsrelated,$node->nid);
-                                
-                                $eventsIdsrelated=implode("+",$eventsIdsrelated);
 
-                                //print $view_assets->render();
-                                print views_embed_view($viewName, "block_1", $eventsIdsrelated);
+                            
+                           
+                                print views_embed_view($viewName, "block_1", $node->nid);
+
                                  
+                                
                     ?>
+                   
                     
+                        
+                            
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div id="project-timeline">
+            <span class="others"> OTHERS EVENTS RELATED </span>
               <ul>
-               <?php //$argumentos_para_view= implode (',',$nodepasafotos);
-
-                
-                 print $view->render();
-                 /** Directly embedding the view. Actually I need some of the fields so i'll use views_get_view instead of views_embed_view.
-                 * 
-                 *print views_embed_view($viewName, $display_id, $myArgs);
-                 //*/           
+             <?php
+                print $view->render();
+                 
                 ?>
 
-              
+             
                   
                     
                

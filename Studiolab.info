@@ -65,6 +65,7 @@ stylesheets[all][] = css/print.css
 stylesheets[all][] = css/Studiolab-css/l4-oneproject.css
 stylesheets[all][] = css/Studiolab-css/pagefront.css
 stylesheets[all][] = css/Studiolab-css/l2-allprojects.css
+stylesheets[all][] = css/Studiolab-css/l6-event.css
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
 ; element, such as .lt-ie9, .lt-ie8, .lt-ie7. More information on this
