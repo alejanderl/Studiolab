@@ -103,3 +103,52 @@ h2.block-title { /* Block title */
 
 #block-user-online { /* "Who's online" block for a list of the online users */
 }
+
+
+#search-block #edit-keys, #menuArribaAgenda .form-text {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #F1F1F1;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    color: #BBBBBB;
+    float: left;
+    font-size: 1em;
+    margin-left: 2px;
+    margin-top: 7px;
+    text-align: left;
+    
+}
+#search-block .form-submit {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #c2c2c2;
+	padding: 5px 5px;
+	background: -moz-linear-gradient(
+		top,
+		#fdfdfd 0%,
+		#f2f2f3);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fdfdfd),
+		to(#f2f2f3));
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #ffffff;
+	-moz-box-shadow:
+		0px 1px 0px rgba(207,207,207,1),
+		inset 0px -1px 0px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(207,207,207,1),
+		inset 0px -1px 0px rgba(255,255,255,0.7);
+	text-shadow:
+		1px 1px 0px rgba(255,255,255,1),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+

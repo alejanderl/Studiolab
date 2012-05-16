@@ -83,22 +83,23 @@
         <?php miKrumo ($node_content); ?>
             <div id="project-header">
                 <div id="ph-left">
-                <div class="event-pre-title"><?php print t('EVENT:').render($node_content['field_stlab_eventtype'])?></div>
+                <div class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></div>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
-                              
-                <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> / <?php print render($node_content['field_stlab_strand']); ?></span> //
+                  <span class="date"><?php print render($node_content['field_stlab_eventdate']); ?></span> / <span class="place"> <?php print render($node_content['field_stlab_place']); ?></span>
+                  
+                
                 <br/>
-                <span class="date"><?php print render($node_content['field_stlab_eventdate']); ?></span>
+                <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span><span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
                 <br/>
                 <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
+                <p clas="ptoject-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
+                <span class=" terms"><?php print render($node_content['field_stlab_theme']); ?><?= t("Theme")?>:<?php print render($node_content['field_stlab_theme'][0]["#markup"]); ?> / <?= t("Strand")?><?php print render($node_content['field_stlab_strand']); ?></span> //
                 
-                <p class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></p>
                 
                 </div>
                 
                 <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
-               
-                <img src="<?= $image_uri ?>"/>
+               <img src="<?= $image_uri ?>"/>
             </div>
             <div class="event-separator clearfix">
                 </div>
@@ -107,7 +108,7 @@
                 
                 <?php print render($node_content['body']); ?>
                 <div id="related-assets">
-                    <?= t('Related assets'); ?>
+                    <?= t('Assets related'); ?>
                     <ul>
                       <?php //$argumentos_para_view= implode (',',$nodepasafotos);
                             
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <div id="project-timeline">
-            <span class="others"> OTHERS EVENTS RELATED </span>
+            <span class="others"> <?= t("Other related events")?> </span>
               <ul>
              <?php
                 print $view->render();

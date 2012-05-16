@@ -1,6 +1,7 @@
 body {
     width: 100%;
     margin: 0;
+
     
     
 }
@@ -57,8 +58,8 @@ text-align: center;
  */
 #topmid-menu #big-menu {
     float: right;
-    width:650px;
-    margin-top:30px;
+    width:50  0px;
+    margin-top: 20px;
     
 }
 
@@ -86,6 +87,7 @@ text-align: center;
 
 #topmid-menu li{
     float:left;
+	padding: 6px;
     }
 
 #blue-menu li{    
@@ -228,6 +230,7 @@ background-position:0% 100%;
 #top-menu{
     background-color: #000;
     line-height: 0;
+    height: 36px;
 }
 
 #top-menu ul {
@@ -263,6 +266,34 @@ margin-left: -15px;
     color: #FFF;
     text-decoration:none;
 }
+#top-menu ul ul {
+  background-color:transparent;
+  margin-top: -6px;
+}
+
+#top-menu li li a{    
+    color: #000;
+    text-decoration:none;
+}
+
+#top-menu li li {    
+background-color:rgba(255,255,255,0.8);
+border-bottom: 1px solid #000;
+margin: 0;
+padding: 10px;
+
+}
+#top-menu li li.first {    
+margin-top:6px;
+
+}
+#top-menu li li.last {    
+background-color:rgba(255,255,255,0.9);
+border-bottom: 3px solid #000;
+background-image:none;
+
+}
+
 /* /mainmenu elements */
 
 
@@ -271,7 +302,7 @@ margin-left: -15px;
  *Theme icons
  **/
 
-.theme {
+div.theme {
   width:18px;
   height:18px;
   background-image: url(../cssimgs/theme-icons.png);
@@ -283,17 +314,17 @@ margin-left: -15px;
 }
 
 .theme-food{
-  background-position: 0;
+  background-position: 0 !important;
 }
 
-.theme-water {
-  background-position: -18px 0;
+div.theme-water {
+  background-position: -18px 0 !important;
 }
-.theme-biology {
-  background-position: -36px 0;
+div.theme-biology {
+  background-position: -36px 0 !important;
 }
-.theme-social-interaction {
-  background-position: -54px 0;
+div.theme-social-interaction {
+  background-position: -54px 0 !important;
 }
 
 /* /end of theme icons */
@@ -371,7 +402,7 @@ line-height:1.2em;
 
 
 h1.title {
-  background-color: #ddd;
+  background-color: #f3f1f1;
   width:100%;
   font-size:16px;
   padding:5px 15px;
@@ -397,6 +428,32 @@ margin:0;
 }
 #search-twitter {
   height: 30px;
+  margin-top:-35px;
+}
+#ph-left {
+    fon-family:arial;
+    font-size:13px;
+    line-height: 2em;
+    color:rgb(51,51,51);
+}
+#event-contents {
+  color: rgb(51, 51, 51);
+  font-family: arial, verdana, sans-serif;
+  font-size: 13px;
+  line-height: 2em;
+  text-align: left;
+
 }
 
+.media-separator {
+    background-color: #000;
+    
+}
 
+.media-separator .centered {
+    text-align:center;
+}
+
+.media-separator iframe {
+    height:500px;
+}

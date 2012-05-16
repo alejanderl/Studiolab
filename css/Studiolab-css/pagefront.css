@@ -1,3 +1,8 @@
+
+#mainBody {
+    width: 100%;
+}
+
 /*          big-slider       */
 
 #big-slider {
@@ -13,10 +18,13 @@
 
 #big-slider li {
     
-padding:0 30px;
+padding:0 0px;
 float:left;
 position: relative;
 list-style: none;
+margin-top:-25px;
+width: 440px;
+padding: 0 3px;
 
 
 }
@@ -68,15 +76,16 @@ margin: 10px 5px;
     background: rgba(0, 0, 0, 0.8);
     width:20px;
     height:310px;
+    background-image: url(../../cssimgs/strips-zebra-crossings-crosses.gif);
 }
 #back-slider {    
-    top: 0;
-    font-size: 44px;
+    top: -100px;
+    font-size: 24px;
     z-index: 4;
-   width:100px;
+   width:60px;
     float: left;
     position: relative;
-    height: 310px;
+    height: 1000px;
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
  
@@ -84,13 +93,13 @@ margin: 10px 5px;
 
 #advance-slider {    
     top: 0;
-    font-size: 44px;
+    font-size: 24px;
     z-index: 4;
     
     float: left;
     position: relative;
-    height: 310px;
-    width:100px;
+    height: 1000px;
+    width:60px;
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
  
@@ -108,6 +117,7 @@ text-decoration: none;
     margin-left: 10px
     
     
+    
 }
 #big-slide-list div.dates {
      color:#fff;
@@ -118,13 +128,164 @@ text-decoration: none;
 
 .controller p {
         color: #fff;
-        padding: 40px;
+        padding: 10px;
+		margin-top:300px;
         
 }
 .controller {
-        
+        top:0px!important;      /* PARA QUE AL HACER OVER SOBRE EL SLIDER LA BANDA NEGRA LLEGUE ARRIBA */
         cursor: pointer;
 }
 
-/*         end big-slider                 */
 
+
+
+
+
+
+
+/*         end big-slider                 */
+/**
+ *central block
+ **/
+#central-block ul {
+    
+    
+    margin: 30px 0 0;
+    padding: 0;
+}
+#central-block .left {
+    width:300px;
+    min-height: 150px;
+ float:left;
+  
+}
+
+#central-block .center {
+    width:300px;
+     float:left;
+     padding-top:20px;
+ 
+}
+#central-block .right {
+    width:300px;
+   
+     min-height: 150px;
+
+    float:right;
+    
+}
+
+
+/**
+ *whatson
+ */
+
+#whats-on li {
+    list-style: none;
+    border-bottom:1px solid #ccc;
+    
+}
+#whats-on h3 {
+    font-size:12px;
+    
+}
+#whats-on h3 {
+    font-size:12px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#whats-on h3 ,#whats-on h3 p{
+    font-size:12px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#whats-on h3 a{
+    font-size:12px;
+    margin: 0;
+    padding: 0;
+    text-decoration:none;
+    color:#000;
+    
+}
+
+.flickr-reduce {
+    
+    width:220px
+    }
+    
+    #central-block .left li  {
+    list-style: none;
+      
+    
+}
+
+#central-block .left ul {
+    display: block;
+    margin: 20px auto;
+}
+#central-block .left li img {
+        border-radius: 10px;
+      margin-bottom: 10px;
+    
+}
+
+#central-block .flickr-citation {
+    
+    display:none;
+}
+.location {
+    display:inline-block;
+}
+.adr div, .geo, .fn {
+    display:none;
+    
+}
+
+.dates {
+    font-size: 12px;
+}
+/*
+ *Theme icons
+ **/
+
+#big-slide-list .inner-text div.theme {
+  width:18px;
+  height:18px;
+  background-image: url(../../cssimgs/theme-icons.png);
+  float:left;
+  margin:0px 2px;
+  padding:0;
+}
+div.theme span {
+  display: none;
+}
+
+.theme-food{
+  background-position: 0;
+}
+
+.theme-water {
+  background-position: -18px 0;
+}
+.theme-biology {
+  background-position: -36px 0;
+}
+.theme-social-interaction {
+  background-position: -54px 0;
+}
+
+/* /end of theme icons */
+
+
+.right .intro {
+    color:#35abe6;
+    font-size:12px;
+    line-height: 2em;
+    text-align: justify;
+    
+}

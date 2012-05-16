@@ -1,23 +1,37 @@
 
 
 // defines a class to manage the slider in the page front
-var sliderFront = function (divID) {
+var sliderFront = function (divID,time,stoptime) {
         "use strict";
-
+		this.time=time;
+		this.stoptime=stoptime;
         this.divID = divID;
         //add the styles
         //$("head ").append('<link type="text/css" rel="stylesheet" href="./css/FullScreenSLider.css" />');
         //set the end of the loop
-        $(this.divID + " ul").prepend('<li class="black forward"><p>black1</p></div>');
+          var _this = this;  
+ $(this.divID + " ul").prepend('<li class="black forward"></div>');
         //$(this.divID + " ul").append('<div class="clearfix"></div>');
+                 if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){
+                  alert ($(this.divID  + " ul li").length);
+                        
+                         var first_element=$(_this.divID + " ul ").html();
+
+                    $(_this.divID + " ul").append(first_element);
+
+                    $(_this.divID + " ul").append(first_element);
+                    $(_this.divID + " ul").append(first_element);
+                }
+                
         $(this.divID ).append('<div class="clearfix"></div>');
         this.position_top = ($(this.divID).position().top);
         this.element_total = $(this.divID  + " ul li").length;
         this.single_element_width = $(this.divID + " ul li").eq(1).outerWidth();
         this.element_width = this.single_element_width*this.element_total;
         this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
-        var _this = this;          
+              
         this.li_index = 0;
+       
         // match first element as active.
          $(this.divID + " ul li").eq(0).addClass("active");      
           
@@ -34,8 +48,9 @@ var sliderFront = function (divID) {
         this.infinite_carrousel = function (){
             for (var i=0;i<_this.element_total-4;i++){
                 if ($(_this.divID + " ul li").eq(0).position().left<(_this.single_element_width*(-2))){
+                        
                     var first_element=$(_this.divID + " ul li").eq(0);
-                    var newPos=$(_this.divID + " ul li").eq(0).position().left+$(this.divID + " ul li").eq(0).width()+20;
+                    var newPos=$(_this.divID + " ul li").eq(0).position().left+$(this.divID + " ul li").eq(0).width()-24;
                     $(_this.divID + " li" ).css({top:0,left:newPos});
                     $(_this.divID + " ul li").eq(0).remove();
                     $(_this.divID + " ul").append(first_element);
@@ -49,7 +64,7 @@ var sliderFront = function (divID) {
                     $(_this.divID + " ul").prepend(last_element);
                     
                    
-                    var newPos = $(_this.divID + " ul li").eq(0).position().left-($(_this.divID + " ul li").eq(0).width()+100);
+                    var newPos = $(_this.divID + " ul li").eq(0).position().left-($(_this.divID + " ul li").eq(0).width()+40);
                     $(_this.divID + " li" ).css({top:0,left:newPos});
                 }
                 
@@ -65,11 +80,11 @@ var sliderFront = function (divID) {
              //deleting side controllers if correspond
              _this.placeControllers();
              
-               var time=2000;
+               var time=_this.time;
             $(_this.divID + " li" ).animate().stop();
              _this.infinite_carrousel();
              
-             $(_this.divID + " li" ).animate({ left :   "+="+distance  }, time,"easeInOutQuad",function (){
+             $(_this.divID + " li" ).animate({ left :   "+="+distance  }, time,"easeInOutCubic",function (){
                 
              
                  
@@ -125,14 +140,17 @@ var sliderFront = function (divID) {
         $(_this.divID+" #advance-slider").css("left",($(window).width()- ($(_this.divID+" #advance-slider").outerWidth()))+"px");        
         }
                 // constructor
+
         _this.moving(-1);
         this.rescale ();
         this.placeControllers();
+        //$(this.divID + " ul li").toggle("slow");
+        $(this.divID + " ul li").css("display","block");
          $(_this.divID + " .controller").fadeOut(1000);
         this.mover=function () {           
             _this.moviendo="";
             clearInterval (_this.moviendo);
-            _this.moviendo=setInterval(function(){_this.moving(-1)},3700);
+            _this.moviendo=setInterval(function(){_this.moving(-1)},_this.time+_this.stoptime);
         }
         this.mover ();
         $(_this.divID).on("mouseenter",function (){

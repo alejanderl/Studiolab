@@ -86,9 +86,10 @@
       
     <div id="search-twitter">
         <div class="centered">
-            <form action="#" method="post" class="floatLeft">
-                <input type="text" id="search-text"><INPUT type="submit" value="Send">
-            </form> 
+                    <div id="search-block">
+             <?php
+              print drupal_render(drupal_get_form('search_form'));?>
+              </div>
             <div id="socialIcons" class="floatRight">
              <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
              <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
@@ -97,20 +98,68 @@
              <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div> 
         </div>
-          <?php if ($is_admin){print $messages; }?>
+      <?php print ($is_admin)?$messages:""; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
+      
+     
+     
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
+       </div>
+       <div class="clearfix"></div> 
+       <div id="central-block">
+      
+      <div class="centered">
+      
+      <div class="left">
+      <ul>
+    <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+     $viewName='home_page';
+     $display_id='block_2';
+     $myArgs="";
+     //$myArgs=$argumentos_para_view;
+     print views_embed_view($viewName, $display_id, $myArgs);               
+     ?>
+      
+      </ul>
+      </div>
+      <div class="center">
+      <img src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/>
+                    <ul id="whats-on">
+                    
+                   <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                $viewName='home_page';
+                $display_id='block_1';
+                $myArgs="";
+                //$myArgs=$argumentos_para_view;
+                print views_embed_view($viewName, $display_id, $myArgs);               
+                ?>
+              </ul>
+      </div>
+      <div class="right">
+       <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+     $viewName='home_page';
+     $display_id='block_3';
+     $myArgs="";
+     //$myArgs=$argumentos_para_view;
+     print views_embed_view($viewName, $display_id, $myArgs);               
+     ?>
+     <img src="<?= $base_path.$directory; ?>/images/joinus.png">
+      </div>
+      
+      </div>
+      </div>
     </div>
-    <div class="clearfix"></div>        
+          
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
         
         
         </div>
     </div>
+   
     <div class="clearfix"></div>  
 
     

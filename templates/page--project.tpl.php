@@ -70,7 +70,7 @@
  */
 ?>
 
-              <?php print $messages; ?>
+        <?php print ($is_admin)?$messages:""; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
@@ -99,10 +99,15 @@
                
                 <img src="<?= $image_uri ?>"/>
             </div>
-            <div class="project-separator">
+        </div>
+        <div class="project-separator">
+            <div class=" centered">
                 <span class="about">About this project</span><span class="related-projects"><a href="#seeotherrelatedprojects">See other projects related +</a> </span>
             </div>
-            <div id="project-contents">
+        </div>
+        <div class="full-width">
+         <div class="centered">
+            <div id="project-contents"
                 <span><?= t('INTRODUCTION TO THE PROJECT'); ?> //</span>
                 <br/>
                 <?php print render($node_content['body']); ?>
@@ -162,7 +167,7 @@
             <div>
         
         
-        
+         </div>
         </div>
     </div>
     <div class="clearfix"></div>  

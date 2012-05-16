@@ -17,7 +17,12 @@ margin-bottom: 20px;
     text-align: left;
 }
 #ph-left .date {
-    font-size:18px;
+   color: rgb(34, 34, 34);
+   font-family: arial, verdana, sans-serif;
+   font-size: 14px;
+   line-height: 16px;
+   text-align: left;
+   font-weight: bold;
     
 }
 
@@ -30,11 +35,15 @@ margin-bottom: 20px;
 
 .project-separator {
     
-    padding:5px;
+   
     width: 100%;
-    background-color:#ccc;
+    background-color:#ddd;
 }
-
+.project-separator .centered {
+  background-color:#ddd;
+  padding:5px;
+  
+}
 
 #project-contents {
 width: 400px;
@@ -92,7 +101,7 @@ min-height: 110px;
 float:left;
 border-radius: 10px;
 margin-right:10px;
-box-shadow: 0 10px 20px -10px black;
+box-shadow: 0 10px 20px -15px black;
 }
 #project-timeline h3 {
     margin: 0;
@@ -117,7 +126,7 @@ h1.project-title {
 }
 .pager li {
     font-size: 14px;
-    width: 50px !important;
+    width: auto !important;
 }
 #related-assets  a {
     color: #000;

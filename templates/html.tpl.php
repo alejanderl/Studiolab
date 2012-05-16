@@ -106,10 +106,11 @@
 <?php if($is_front_page): ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js"></script>
+<script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js?random=<?php echo rand(3,89898);?>"></script>
   <script type="text/javascript" >
     $(document).ready (function (){
-        themainID=new sliderFront ("#big-slider-centered");
+								 //div afected, transitiontime, stop time
+        themainID=new sliderFront ("#big-slider-centered",1000,2000);
          });
 </script>
 <?php endif; ?>
@@ -184,9 +185,10 @@
   <?php if(!$is_front):?>
      <div id="search-twitter">
         <div class="centered">
-        
+        <div id="search-block">
              <?php
               print drupal_render(drupal_get_form('search_form'));?>
+              </div>
             <div id="socialIcons" class="floatRight">
              <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
              <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>

@@ -29,18 +29,21 @@ $image=$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 $date="";//format_date($predate[0],"short");
-$summary=$fields['body']->content ;
-//$hashtag=$fields['field_stlab_hashtag ']->content;  
-           
+$summary=substr($fields['body']->content,0,100); ;
+$hashtag=(isset($fields['field_stlab_hashtag']))?sprintf(' <strong>/</strong> <span class="hash">%s</span>',$fields['field_stlab_hashtag']->content) :"";
+$theme=$fields['field_stlab_theme']->content ;
+       
 ?>
 
  <li>
-      <?php //miKrumo($fields);?>
+            
       <?= $image; ?>
      <div class="inner-text">                        
          <h2 ><?= $title; ?></h2><br/>
-         <div class="intro-text">Loren ipsum is a text loren ipsum</div><br/>
-         <div class="dates water-spot" ><?= $place; ?>  <?= $date; ?><span class="hash">#firsthash</span></div>
+         
+ <?php // miKrumo($fields['field_stlab_hashtag']); ?>   
+         <div class="intro-text"><?= $summary; ?></div><br/>
+         <div class="dates water-spot" ><?= $theme; ?><?= $place; ?>  <?= $date; ?><?= $hashtag; ?></div>
      </div>
 </li>
 
