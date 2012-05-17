@@ -70,7 +70,7 @@
  */
 ?>
 
-              <?php print $messages; ?>
+      <?php print ($is_admin)?$messages:""; ?>
       <?php print render($tabs); ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>
@@ -106,29 +106,34 @@
             <div id="event-contents">
                 
                 
+                <br/>
+                <div class="content">
                 <?php print render($node_content['body']); ?>
+                </div>
+                <div id="Related opencalls">
+                <?= t('Related opencalls'); ?>
+                <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                            
+                    $viewName='element_list';
+                    $display_id='page';
+                    $myArgs=array ($node_content['field_stlab_relproject']['#items']['0']['nid'],$node->nid);
+                    
+                    //$myArgs=$argumentos_para_view;
+                    $view = views_get_view($viewName);
+                    $view->set_arguments($myArgs);
+                    $view->set_display($display_id);
+                    $view->execute();
+                    print views_embed_view($viewName, "block_2", $node->nid);
+                 ?>
+                
+                </div>
+                
                 <div id="related-assets">
-                    <?= t('Assets related'); ?>
+                    <?= t('Related assets'); ?>
                     <ul>
-                      <?php //$argumentos_para_view= implode (',',$nodepasafotos);
-                            
-                             $viewName='element_list';
-                             $display_id='default';
-                             $myArgs=$node_content['field_stlab_relproject']['#items']['0']['nid'];
-                             
-                             //$myArgs=$argumentos_para_view;
-                             $view = views_get_view($viewName);
-                             $view->set_arguments($myArgs);
-                             $view->init_display();
-                             $view->execute();
-
-                            
-                           
-                                print views_embed_view($viewName, "block_1", $node->nid);
-
-                                 
-                                
-                    ?>
+                      <?php
+                      print views_embed_view($viewName, "block_1", $node->nid);
+                      ?>
                    
                     
                         

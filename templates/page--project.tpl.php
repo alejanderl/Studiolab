@@ -107,23 +107,25 @@
         </div>
         <div class="full-width">
          <div class="centered">
-            <div id="project-contents"
+            <div id="project-contents">
                 <span><?= t('INTRODUCTION TO THE PROJECT'); ?> //</span>
                 <br/>
+                <div class="content">
                 <?php print render($node_content['body']); ?>
-                <div id="related-assets">
-                    <?= t('Related assets'); ?>
-                    
-                         <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                </div>
+                 <div id="Related opencalls">
+                <?= t('Related opencalls'); ?>
+                 <?php //$argumentos_para_view= implode (',',$nodepasafotos);
                             
                              $viewName='element_list';
-                             $display_id='default';
-                             $myArgs=$node->nid;
+                             $display_id='page';
+                             $myArgs=array ($node->nid);
                              
                              //$myArgs=$argumentos_para_view;
                              $view = views_get_view($viewName);
+                             $view->set_display($display_id);
                              $view->set_arguments($myArgs);
-                             $view->init_display();
+                             //$view->init_display();
                              $view->execute();
                              $eventsIdsrelated=array();
                              /**
@@ -136,9 +138,23 @@
                                 array_push($eventsIdsrelated,$node->nid);
                                 
                                 $eventsIdsrelated=implode("+",$eventsIdsrelated);
+                                print views_embed_view($viewName, "block_2", $eventsIdsrelated);
+                            ?>
+                
+                 </div>
+                <div id="related-assets">
+                    <?= t('Related assets'); ?>
+                    
+                        <?php
 
                                 //print $view_assets->render();
-                                print views_embed_view($viewName, "block_1", $eventsIdsrelated);
+                                $view_assets = views_get_view($viewName);
+                             $view_assets->set_arguments($eventsIdsrelated);
+                             $view_assets->init_display();
+                             $view_assets->execute();
+                                $render=views_embed_view($viewName, "block_1", $eventsIdsrelated);
+                                
+                                print $render;
                                  
                     ?>
                     
@@ -148,8 +164,9 @@
               <ul>
                <?php //$argumentos_para_view= implode (',',$nodepasafotos);
 
-                
+
                  print $view->render();
+                 
                  /** Directly embedding the view. Actually I need some of the fields so i'll use views_get_view instead of views_embed_view.
                  * 
                  *print views_embed_view($viewName, $display_id, $myArgs);

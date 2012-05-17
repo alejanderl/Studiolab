@@ -126,7 +126,7 @@
       </ul>
       </div>
       <div class="center">
-      <img src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/>
+      <a href="<?= $base_path ?>whatson"><img src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
                     <ul id="whats-on">
                     
                    <?php //$argumentos_para_view= implode (',',$nodepasafotos);
