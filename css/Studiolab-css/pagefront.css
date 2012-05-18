@@ -45,7 +45,7 @@ box-shadow: 0 40px 35px -50px black ;
     
     position: relative;
     z-index: 1;
-    margin-top: -140px;
+    margin-top: -145px;
 
   }
   
@@ -117,8 +117,10 @@ text-decoration: none;
 }
 #big-slide-list div.intro-text {
     color:#fff;
-    margin-top: -3px;
-    margin-left: 10px;
+    margin: -0px;
+     margin: 0 10px;
+    margin-bottom: 5px;
+   
     line-height: 1em;
     font-size: 14px;
     

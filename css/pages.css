@@ -323,7 +323,7 @@ div.theme-water {
 div.theme-biology {
   background-position: -36px 0 !important;
 }
-div.theme-social-interaction {
+div.theme-social_interaction {
   background-position: -54px 0 !important;
 }
 
@@ -541,4 +541,23 @@ float:left;
  .date-nav  {
     margin: 0;
     padding:0;
+ }
+ 
+ /**
+  *Social sharing
+  */
+  .service-links ul{
+    margin: 0;
+    padding:0;
+    
+  }
+    .service-links {
+    margin: 0;
+    padding:0;
+    float: left;
+  }
+ .service-links li{
+    list-style: none;
+    float: left;
+    
  }

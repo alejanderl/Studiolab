@@ -180,6 +180,24 @@ function Studiolab_preprocess_page(&$variables) {
       $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
     }
   }
+  
+  
+    /*
+	  Funcion para pintar la url al iCal y al RSS de las taxonomias
+	  
+	   */
+	   $laURL=arg();
+	   //echo ($laURL);
+	  if (1){
+                            //$vars['language']->language;
+                            $attributes = array('attributes' => array('title' => t('Add to my agenda')), 'html' => TRUE);
+                            $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
+                            
+                $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://cursos.dabne.net/studiolab/project-ical/'.arg(1), $attributes);
+                           
+                           
+                           
+                           };
 }
 
 

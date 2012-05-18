@@ -177,11 +177,7 @@
         </div>
            <?php //print render($page['header']); ?>
     </header>  <!-- header -->
-  <?php if ($skip_link_text && $skip_link_anchor): ?>
-    <p id="skip-link">
-      <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
-    </p>
-  <?php endif; ?>
+
   <?php if(!$is_front):?>
      <div id="search-twitter">
         <div class="centered">

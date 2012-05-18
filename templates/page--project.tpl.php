@@ -83,6 +83,7 @@
         <?php //miKrumo ($node); ?>
             <div id="project-header">
                 <div id="ph-left">
+                <article>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
                               
                 <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> / <?php print render($node_content['field_stlab_strand']); ?></span> //
@@ -92,7 +93,13 @@
                 <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
                 
                 <p class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></p>
-                
+                 <?php
+                    $block = module_invoke('service_links', 'block_view', 'service_links');
+                  print ($block['content']);
+                  
+                  
+                  
+                  ?>
                 </div>
                 
                 <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
@@ -102,7 +109,10 @@
         </div>
         <div class="project-separator">
             <div class=" centered">
-                <span class="about">About this project</span><span class="related-projects"><a href="#seeotherrelatedprojects">See other projects related +</a> </span>
+                <span class="about">About this project</span><span class="related-projects">
+               <?= $icalURL ?>
+             
+ </span>
             </div>
         </div>
         <div class="full-width">
@@ -113,6 +123,7 @@
                 <div class="content">
                 <?php print render($node_content['body']); ?>
                 </div>
+                </article>
                  <div id="Related opencalls">
                 <?= t('Related opencalls'); ?>
                  <?php //$argumentos_para_view= implode (',',$nodepasafotos);
