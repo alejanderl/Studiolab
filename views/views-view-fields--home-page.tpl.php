@@ -32,7 +32,7 @@ $date="";//format_date($predate[0],"short");
 $summary=substr($fields['body']->content,0,100); ;
 $hashtag=(isset($fields['field_stlab_hashtag']))?sprintf(' <strong>/</strong> <span class="hash">%s</span>',$fields['field_stlab_hashtag']->content) :"";
 $theme=$fields['field_stlab_theme']->content ;
-       
+   miKrumo($fields);    
 ?>
 
  <li>
@@ -42,7 +42,7 @@ $theme=$fields['field_stlab_theme']->content ;
          <h2 ><?= $title; ?></h2><br/>
          
  <?php // miKrumo($fields['field_stlab_hashtag']); ?>   
-         <div class="intro-text"><?= $summary; ?></div><br/>
+         <div class="intro-text"><?= $summary; ?></div><br/><?php print flag_create_link('preomoto_to_frontpage', $fields['nid']); ?>
          <div class="dates water-spot" ><?= $theme; ?><?= $place; ?>  <?= $date; ?><?= $hashtag; ?></div>
      </div>
 </li>

@@ -70,35 +70,86 @@
  */
 ?>
 
-        <?php print ($is_admin)?$messages:""; ?>
-      <?php print render($tabs); ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
+                <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                $viewName='home_page';
+                $display_id='default';
+                $myArgs="";
+                //$myArgs=$argumentos_para_view;
+                //print views_embed_view($viewName, $display_id, $myArgs);               
+                ?>
+<?php //$argumentos_para_view= implode (',',$nodepasafotos);
+    
+     $viewName='element_list';
+     $display_id='page';
+     $myArgs=array ($node->nid);
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     $view->set_arguments($myArgs);
+     //$view->init_display();
+     $view->execute();
+     $eventsIdsrelated=array();
+     /**
+      *Need to get the ids of all related nodes to look for all the media assets related to the project.
+     */
+     foreach($view->result as $event ){
+         
+        array_push($eventsIdsrelated,$event->nid);
+     }
+        array_push($eventsIdsrelated,$node->nid);
+        
+    $eventsIdsrelated=implode("+",$eventsIdsrelated);
+
+     $view_opencalls = views_get_view($viewName);
+     $view_opencalls->set_arguments(array($eventsIdsrelated));
+     $view_opencalls->set_display("block_2");
+     $view_opencalls->execute();
+     $render_opencalls=$view_opencalls->render();
+?>
+<?php
+
+       //print $view_assets->render();
+       $view_assets = views_get_view($viewName);
+    $view_assets->set_arguments(array($eventsIdsrelated));
+    $view_assets->set_display("block_1");
+    $view_assets->execute();
+    
+       //$render=views_embed_view($viewName, "block_1", $eventsIdsrelated);
+       $render_assets=$view_assets->render();
+      
+       
+        
+?>
+
+<?php print ($is_admin)?$messages:""; ?>
+<?php print render($tabs); ?>
+<?php print render($page['help']); ?>
+<?php if ($action_links): ?>
+<ul class="action-links"><?php print render($action_links); ?></ul>
+<?php endif; ?>
     
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
-        <?php //miKrumo ($node); ?>
+
             <div id="project-header">
+            <?php miKrumo($node_content)?>
                 <div id="ph-left">
                 <article>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
                               
-                <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> / <?php print render($node_content['field_stlab_strand']); ?></span> //
+                <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?></span> 
                 <br/>
                 <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
                 <br/>
-                <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
-                
+                <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
+               
+                <?php print flag_create_link('preomoto_to_frontpage', $node->nid); ?>
                 <p class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></p>
                  <?php
                     $block = module_invoke('service_links', 'block_view', 'service_links');
-                  print ($block['content']);
-                  
-                  
-                  
+                  print ($block['content']);                 
                   ?>
                 </div>
                 
@@ -106,6 +157,7 @@
                
                 <img src="<?= $image_uri ?>"/>
             </div>
+             <div class="clearfix"></div>
         </div>
         <div class="project-separator">
             <div class=" centered">
@@ -118,87 +170,36 @@
         <div class="full-width">
          <div class="centered">
             <div id="project-contents">
-                <span><?= t('INTRODUCTION TO THE PROJECT'); ?> //</span>
+               
                 <br/>
                 <div class="content">
                 <?php print render($node_content['body']); ?>
                 </div>
-                </article>
-                 <div id="Related opencalls">
-                <?= t('Related opencalls'); ?>
-                 <?php //$argumentos_para_view= implode (',',$nodepasafotos);
-                            
-                             $viewName='element_list';
-                             $display_id='page';
-                             $myArgs=array ($node->nid);
-                             
-                             //$myArgs=$argumentos_para_view;
-                             $view = views_get_view($viewName);
-                             $view->set_display($display_id);
-                             $view->set_arguments($myArgs);
-                             //$view->init_display();
-                             $view->execute();
-                             $eventsIdsrelated=array();
-                             /**
-                              *Need to get the ids of all related nodes to look for all the media assets related to the project.
-                             */
-                             foreach($view->result as $event ){
-                                 
-                                array_push($eventsIdsrelated,$event->nid);
-                             }
-                                array_push($eventsIdsrelated,$node->nid);
-                                
-                                $eventsIdsrelated=implode("+",$eventsIdsrelated);
-                                print views_embed_view($viewName, "block_2", $eventsIdsrelated);
-                            ?>
-                
-                 </div>
-                <div id="related-assets">
-                    <?= t('Related assets'); ?>
-                    
-                        <?php
-
-                                //print $view_assets->render();
-                                $view_assets = views_get_view($viewName);
-                             $view_assets->set_arguments($eventsIdsrelated);
-                             $view_assets->init_display();
-                             $view_assets->execute();
-                                $render=views_embed_view($viewName, "block_1", $eventsIdsrelated);
-                                
-                                print $render;
-                                 
-                    ?>
-                    
-                </div>
+                </article>                   
             </div>
             <div id="project-timeline">
+            <?php  print ($view->result!=NULL)?t('Upcoming events'):"";?>
               <ul>
-               <?php //$argumentos_para_view= implode (',',$nodepasafotos);
-
-
-                 print $view->render();
-                 
-                 /** Directly embedding the view. Actually I need some of the fields so i'll use views_get_view instead of views_embed_view.
-                 * 
-                 *print views_embed_view($viewName, $display_id, $myArgs);
-                 //*/           
-                ?>
-
-              
-                  
-                    
-               
-                    
-                </ul>
-                
-                
-            <div>
-        
+               <?php print $view->render();  ?>
+              </ul>
+ 
+             <div id="related-assets">
+                <?php  print ($view_assets->result!=NULL)?t('Related assets'):"";?>
+                <?php print $render_assets;?>
+             </div>
+             
+             <div id="related-opencalls">
+                 <?php  print ($view_opencalls->result!=NULL)?t('Related opencalls'):""; ?>
+                 <ul>
+                 <?php  print $render_opencalls;?>
+                 </ul>
+             </div>
+            <div>     
         
          </div>
         </div>
     </div>
-    <div class="clearfix"></div>  
+<div class="clearfix"></div>  
     
     
 

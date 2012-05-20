@@ -25,15 +25,15 @@
 
 <?php
 
-   miKrumo ($fields['field_stlab_place']);
+ 
   $title=$fields['title']->content;
   $summary=$fields['body']->content;;
   //$hashtag=render($content['field_stlab_hashtag']);
   $image=$fields['field_stlab_listimage']->content ;
-  
+  $event_type=$fields['field_stlab_eventtype']->content ;
   //$theme=field_view_value('node',$node,'field_stlab_theme');//$content['field_stlab_theme']['und'][0]['tid'];
   
-
+$place=$fields['field_stlab_place']->content ;
 
 
 
@@ -54,10 +54,12 @@
                 <?php print $image; ?>
                 
                 <div class="theme-icons">
-                
-               <?php print ($fields['field_stlab_theme']->content); ?>
+                 <?php print ($fields['field_stlab_theme']->content); ?><span class="data"><?= $place; ?> <b>// </b> <?= $event_type; ?> </span>
+               
+	       
                <?php //print ($fields['field_stlab_strand']->content); ?>
                </div>
+	      
                 <h2 class="list"><?php echo $title; ?>//</h2>
                 <?php echo $summary ?>
                 

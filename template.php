@@ -200,7 +200,32 @@ function Studiolab_preprocess_page(&$variables) {
                            };
 }
 
-
+function Studiolab_form_alter(&$form, &$form_state, $form_id) {
+    
+    
+    if ($form_id == 'search_form') {
+         if(user_is_admin()){
+            //print_r($form);
+            }
+         $form['#default_value'] = t('Search'); // Set a default value for the textfield
+         $form['basic']['submit']= array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/cssimgs/search.png');
+               
+                  $form['basic']['keys'] = array(
+    '#type' => 'textfield', 
+    '#title' => $prompt, 
+    '#default_value' => ($keys!=NULL)?$keys:t('Search'), 
+    '#size' => $prompt ? 40 : 20, 
+    '#maxlength' => 255,
+    '#onfocus'=>'this.value = &#039;&#039;',
+  );
+                  $form['basic']['keys']['#attributes']=array (
+                    'onfocus'=>'this.value = "";',
+                  );
+        
+    }
+    
+    
+}
 
 function Studiolab_process_page(&$variables) {
    

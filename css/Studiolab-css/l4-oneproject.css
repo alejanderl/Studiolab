@@ -1,12 +1,12 @@
 #project-header {
     text-align: center;
-    
+    height: 340px;
 margin-bottom: 20px;
 }
 
 #project-header img {
-  border-radius:15px;
-  box-shadow: 0 10px 30px -15px #000;
+  border-radius:35px;
+  box-shadow: 0 10px 30px -20px #000;
 
   
 }
@@ -37,10 +37,10 @@ margin-bottom: 20px;
     
    
     width: 100%;
-    background-color:#ddd;
+    background-color:#f3f5f7;
 }
 .project-separator .centered {
-  background-color:#ddd;
+  background-color:#f3f5f7;
   padding:5px;
   
 }
@@ -50,9 +50,11 @@ width: 400px;
 float: left;
 }
 
-#project-timeline {
+#project-timeline { 
 float: right;
 width: 500px;
+
+font-style: weight;
 }
 
 #project-contents ul  {
@@ -77,29 +79,32 @@ m
 
 
 #project-timeline {
-float: right;
-width: 500px;
+    float: right;
+    margin-top: -28px;
+    width: 500px;
 }
 
 #project-timeline ul  {
 display: table;
-margin: 0;
-margin-top:10px;
+margin-left: -25px;
+margin-top:20px;
 }
 
 #project-timeline ul li  {
 list-style: none;
-width: 450px;
+width: 550px;
 margin-bottom: 10px;
+margin-top: 10px;
 display: table-cell;
 float: left;
 font-size:12px;
 min-height: 110px;
+border-bottom: 1px solid #35ABE6;
 }
 
 #project-timeline ul img  {
 float:left;
-border-radius: 10px;
+border-radius: 25px;
 margin-right:10px;
 box-shadow: 0 10px 20px -15px black;
 }
@@ -169,4 +174,39 @@ h1.project-title {
 #ph-center {
     text-align: left;
     
+}
+
+
+
+
+
+#related-opencalls {
+     background-color:#f3f5f7;
+    padding: 10px;
+	border-radius:25px 25px 25px 25px;
+}
+
+.data a {
+      background-color: #333;
+    color:#fff;
+    text-decoration: none;
+    padding: 0 3px;
+    
+}
+
+.data b {
+    
+    color:#999;
+    text-decoration: none;
+    padding: 0 3px;
+    font-size: 16px;
+    
+}
+.data a:hover {
+  color:#fff;
+  background-color: #000;
+}
+.intro-tex {
+    
+    min-height: 150px;
 }

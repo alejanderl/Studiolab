@@ -86,16 +86,16 @@
       
     <div id="search-twitter">
         <div class="centered">
-                    <div id="search-block">
+                    <div id="search-block" style="float:left;">
              <?php
               print drupal_render(drupal_get_form('search_form'));?>
               </div>
             <div id="socialIcons" class="floatRight">
-             <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
-             <a href="http://www.flickr.com/photos/" alt="Flickr Auditorio de Tenerife" title="Flickr Auditorio de Tenerife"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
-             <a href="http://www.youtube.com/user/" alt="YouTube  Auditorio de Tenerife" title="YouTube  Auditorio de Tenerife"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+             <a href="https://twitter.com/#!/StudiolabEurope" alt="STUDIOLAB Twitter" title="STUDIOLAB Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
+             <a href="https://www.facebook.com/studiolabproject" alt="STUDIOLAB Facebook" title="STUDIOLAB Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
+             <a href="http://www.flickr.com/photos/studiolabproject/" alt="STUDIOLAB Flickr" title="STUDIOLAB Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
+             <a href="http://www.youtube.com/user/" alt="STUDIOLAB YouTube" title="STUDIOLAB YouTube"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
+             <a href="/rss.xml" alt="STUDIOLAB RSS" title="STUDIOLAB RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div> 
         </div>
       <?php print ($is_admin)?$messages:""; ?>
@@ -129,7 +129,7 @@
       <a href="<?= $base_path ?>whatson"><img src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
                     <ul id="whats-on">
                     
-                   <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+                   <?php 
                 $viewName='home_page';
                 $display_id='block_1';
                 $myArgs="";
@@ -139,7 +139,7 @@
               </ul>
       </div>
       <div class="right">
-       <?php //$argumentos_para_view= implode (',',$nodepasafotos);
+       <?php 
      $viewName='home_page';
      $display_id='block_3';
      $myArgs="";

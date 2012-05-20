@@ -103,9 +103,9 @@ var sliderFront = function (divID,time,stoptime) {
        //center the slider in the window screen
         
         //add the UI controllers
-        $(_this.divID).append('<div id="back-slider" class="controller" ><p><<</p></div>');
+        $(_this.divID).append('<div id="back-slider" class="controller" ><div class="arrow"></div></div>');
         
-        $(_this.divID).append('<div id="advance-slider" class="controller"><p>>></p></div>');
+        $(_this.divID).append('<div id="advance-slider" class="controller"><div class="arrow"></div></div>');
         // add functionality to the controllers
         $(_this.divID+" #advance-slider").on("click",function (){           
             _this.moving(-1);
