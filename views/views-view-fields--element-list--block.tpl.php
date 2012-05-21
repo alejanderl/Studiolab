@@ -54,7 +54,7 @@ $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
    
         
         <?= $image; ?>
-                                <span class=""> // <?= $asset_type; ?>.  </span><h3 ><a href="#"><?= $title; ?></a></h3>
+                                <?= $asset_type?><h3 > // <?= $title; ?></h3>
         
         
     </li>

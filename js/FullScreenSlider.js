@@ -12,15 +12,19 @@ var sliderFront = function (divID,time,stoptime) {
           var _this = this;  
  $(this.divID + " ul").prepend('<li class="black forward"></div>');
         //$(this.divID + " ul").append('<div class="clearfix"></div>');
-                 if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){
-                  alert ($(this.divID  + " ul li").length);
+	 first_element=$(_this.divID + " ul ").html();
+	if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){
+		    $(_this.divID + " ul").append(first_element);
+		    $(_this.divID + " ul").append(first_element);
+		    $(_this.divID + " ul").append(first_element);
+		    
+		    }else  if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<7){
+                  
                         
-                         var first_element=$(_this.divID + " ul ").html();
 
                     $(_this.divID + " ul").append(first_element);
-
-
-                }
+	 }
+	 var first_element="";
                 
         $(this.divID ).append('<div class="clearfix"></div>');
         this.position_top = ($(this.divID).position().top);
@@ -44,17 +48,18 @@ var sliderFront = function (divID,time,stoptime) {
         $(this.divID).width(this.element_width);
         }
        
-        this.infinite_carrousel = function (){
-            for (var i=0;i<_this.element_total-4;i++){
-                if ($(_this.divID + " ul li").eq(0).position().left<(_this.single_element_width*(-2))){
+        this.infinite_carrousel = function (where2){
+		
+            for (var i=0;i<_this.element_total-2;i++){
+                if ($(_this.divID + " ul li").eq(0).position().left<(_this.single_element_width*(-1))&&where2<0){
                         
                     var first_element=$(_this.divID + " ul li").eq(0);
                     var newPos=$(_this.divID + " ul li").eq(0).position().left+$(this.divID + " ul li").eq(0).width()-24;
                     $(_this.divID + " li" ).css({top:0,left:newPos});
                     $(_this.divID + " ul li").eq(0).remove();
                     $(_this.divID + " ul").append(first_element);
-                   
-                }else if ($(_this.divID + " ul li").eq(0).position().left>-500){
+                   //console.log ($(_this.divID + " ul li").eq(0).position().left+"position");
+                }else if ($(_this.divID + " ul li").eq(0).position().left>-500&&where2>0){
                    
                     var last_element = $(_this.divID + " ul li").eq(_this.element_total-1);
                       $(_this.divID + " ul li").eq(_this.element_total-1).remove();
@@ -77,14 +82,15 @@ var sliderFront = function (divID,time,stoptime) {
             
              var distance = where2move*_this.single_element_width;
              //deleting side controllers if correspond
+	      where2move = where2move ;
              _this.placeControllers();
              
                var time=_this.time;
             $(_this.divID + " li" ).animate().stop();
-             _this.infinite_carrousel();
              
+              _this.infinite_carrousel(where2move);
              $(_this.divID + " li" ).animate({ left :   "+="+distance  }, time,"easeInOutCubic",function (){
-                
+               
              
                  
                 

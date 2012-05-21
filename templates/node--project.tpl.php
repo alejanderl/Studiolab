@@ -110,12 +110,13 @@
           
           
                 <?php print render($content['field_stlab_listimage']); ?>
-                
+                 
                 <div class="theme-icons">
                 
                <?php print render($content['field_stlab_theme']); ?>
                <?php print render($content['field_stlab_strand']); ?>
                </div>
+               <?php print flag_create_link('preomoto_to_frontpage', $node->nid); ?>
                 <h2 class="list"><?= l($title,'node/'.$node->nid); ?>//</h2>
                 <?= $summary ?>
                 

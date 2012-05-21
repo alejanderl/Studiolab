@@ -79,45 +79,10 @@
       // services links
    
       ?>
-      <?php
-    //$argumentos_para_view= implode (',',$nodepasafotos);
-                            
-                             $viewName='element_list';
-                             $display_id='block_3';
-                             $myArgs=array($node_content['field_stlab_relproject']['#items']['0']['nid']);
-                             
-                             
-                             $view_event_belonged= views_get_view($viewName);
-                             $view_event_belonged->set_arguments($myArgs);
-                             $view_event_belonged->set_display($display_id);
-                             $view_event_belonged->execute();
-                             miKrumo($view_event_belonged->result[0]->field_field_stlab_relproject);
-                             
-                             $arg_project=array ($view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid']);
-                             $view_project_belonged= views_get_view($viewName);
-                             $view_project_belonged->set_arguments($arg_project);
-                             $view_project_belonged->set_display($display_id);
-                             $view_project_belonged->execute();
-                             miKrumo($view_event_belonged);
-                             $eventsIdsrelated=array();
-                             /**
-                              *Need to get the ids of all related nodes to look for all the media assets related to the project.
-                             */
-                             foreach($view_event_belonged->result as $event ){
-                                 
-                                array_push($eventsIdsrelated,$event->nid);
-                             }
-                                
-                                
-                                $eventsIdsrelated=implode("+",$eventsIdsrelated);
-                                ?>
+
     <div class="clearfix"></div>        
    
-        <div class="media-separator">
-            <div class=" centered" >
-                <?= print render($node_content['field_stlab_video']); ?><?= print render($node_content['field_stlab_flickrset']); ?>
-            </div>
-        </div>
+
          <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
             <div id="media-asset-header">
@@ -135,32 +100,15 @@
             <div id="project-contents">
                 <p class="summary"><?=  $node->body['en']['0']['summary'];?></p>
                 <?= $services_links; ?>
+                 <?php  $block = module_invoke('service_links', 'block_view', 'service_links');
+     print $block['content'];
+     ?>
                 <?php print render($node_content['body']); ?>
                 <br/>
                 
                 
             </div>
-            <div id="project-timeline">
-            
-            <div id="related-assets">
-                   
-                    
-                         <?php $rendered_view=views_embed_view($viewName, "block_1", $eventsIdsrelated);?>
-                    
-                     <?php if($rendered_view!=NULL):?>
-                     <span class="title"><?=t('Belongs to:')?></span><?= $rendered_view?>
-                    <?php endif ?>
-                </div>
-              <ul>
-            
-               <h3><?php print l($view_project_belonged->result[0]->node_title,"node/".$arg_project); ?></h3>
-             
-               <?php print $view_event_belonged->render(); ?>
-
-
-                </ul>
-    
-            <div>
+           
         
         
          </div>

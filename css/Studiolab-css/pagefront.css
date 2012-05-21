@@ -313,3 +313,11 @@ div.theme span {
 #big-slider-centered ul li {
     display: none;
 }
+.flag-preomoto-to-frontpage {
+  margin-top: -20px;
+position: relative;
+top: -120px;
+margin-bottom: -20px;
+float: left;
+
+}

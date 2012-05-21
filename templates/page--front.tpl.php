@@ -75,7 +75,7 @@
               <ul id="big-slide-list">
                    <?php //$argumentos_para_view= implode (',',$nodepasafotos);
                 $viewName='home_page';
-                $display_id='default';
+                $display_id='page';
                 $myArgs="";
                 //$myArgs=$argumentos_para_view;
                 print views_embed_view($viewName, $display_id, $myArgs);               
@@ -98,9 +98,7 @@
              <a href="/rss.xml" alt="STUDIOLAB RSS" title="STUDIOLAB RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div> 
         </div>
-      <?php print ($is_admin)?$messages:""; ?>
-      <?php print render($tabs); ?>
-      <?php print render($page['help']); ?>
+   
       <?php if ($action_links): ?>
       
      
@@ -155,31 +153,7 @@
           
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
-        
-        
-        </div>
+       </div>
     </div>
    
     <div class="clearfix"></div>  
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

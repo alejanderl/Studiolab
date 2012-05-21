@@ -70,13 +70,7 @@
  */
 ?>
 
-                <?php //$argumentos_para_view= implode (',',$nodepasafotos);
-                $viewName='home_page';
-                $display_id='default';
-                $myArgs="";
-                //$myArgs=$argumentos_para_view;
-                //print views_embed_view($viewName, $display_id, $myArgs);               
-                ?>
+                
 <?php //$argumentos_para_view= implode (',',$nodepasafotos);
     
      $viewName='element_list';
@@ -134,23 +128,18 @@
         <div class="centered">
 
             <div id="project-header">
-            <?php miKrumo($node_content)?>
+            
                 <div id="ph-left">
                 <article>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
                               
-                <span class="theme-water terms"><?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?></span> 
+                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
                 <br/>
                 <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
                 <br/>
+                <span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
                 <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
-               
-                <?php print flag_create_link('preomoto_to_frontpage', $node->nid); ?>
-                <p class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></p>
-                 <?php
-                    $block = module_invoke('service_links', 'block_view', 'service_links');
-                  print ($block['content']);                 
-                  ?>
+                <?php  print $service_links;  ?>
                 </div>
                 
                 <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
@@ -178,18 +167,18 @@
                 </article>                   
             </div>
             <div id="project-timeline">
-            <?php  print ($view->result!=NULL)?t('Upcoming events'):"";?>
+            <?php  print ($view->result!=NULL)?'<span class="title">'.t('Upcoming events')."</span>":"";?>
               <ul>
                <?php print $view->render();  ?>
               </ul>
  
              <div id="related-assets">
-                <?php  print ($view_assets->result!=NULL)?t('Related assets'):"";?>
+                <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
                 <?php print $render_assets;?>
              </div>
              
              <div id="related-opencalls">
-                 <?php  print ($view_opencalls->result!=NULL)?t('Related opencalls'):""; ?>
+                 <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
                  <ul>
                  <?php  print $render_opencalls;?>
                  </ul>

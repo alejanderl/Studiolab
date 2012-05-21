@@ -87,6 +87,7 @@
   <meta http-equiv="cleartype" content="on">
 
   <?php print $styles; ?>
+
   <?php print $scripts; ?>
  
   <?php $is_front_page=drupal_is_front_page(); ?>
@@ -100,10 +101,11 @@
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
   <?php endif; ?>
-     <script src="<?php print $base_path .$directory; ?>/css/Studiolab-css/FullScreenSlider.css"></script> 
+    
 
 <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 <?php if($is_front_page): ?>
+  <link type="text/css" rel="stylesheet" href="<?php print $base_path .$directory; ?>/css/Studiolab-css/pagefront.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js?random=<?php echo rand(3,89898);?>"></script>

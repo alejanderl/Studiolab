@@ -175,6 +175,7 @@ function Studiolab_preprocess_html(&$variables, $hook) {
 
 function Studiolab_preprocess_page(&$variables) {
   $nid = arg(1);
+  
   if (arg(0) == 'node' && is_numeric($nid)) {
     if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
       $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
@@ -212,9 +213,9 @@ function Studiolab_form_alter(&$form, &$form_state, $form_id) {
                
                   $form['basic']['keys'] = array(
     '#type' => 'textfield', 
-    '#title' => $prompt, 
-    '#default_value' => ($keys!=NULL)?$keys:t('Search'), 
-    '#size' => $prompt ? 40 : 20, 
+    '#title' => "", 
+    '#default_value' => t('Search'), 
+    '#size' => 20, 
     '#maxlength' => 255,
     '#onfocus'=>'this.value = &#039;&#039;',
   );
@@ -232,14 +233,22 @@ function Studiolab_process_page(&$variables) {
 	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
         }
+   if (($variables['is_front'])){
    
+    $variables['theme_hook_suggestions'][] = 'page__'. "front";
+   
+   }
+    
+    
     // NO trailing slash!
     $nid = arg(1);
   if (arg(0) == 'node' && is_numeric($nid)) {
     if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
 	
-	//miKrumo($variables['node']->type);
+    
       $variables['node_content'] =$variables['page']['content']['system_main']['nodes'][$nid];
+      $block = module_invoke('service_links', 'block_view', 'service_links');
+      $variables['service_links']=$block['content'];
       if ($variables['node']->type!="site_pages"){
       //$variables['stdlab_theme']=$variables['node_content']['field_stlab_theme'][0]['#title'];
       //$variables['stdlab_strand']=$variables['node_content']['field_stlab_strand'][0]['#title'];

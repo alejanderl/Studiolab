@@ -63,7 +63,7 @@ stylesheets[all][] = css/forms.css
 stylesheets[all][] = css/fields.css
 stylesheets[all][] = css/print.css
 stylesheets[all][] = css/Studiolab-css/l4-oneproject.css
-stylesheets[all][] = css/Studiolab-css/pagefront.css
+
 stylesheets[all][] = css/Studiolab-css/l2-allprojects.css
 stylesheets[all][] = css/Studiolab-css/l6-event.css
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
