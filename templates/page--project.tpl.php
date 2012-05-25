@@ -111,10 +111,13 @@
     
        //$render=views_embed_view($viewName, "block_1", $eventsIdsrelated);
        $render_assets=$view_assets->render();
+       ?>
       
-       
+      
+   <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
+                   
         
-?>
+
 
 <?php print ($is_admin)?$messages:""; ?>
 <?php print render($tabs); ?>
@@ -137,13 +140,12 @@
                 <br/>
                 <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
                 <br/>
-                <span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
+                 <?php print render($node_content['field_stlab_hashtag']); ?>
                 <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
                 <?php  print $service_links;  ?>
                 </div>
                 
-                <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
-               
+                
                 <img src="<?= $image_uri ?>"/>
             </div>
              <div class="clearfix"></div>

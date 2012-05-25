@@ -70,51 +70,90 @@
  */
 ?>
 
-<?php  print ($is_admin)?$messages:""; ?>
-      <?php print render($tabs); ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif;
-      // services links
-   
-      ?>
+                
+<?php //$argumentos_para_view= implode (',',$nodepasafotos);
+    if (arg(1)==38){
+               
+            
+     $viewName='element_list';
+     $display_id='block_4';
+     $myArgs=array ($node->nid);
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     //$view->set_arguments($myArgs);
+     //$view->init_display();
+     $view->execute();
+     $render_partners=$view->render();
+     miKrumo($view);
+     }
+    
+     
+?>
 
-    <div class="clearfix"></div>        
+    
    
 
-         <div id="mainBody" style="min-height:20px;width:100%; ">
-        <div class="centered">
-            <div id="media-asset-header">
-                <div id="ph-center">
-                <br/>
-                <h1 class="project-title"> <?php  print $title; ?> </h1>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+      
+   <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
+                   
         
+
+<?php print ($is_admin)?$messages:""; ?>
+<?php print render($tabs); ?>
+<?php print render($page['help']); ?>
+<?php if ($action_links): ?>
+<ul class="action-links"><?php print render($action_links); ?></ul>
+<?php endif; ?>
+    
+    <div class="clearfix"></div>        
+    <div id="mainBody" style="min-height:20px;width:100%; ">
+        <div class="centered">
+
+            <div id="project-header">
+            
+                <div id="ph-left">
+                <article>
+                <h1 class="project-title"> <?php print $title; ?> </h1>
+                              
+                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
+                <br/>
+                
+                <?php print render($node_content['field_stlab_hashtag']); ?>
+                <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
+                <?php  print $service_links;  ?>
+                </div>
+                
+                
+                <img src="<?= $image_uri ?>"/>
+            </div>
+             <div class="clearfix"></div>
+        </div>
+        
+        </div>
         <div class="full-width">
          <div class="centered">
-            <div id="project-contents">
-                <p class="summary"><?=  $node->body['en']['0']['summary'];?></p>
-                <?= $services_links; ?>
-                 <?php  $block = module_invoke('service_links', 'block_view', 'service_links');
-     print $block['content'];
-     ?>
-                <?php print render($node_content['body']); ?>
+            <div id="project-contents" class="partners">
+               
                 <br/>
-                
-                
+                <div class="content">
+                <?php print render($node_content['body']); ?>
+                </div>
+                </article>                   
             </div>
            
-        
-        
+            <div id="partners">
+            <?php print ($view->result!=NULL)?'<span class="title">'.t('Partners')."</span>":"";?>
+              <ul>
+               <?php print $render_partners;  ?>
+              </ul>
+            <div>     
+        <div class="clearfix"></div>  
          </div>
         </div>
     </div>
-    <div class="clearfix"></div>  
+
     
     
 

@@ -134,8 +134,9 @@ ob_end_clean();
                 <br/>
                 <?php print render($node_content['field_stlab_eventdate']); ?>
                 <br/>
-
-                <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span><span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
+                <?php print render($node_content['field_stlab_hashtag']); ?>
+                <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span>
+                
                 <br/>
                 <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
                 <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>

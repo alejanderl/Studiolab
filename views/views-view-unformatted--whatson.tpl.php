@@ -21,25 +21,23 @@ width:100%;
 </style>
 
 <?php
-$diacomparar_antes="";
-$diacomparar_antes2="";
-$puntitos=0;
-$separacion=3;
-$filas=$variables['view']->result;
+  $diacomparar_antes="";
+  $diacomparar_antes2="";
+  $puntitos=0;
+  $separacion=3;
+  $filas=$variables['view']->result;
 
-foreach ($rows as $id => $row): ?>
-<?php 
-
-$separacion++;
-?>
-<?php  if($separacion%4==0): ?>
+  foreach ($rows as $id => $row): 
+  $separacion++;
+  if($separacion%4==0): ?>
     <div class="clearfix"></div>
     
     
  
 
-<?php for ($n=0;$n<4;$n++): ?>
-<?php $diacomparar=date ("z",$filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value']);?>
+<?php for ($n=0;$n<count($filas);$n++): 
+
+ $diacomparar=date ("z",$filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value']);?>
 
 <?php if($diacomparar!=$diacomparar_antes&&$diacomparar): ?>
 <div class="separar"></div>

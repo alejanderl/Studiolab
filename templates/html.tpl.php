@@ -112,7 +112,7 @@
   <script type="text/javascript" >
     $(document).ready (function (){
 								 //div afected, transitiontime, stop time
-        themainID=new sliderFront ("#big-slider-centered",1000,2000);
+        themainID=new sliderFront ("#big-slider-centered",1000,4000);
          });
 </script>
 <?php endif; ?>
@@ -151,10 +151,9 @@
                 <div id="big-menu">
                 <nav>
                 <ul class="oswald-bold">
-                <li><a href="<?= $base_path; ?>projects/food"><div class="theme menu theme-food "></div><span>Food </span></a></li>
                 <li><a href="<?= $base_path; ?>projects/water"><div class="theme menu theme-water "></div><span>Water </span></a></li>
                 <li><a href="<?= $base_path; ?>projects/biology"><div class="theme menu theme-biology "></div><span>Biology </span></a></li>
-                <li><a href="<?= $base_path; ?>projects/social-interaction"><div class="theme menu theme-social-interaction "></div><span>Social Interaction </span></a></li>
+                <li><a href="<?= $base_path; ?>projects/social-interaction"><div class="theme menu theme-social_interaction "></div><span>Social Interaction </span></a></li>
                 <li><a href="<?= $base_path; ?>projects/all"><span>All</span></a>
                 </ul>
                     

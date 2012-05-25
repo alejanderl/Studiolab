@@ -46,6 +46,6 @@
 
 
     <?php foreach ($items as $delta => $item): ?>
-      <a href="https://twitter.com/#!/search/<?php print urlencode(render($item)); ?>" target="_blank"><?php print render($item); ?></a>
+     <span class="hashtag"> <a href="https://twitter.com/#!/search/<?php print urlencode(render($item)); ?>" target="_blank"><?php print render($item); ?></a></span>
     <?php endforeach; ?>
 

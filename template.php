@@ -232,10 +232,17 @@ function Studiolab_process_page(&$variables) {
    
 	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
+     if($variables['node']->type==="prototype"){
+             //miKrumo($variables['node']->type);
+            $variables['theme_hook_suggestions'][] = 'page__'. "project";
         }
+    
+        }
+       
+       
    if (($variables['is_front'])){
    
-    $variables['theme_hook_suggestions'][] = 'page__'. "front";
+    $variables['theme_hook_suggestions'][] = 'page__'. "front" ;
    
    }
     

@@ -42,7 +42,7 @@ $date="";//format_date($predate[0],"short");
  <li>
      
      
-              <?= (isset($fields['field_stlab_place']->content))?sprintf('<div class="dates water-spot" > %s / %s </div> ',$place,$city ):"";  ?>        
+              <?= (isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):"";  ?>        
          <h3 ><a href="<?= $path; ?>"><?= $summary; ?></a></h3><br/>
          
 
