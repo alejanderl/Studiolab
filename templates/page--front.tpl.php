@@ -84,20 +84,7 @@
         </div>
       </div>
       
-    <div id="search-twitter">
-        <div class="centered">
-                    <div id="search-block" style="float:left;">
-             <?php
-              print drupal_render(drupal_get_form('search_form'));?>
-              </div>
-            <div id="socialIcons" class="floatRight">
-             <a href="https://twitter.com/#!/StudiolabEurope" alt="STUDIOLAB Twitter" title="STUDIOLAB Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="https://www.facebook.com/studiolabproject" alt="STUDIOLAB Facebook" title="STUDIOLAB Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
-             <a href="http://www.flickr.com/photos/studiolabproject/" alt="STUDIOLAB Flickr" title="STUDIOLAB Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
-             <a href="http://www.youtube.com/user/" alt="STUDIOLAB YouTube" title="STUDIOLAB YouTube"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="/rss.xml" alt="STUDIOLAB RSS" title="STUDIOLAB RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
-           </div> 
-        </div>
+   
    
       <?php if ($action_links): ?>
       

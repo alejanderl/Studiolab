@@ -221,3 +221,14 @@ h1.project-title {
 #related-opencalls li {
 min-height: 50px !important;
 }
+
+.project-separator .rss-ical {
+    float: right;
+    margin-top: -4px;
+    padding-bottom: 2px;
+    text-align: right;
+}
+.project-separator .rss-ical img{
+
+    padding-left: 10px;
+}

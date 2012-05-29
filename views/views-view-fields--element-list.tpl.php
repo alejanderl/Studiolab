@@ -36,7 +36,7 @@ $event_type=$fields['field_stlab_eventtype']->content ;
     
         
         <?= $image; ?>
-                                <span class="data"><?= $place; ?> <b>// </b><?= $date; ?> <b>// </b> <?= $event_type; ?> </span><h3 ><?= $title; ?></h3>
+                                <span class="data"><?= $place; ?>  <b>// </b> <?= $event_type; ?> </span><h3 ><?= $title; ?></h3><span class="data"><?= $date; ?></span>
         
         
     </li>

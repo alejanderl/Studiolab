@@ -14,30 +14,31 @@ $myArg=arg(1);
                              $myArgs=array ($myArg);
                              
                              //$myArgs=$argumentos_para_view;
-                             $view = views_get_view($viewName);
-                             $view->set_display($display_id);
-                             $view->set_arguments($myArgs);
+                             $view1 = views_get_view($viewName);
+                             $view1->set_display($display_id);
+                             $view1->set_arguments($myArgs);
                              //$view->init_display();
-                             $view->execute();
+                             $view1->execute();
 		//$laSeleccion=new GeneradorView ("auditorio_ical",NULL,$myArgs);
 		
 
 $node=node_load($myArg);
 $eventsIdsrelated=array();
-foreach($view->result as $event ){
+foreach($view1->result as $event ){
          
         array_push($eventsIdsrelated,$event->nid);
      }
      array_push($eventsIdsrelated,$node->nid);
-     $eventsIdsrelated=
      $myArgs=implode("+",$eventsIdsrelated);
-     $view->set_arguments($myArgs);
-$view->execute();
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     $view->set_arguments(array($myArgs));
+    $view->execute();
 		?>
 <?php print ("<?xml") ?> version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Studiolab | <?php print ($myArgs.$node->title)?> </title>
+    <title>Studiolab | <?php print ($node->title)?> </title>
     <description><?php print ($node->summary)?></description>
     <link><?php print url("",  array('absolute' => TRUE))?></link>
     <image>
@@ -61,9 +62,9 @@ $view->execute();
 <item>
  <title><?php print($event->node_title )?></title>
       <description><?php print($event->field_body[0]['raw']['summary'] ); ?></description>
-      <link>http://www.economist.com/node/21553482?fsrc=rss|eur</link>
-      <guid><?php print url( "node/".$event->nid,  array('absolute' => TRUE))?></guid>
-      <pubDate>Thu, 26 April 2012 15:02:43 GMT</pubDate>
+      <link><?php print url( "node/".$event->nid,  array('absolute' => TRUE))?></link>
+      <guid><?php print url( "",  array('absolute' => TRUE))."node/".$event->nid?></guid>
+      <pubDate><?php print(format_date($event->node_changed,"long")); ?></pubDate>
 
 </item>
 <?php endforeach; ?>

@@ -22,7 +22,7 @@ padding:0 0px;
 float:left;
 position: relative;
 list-style: none;
-margin-top:-25px;
+margin-top:-5px;
 width: 440px;
 padding: 0 3px;
 
@@ -85,13 +85,13 @@ margin: 10px 5px;
 .controller {
         top:0px!important;      /* PARA QUE AL HACER OVER SOBRE EL SLIDER LA BANDA NEGRA LLEGUE ARRIBA */
         cursor: pointer;
-	    margin-top: 130px;
+	    margin-top: 160px;
 	        font-size: 24px;
     z-index: 4;
    width:100px;
     float: left;
-    position: relative;
-    height: 300px;
+
+    height: 330px;
      background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
 }
@@ -200,9 +200,10 @@ text-decoration: none;
 #whats-on li {
     list-style: none;
     border-top:1px solid #ccc;
-    margin-top:-4px;
-	height: 80px;
-	
+    margin-top:-22px;
+	height: 84px;
+	padding-top: 8px;
+	padding-bottom: 14px;
 }
 #whats-on h3 {
     font-size:12px;

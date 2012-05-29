@@ -102,13 +102,13 @@
 
 
 ?>
-<?php  //miKrumo ($node);?>
+<?php ?>
 
 
 
           <div class="assets-list">
           
-          
+         
                 <?php print render($content['field_stlab_listimage']); ?>
                 
                 <div class="theme-icons">

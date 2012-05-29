@@ -74,7 +74,7 @@
 <?php //$argumentos_para_view= implode (',',$nodepasafotos);
     if (arg(1)==38){
                
-            
+         $block_title=t("Partners"   );
      $viewName='element_list';
      $display_id='block_4';
      $myArgs=array ($node->nid);
@@ -86,7 +86,24 @@
      //$view->init_display();
      $view->execute();
      $render_partners=$view->render();
-     miKrumo($view);
+     
+     }
+     
+       if (arg(1)==12){
+               
+        $block_title=t("Prototyping");
+     $viewName='element_list';
+     $display_id='prototyping';
+     $myArgs=array ($node->nid);
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     //$view->set_arguments($myArgs);
+     //$view->init_display();
+     $view->execute();
+     $render_prototyping=$view->render();
+     
      }
     
      
@@ -144,9 +161,10 @@
             </div>
            
             <div id="partners">
-            <?php print ($view->result!=NULL)?'<span class="title">'.t('Partners')."</span>":"";?>
+            <?php print ($view->result!=NULL)?'<span class="title">'.$block_title."</span>":"";?>
               <ul>
                <?php print $render_partners;  ?>
+               <?php print $render_prototyping;  ?>
               </ul>
             <div>     
         <div class="clearfix"></div>  

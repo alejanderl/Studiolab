@@ -152,10 +152,11 @@
         </div>
         <div class="project-separator">
             <div class=" centered">
-                <span class="about">About this project</span><span class="related-projects">
-               <?= $icalURL ?>
-             
- </span>
+                <span class="about">About this project</span>
+                <span class="rss-ical">
+                    <?= $rssURL ?>
+                    <?= $icalURL ?>
+               </span>
             </div>
         </div>
         <div class="full-width">

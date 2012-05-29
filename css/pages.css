@@ -448,7 +448,7 @@ line-height:1.2em;
 
 
 h1.title {
-  background-color: #f3f1f1;
+  background-color: #F3F1F1;
   width:100%;
   font-size:16px;
   padding:5px 15px;
@@ -628,7 +628,7 @@ border-top: 1px dashed #1393DA;
 float: left;
 min-height: 3px;
 width: 230px;
-padding-top: 20px;
+margin-top: 20px;
 
 }
 
@@ -720,15 +720,15 @@ margin-bottom:10px;
  
  
 .pager li a{
-    background-color:#1393DA;
-    color:#fff;
+    background-color:#F3F1F1;
+    color:#000;
     text-decoration: none;
     padding-right: 15px;
 	padding-left: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
     border-radius: 3px 3px 12px 12px;
-    
+    text-transform: uppercase;
  }
  
 
@@ -740,7 +740,7 @@ margin-bottom:10px;
  }
  
  .view-id-whatson .view-content{
-    margin-top:-122px!important;
+    margin-top:-102px!important;
     
  }
  
@@ -790,6 +790,9 @@ margin-bottom:10px;
 .item-list .pager {
     clear: both;
     float: right;
-    margin-top: -50px;
+    margin-top: -55px;
     text-align: center;
+}
+.li a.active {
+    font-weight: bold;
 }

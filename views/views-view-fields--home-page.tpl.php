@@ -39,7 +39,7 @@ $theme=$fields['field_stlab_theme']->content ;
             
       <?= $image; ?>
      <div class="inner-text">
-     <?php print flag_create_link('preomoto_to_frontpage', $fields['nid']->raw); ?>
+     <?php // print flag_create_link('preomoto_to_frontpage', $fields['nid']->raw); ?>
          <h2 ><?= $title; ?></h2><br/>
          
  <?php // miKrumo($fields['field_stlab_hashtag']); ?>   

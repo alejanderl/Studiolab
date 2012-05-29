@@ -192,10 +192,14 @@ function Studiolab_preprocess_page(&$variables) {
 	  if (1){
                             //$vars['language']->language;
                             $attributes = array('attributes' => array('title' => t('Add to my agenda')), 'html' => TRUE);
+                            $attributes_rss = array('attributes' => array('title' => t("Suscribe to this project's RSS")), 'html' => TRUE);
+                            
                             $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
+                            $image_rss_path= $variables['base_path'].path_to_theme()."/cssimgs/rss.png";
                             
                 $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://cursos.dabne.net/studiolab/project-ical/'.arg(1), $attributes);
-                           
+                $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://cursos.dabne.net/studiolab/rss/'.arg(1), $attributes_rss);
+                        
                            
                            
                            };
@@ -232,10 +236,7 @@ function Studiolab_process_page(&$variables) {
    
 	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
-     if($variables['node']->type==="prototype"){
-             //miKrumo($variables['node']->type);
-            $variables['theme_hook_suggestions'][] = 'page__'. "project";
-        }
+     
     
         }
        

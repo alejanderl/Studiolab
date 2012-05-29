@@ -170,7 +170,16 @@
                    
                                        
                 </div>
-                
+                 <div id="socialIcons" class="floatRight">
+             <a href="https://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
+             <a href="https://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
+             <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
+             <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
+             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+           </div>
+                   <div id="search-block">
+             <?php  print drupal_render(drupal_get_form('search_form'));?>
+              </div>
                 <div class="clearfix"></div>                 
                 
             </div>
@@ -179,24 +188,15 @@
            <?php //print render($page['header']); ?>
     </header>  <!-- header -->
 
-  <?php if(!$is_front):?>
+
      <div id="search-twitter">
         <div class="centered">
 
-            <div id="socialIcons" class="floatRight">
-             <a href="http://twitter.com/" alt="Twitter Auditorio Tenerife" title="Twitter Auditorio de Tenerife"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="http://www.facebook.com/" alt="Facebook Auditorio de Tenerife" title="Facebook Auditorio de Tenerife"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
-             <a href="http://www.flickr.com/photos/" alt="Flickr Auditorio de Tenerife" title="Flickr Auditorio de Tenerife"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
-             <a href="http://www.youtube.com/user/" alt="YouTube  Auditorio de Tenerife" title="YouTube  Auditorio de Tenerife"  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
-           </div>
-                   <div id="search-block">
-             <?php  print drupal_render(drupal_get_form('search_form'));?>
-              </div>
+           
             </div>
             <div class="clearfix"></div>
         </div>
-        <?php endif;?>
+
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
