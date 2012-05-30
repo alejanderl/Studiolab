@@ -185,17 +185,11 @@
             </div>
         
         </div>
-           <?php //print render($page['header']); ?>
+           
     </header>  <!-- header -->
 
 
-     <div id="search-twitter">
-        <div class="centered">
 
-           
-            </div>
-            <div class="clearfix"></div>
-        </div>
 
   <?php print $page_top; ?>
   <?php print $page; ?>

@@ -100,7 +100,7 @@
           <div class="assets-list">
          
           
-                <?php print render($content['field_stlab_listimage']); ?>
+                <?php print (isset($content['field_stlab_listimage']))?render($content['field_stlab_listimage']):render($content['field_stlab_mainimage']); ?>
                  
                 <div class="theme-icons">
                 

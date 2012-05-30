@@ -67,15 +67,15 @@
  * @see template_preprocess_page()
  * @see zen_preprocess_page()
  * @see template_process()
- */
+ */ miKrumo($node_content);
 ?>
 
 
- 
+
                 
 <?php //$argumentos_para_view= implode (',',$nodepasafotos);
      $prototyping_events=array();
-     foreach($node_content['field_stlab_relproject']['#items'] as $event ){
+     foreach($node_content['field_stlab_relprotproject']['#items'] as $event ){
         
         array_push($prototyping_events,$event['nid']);
         

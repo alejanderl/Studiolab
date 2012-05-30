@@ -71,7 +71,7 @@
 ?>
 
                 
-<?php //$argumentos_para_view= implode (',',$nodepasafotos);
+<?php miKrumo($variables);
     if (arg(1)==38){
                
          $block_title=t("Partners"   );
@@ -151,7 +151,7 @@
         </div>
         <div class="full-width">
          <div class="centered">
-            <div id="project-contents" class="partners">
+            <div id="project-contents" class="site-pages ">
                
                 <br/>
                 <div class="content">

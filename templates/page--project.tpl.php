@@ -77,17 +77,30 @@
      $display_id='page';
      $myArgs=array ($node->nid);
      
-     //$myArgs=$argumentos_para_view;
+     //$view for upcoming events
      $view = views_get_view($viewName);
      $view->set_display($display_id);
      $view->set_arguments($myArgs);
-     //$view->init_display();
      $view->execute();
+
      $eventsIdsrelated=array();
      /**
       *Need to get the ids of all related nodes to look for all the media assets related to the project.
      */
+     
+     
+     
+     $view_pastEvents= views_get_view($viewName);
+     $view_pastEvents->set_display('past_event_list');
+     $view_pastEvents->set_arguments($myArgs);
+     $view_pastEvents->execute();    
+     $render_pastEvents=$view_pastEvents->render();
+     
      foreach($view->result as $event ){
+         
+        array_push($eventsIdsrelated,$event->nid);
+     }
+     foreach($view_pastEvents->result as $event ){
          
         array_push($eventsIdsrelated,$event->nid);
      }
@@ -170,7 +183,7 @@
                 </article>                   
             </div>
             <div id="project-timeline">
-            <?php  print ($view->result!=NULL)?'<span class="title">'.t('Upcoming events')."</span>":"";?>
+            <?php  print ($view->result!=NULL)?'<span class="title no-line">'.t('Upcoming events')."</span>":"";?>
               <ul>
                <?php print $view->render();  ?>
               </ul>
@@ -184,6 +197,13 @@
                  <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
                  <ul>
                  <?php  print $render_opencalls;?>
+                 </ul>
+             </div>
+             
+                <div id="past-events">
+                 <?php  print ($view_pastEvents->result!=NULL)?'<span class="title">'.t('Events archive')."</span>":""; ?>
+                 <ul>
+                 <?php  print $render_pastEvents;?>
                  </ul>
              </div>
             <div>     

@@ -127,9 +127,13 @@ ob_end_clean();
        
             <div id="project-header">
                 <div id="ph-left">
-                <div class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></div>
+                <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
-                
+                <?php print render($node_content['field_stlab_theme']); ?><?php print render($node_content['field_stlab_strand']); ?>
+
+               <br/>
+                <span class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></span>
+                <br/>
                 <span class="place"> <?php print render($node_content['field_stlab_place']); ?></span>
                 <br/>
                 <?php print render($node_content['field_stlab_eventdate']); ?>
@@ -139,10 +143,7 @@ ob_end_clean();
                 
                 <br/>
                 <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
-                <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
-                
-                <p class=" terms"><?php print render($node_content['field_stlab_theme']); ?><?= t("Theme")?>:<?php print render($node_content['field_stlab_theme'][0]["#markup"]); ?> <?= t("Strand")?><?php print render($node_content['field_stlab_strand']); ?></p> 
-                 <?php //print flag_create_link('preomoto_to_frontpage', $node->nid); ?>               
+                                 <?php //print flag_create_link('preomoto_to_frontpage', $node->nid); ?>               
                 <?php  print $service_links;  ?>
                 </div>               
                 <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>

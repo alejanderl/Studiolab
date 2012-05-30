@@ -25,7 +25,7 @@
 ?>
 <?php
 $title=$fields['title']->content ;
-$image=$fields['field_stlab_listimage']->content ;
+$image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_listimage']->content:$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 $date=date("d / m - H:i",$predate[0]);

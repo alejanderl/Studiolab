@@ -49,6 +49,11 @@ $date="";//format_date($predate[0],"short");
       $image=$fields['field_stlab_flickrset']->content;
       $asset_type="Photoset";
       break;
+     
+      case (isset($fields['field_stlab_doc']->content)):
+      $image=$fields['field_stlab_doc']->content;
+      $asset_type="Photoset";
+      break;
 
       default:
             $image="hola";

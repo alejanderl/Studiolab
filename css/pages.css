@@ -59,9 +59,9 @@ text-align: center;
 }
 
 #topmid-menu #logo {
-    float: left;
-    margin-left: 40px;
-    margin-top: 20px;
+float: left;
+margin-left: 30px;
+margin-top: 33px;
 }
 
 
@@ -147,9 +147,13 @@ text-align: center;
 *social icons
 **/
 
-
-
-
+#socialIcons a{
+box-shadow: 0 4px 4px -1px #ddd;
+}
+#socialIcons a:hover{
+box-shadow: 0 15px 4px -1px #f3f3f3;
+margin-top:-4px;
+}
 #socialIcons {
     float: right;
     margin-left: 35px;
@@ -172,7 +176,7 @@ float:left;
 
 
 #logoRssPortada {
-margin-top:2px;
+margin-top:1px;
 
 float:left;
 width:24px;
@@ -199,7 +203,7 @@ float:left;
 width:24px;
 height:24px;
 background:url('../cssimgs/logos-sociales/logoSocial_twitterConOver.png') no-repeat;
-
+margin-top:1px;
 }
 
 
@@ -476,13 +480,6 @@ margin:0;
   height: 30px;
   margin-top:-25px;
 }
-#ph-left {
-    fon-family:arial;
-    font-size:20px;
-    line-height: 1,5em;
-    color:rgb(51,51,51);
-	
-}
 
 
 
@@ -695,9 +692,10 @@ float:left;
     font-weight: bold;
     padding: 5px;
     margin-bottom: 10px;
-    width: 550px;
+    width: 500px;
     
  }
+
  
 .date-heading  {
     color:#0072CA;
@@ -795,4 +793,35 @@ margin-bottom:10px;
 }
 .li a.active {
     font-weight: bold;
+}
+#project-timeline span.no-line{
+    border: 0;
+}
+
+#project-contents a {
+    color:#333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+#project-contents a:hover {
+    background-color:#333;
+    color:#fff;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+
+#project-contents.site-pages {
+    width: 900px;
+  -moz-column-count:2; /* Firefox */
+-webkit-column-count:2; /* Safari and Chrome */
+column-count:2;
+-moz-column-gap:40px; /* Firefox */
+-webkit-column-gap:40px; /* Safari and Chrome */
+column-gap:40px;
+-moz-column-width:300px; /* Firefox */
+-webkit-column-width:300px; /* Safari and Chrome */
+column-width:300px;
 }

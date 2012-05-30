@@ -54,7 +54,7 @@ $place=$fields['field_stlab_place']->content ;
                 <?php print $image; ?>
                 
                 <div class="theme-icons">
-                 <?php print ($fields['field_stlab_theme']->content); ?><span class="data"><?= $place; ?> <b>// </b> <?= $event_type; ?> </span>
+                 <?php print ($fields['field_stlab_theme']->content);?><span class="data"><?= $place;?><b>//</b><?= $event_type; ?></span>
                
 	       
                <?php //print ($fields['field_stlab_strand']->content); ?>

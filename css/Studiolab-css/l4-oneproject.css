@@ -6,7 +6,7 @@ margin-bottom: 20px;
 
 #project-header img {
   border-radius:35px;
-  box-shadow: 0 10px 30px -20px #000;
+ box-shadow: 0 30px 10px -25px #666666;
 
   
 }
@@ -15,16 +15,26 @@ margin-bottom: 20px;
     float:left;
     width:400px;
     text-align: left;
+    fon-family:arial;
+    font-size:16px;
+    line-height: 1,5em;
+    color:rgb(51,51,51);
 }
-#ph-left .date {
+
+#ph-left span {
+    margin-left:25px;
+}
+
+#ph-left span.date-display-single {
    color: rgb(34, 34, 34);
    font-family: arial, verdana, sans-serif;
-   font-size: 14px;
+   font-size: 16px;
    line-height: 16px;
    text-align: left;
-   font-weight: bold;
+
     
 }
+
 
 
 .related-projects {
@@ -79,21 +89,21 @@ m
 
 
 #project-timeline {
-    float: right;
-    margin-top: 28px;
-    width: 500px;
+  float: right;
+width: 500px;
+margin-bottom: 28px;
 }
 
 #project-timeline ul  {
 display: table;
 margin-left: -25px;
 margin-top:20px;
-width: 550px;
+width: 500px;
 }
 
 #project-timeline ul li  {
 list-style: none;
-width: 550px;
+width: 500px;
 margin-bottom: 10px;
 margin-top: 10px;
 display: table-cell;
@@ -103,11 +113,15 @@ min-height: 110px;
 border-bottom: 1px dotted #ccc;
 }
 
+#project-timeline ul li:last-child {
+    border: 0;
+    
+}
 #project-timeline ul img  {
 float:left;
 border-radius: 25px;
 margin-right:10px;
-box-shadow: 0 10px 20px -15px black;
+box-shadow: 0 18px 5px -15px #666666;
 }
 #project-timeline h3 {
     margin: 0;
@@ -135,10 +149,13 @@ h1.project-title {
     font-size: 14px;
     width: auto !important;
 }
+#related-assets {
+    margin-bottom: 30px;
+}
+
 #related-assets  a {
     color: #000;
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 
 #related-assets h3 {
@@ -183,9 +200,7 @@ h1.project-title {
 
 
 #related-opencalls {
-     
-    padding: 10px;
-	border-radius:25px 25px 25px 25px;
+    border-radius:25px 25px 25px 25px;
     margin-bottom:15px ;
 }
 
@@ -210,25 +225,35 @@ h1.project-title {
   background-color: #000;
 }
 .intro-tex {
-    
+  font-size: 17px;
+    line-height: 1.5em;
     min-height: 150px;
 }
 
-#ph-left span {
-    margin-left:25px;
-}
 
 #related-opencalls li {
 min-height: 50px !important;
 }
 
 .project-separator .rss-ical {
+
     float: right;
-    margin-top: -4px;
-    padding-bottom: 2px;
+    margin-top: -7px;
+    padding: 5px;
     text-align: right;
+}
+.project-separator .rss-ical a{
+  border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    margin-left: 5px;
+    padding: 1px 4px;
+     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.3) inset, 0 10px rgba(255, 255, 255, 0.2) inset, 0 10px 20px rgba(255, 255, 255, 0.25) inset, 0 -15px 30px rgba(0, 0, 0, 0.3) inset
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow:  inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+    float: left;
 }
 .project-separator .rss-ical img{
 
-    padding-left: 10px;
+    
 }

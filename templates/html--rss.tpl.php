@@ -19,10 +19,13 @@ $myArg=arg(1);
                              $view1->set_arguments($myArgs);
                              //$view->init_display();
                              $view1->execute();
-		//$laSeleccion=new GeneradorView ("auditorio_ical",NULL,$myArgs);
+		
 		
 
 $node=node_load($myArg);
+		$node_content=node_view($node);
+               
+               
 $eventsIdsrelated=array();
 foreach($view1->result as $event ){
          
@@ -36,10 +39,12 @@ foreach($view1->result as $event ){
     $view->execute();
 		?>
 <?php print ("<?xml") ?> version="1.0" encoding="utf-8" ?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+
+<rss version="2.0" >
   <channel>
     <title>Studiolab | <?php print ($node->title)?> </title>
     <description><?php print ($node->summary)?></description>
+    <category> <? print (render($node_content['field_stlab_theme'][0]));?>/<? print (render($node_content['field_stlab_strand'][0]));?></category>
     <link><?php print url("",  array('absolute' => TRUE))?></link>
     <image>
       <link><?php print url("",  array('absolute' => TRUE))?></link>

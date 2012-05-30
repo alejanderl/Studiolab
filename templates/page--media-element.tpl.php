@@ -98,7 +98,7 @@
                              $view_project_belonged->set_arguments($arg_project);
                              $view_project_belonged->set_display($display_id);
                              $view_project_belonged->execute();
-                             miKrumo($view_event_belonged);
+                             
                              $eventsIdsrelated=array();
                              /**
                               *Need to get the ids of all related nodes to look for all the media assets related to the project.
@@ -133,7 +133,10 @@
         <div class="full-width">
          <div class="centered">
             <div id="project-contents">
-                <p class="summary"><?=  $node->body['en']['0']['summary'];?></p>
+                <p class="summary">
+                
+                <?=  $node->body['en']['0']['summary'];?></p>
+                <?=  render($node_content['field_stlab_doc']);?>
                 <?= $services_links; ?>
                 <?php print render($node_content['body']); ?>
                 <br/>
@@ -147,10 +150,11 @@
                     
                          <?php $rendered_view=views_embed_view($viewName, "block_1", $eventsIdsrelated);?>
                     
-                     <?php if($rendered_view!=NULL):?>
-                     <span class="title"><?=t('Belongs to:')?></span><?= $rendered_view?>
-                    <?php endif ?>
+                    
                 </div>
+                
+                     <span class="title"><?=t('Belongs to:')?></span>
+ 
               <ul>
             
                <h3><?php print l($view_project_belonged->result[0]->node_title,"node/".$arg_project); ?></h3>
@@ -159,6 +163,9 @@
 
 
                 </ul>
+                 <?php if($rendered_view!=NULL):?>
+                     <span class="title"><?=t('Related assets:')?></span><?= $rendered_view?>
+                    <?php endif ?>
     
             <div>
         

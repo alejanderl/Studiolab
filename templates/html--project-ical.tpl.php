@@ -1,40 +1,27 @@
 <?php
-
-//drupal_add_http_header('Content-Type', 'text/calendar; charset=utf-8');
+drupal_add_http_header('Content-Type', 'text/calendar; charset=utf-8');
 //drupal_add_http_header('Content-Disposition', 'attachment; filename="calendar.ics"');
-
-$myArgs=arg(1);
-
 ?>
 <?php
-		
+		$myArgs=arg(1);
 		$viewName='ical';
-                             $display_id='page';
-                             $myArgs=array ($myArgs);
-                             
-                             //$myArgs=$argumentos_para_view;
-                             $view = views_get_view($viewName);
-                             $view->set_display($display_id);
-                             $view->set_arguments($myArgs);
-                             //$view->init_display();
-                             $view->execute();
-		//$laSeleccion=new GeneradorView ("auditorio_ical",NULL,$myArgs);
+		$display_id='page';
+		$myArgs=array ($myArgs);
 		
-$resultado=$view->result;
-$node=node_load($myArgs);
-
-		?>
+		//$myArgs=$argumentos_para_view;
+		$view = views_get_view($viewName);
+		$view->set_display($display_id);
+		$view->set_arguments($myArgs);
+		//$view->init_display();
+		$view->execute();
+		$resultado=$view->result;
+		$node=node_load($myArgs);
 		
-
-BEGIN:VCALENDAR<?php print ("\r\n") ?>
+?>
+BEGIN:VCALENDAR<?php print ("\r\n");?>
 VERSION:2.0<?php print ("\r\n") ?>
 METHOD:PUBLISH<?php print ("\r\n") ?>
-X-WR-CALNAME: <?php
-
-//$term=taxonomy_get_term($myArgs);
-
-print ($node->title) ?> | StudioLab <?php print ("\r\n") ?>
-PRODID:-//Drupal// StudioLab<?php print ("\r\n") ?>
+X-WR-CALNAME: <?php print ($node->title) ?> | StudioLab <?php print ("\r\n") ?> PRODID:-//Drupal// StudioLab<?php print ("\r\n") ?>
 <?php foreach($view->result as $event):
 		$time=($event->field_field_stlab_eventdate[0]['raw']['value']);
 		$time2=($event->field_field_stlab_eventdate[0]['raw']['value2']);

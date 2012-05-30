@@ -233,9 +233,10 @@ function Studiolab_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function Studiolab_process_page(&$variables) {
-   
-	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])){
+  
+	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])&&!in_array("page__node__38",$variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
+    
      
     
         }
