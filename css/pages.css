@@ -46,22 +46,20 @@ padding-top: 10px;
  
 
 #menu-globes li{
-    padding-top: 10px;
-margin: 0;
-background: url(../cssimgs/blue_globe.png) no-repeat center;
+ padding-top: 10px;
+ margin: 0;
+ background: url(../cssimgs/blue_globe.png) no-repeat center;
  margin-left: 20px;
-
-height: 45px;
-width: 100px;
-display: inline-table;
-float: left;
-text-align: center;   
+ height: 45px;
+ width: 100px;
+ display: inline-table;
+ float: left;
+ text-align: center;   
 }
 
 #topmid-menu #logo {
-float: left;
-margin-left: 30px;
-margin-top: 33px;
+ float: left;
+ margin-left: 30px;
 }
 
 
@@ -69,31 +67,148 @@ margin-top: 33px;
 /*
  *Secondary menu
  */
+
 #topmid-menu #big-menu {
-    float: right;
-    width:50  0px;
-    margin-top: 20px;
-    
+ float: right;
+ padding-top: 20px;
+ width: 470px;    
+}
+
+#topmid-menu #big-menu li ul{
+ width: 100px;
+ background-color:#fff;
+ box-shadow:0 10px 10px -10px #666;
+ margin-left: 15px;
+margin-top: -5px;
 }
 
 #big-menu li div {
  margin-top:2px;
 }
+
 #big-menu img {
-  float:none !important;
+ float:none !important;
 }
+
 #big-menu li {
-  float:left;
+ float:left;
 }
 #big-menu li a{
   color:#333;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
-   padding:3px;
+  padding:3px;
 }
 #big-menu li:last-child {
   margin-left:20px;
+}
+
+
+ul#superfish-2 li ul li {
+background: none;
+}
+
+ul#superfish-2 li {
+  padding-left:18px;
+   background-repeat: no-repeat;
+  background-position: 0px 10px;
+  float:left;
+  margin:0px 4px;
+  margin-top:5px;
+}
+
+/* water */
+#big-menu #menu-1221-2 {
+    background-image: url(../cssimgs/theme-bullet-water.png);
+    
+}
+#big-menu #menu-1221-2 ul{
+    border:solid 2px #2a6dab;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#big-menu #menu-1221-2 ul li{
+    border-bottom:solid 1px #2a6dab;
+    
+}
+#big-menu #menu-1221-2 ul li a:hover{
+    background-color: #2a6dab;
+    color:#fff;
+}
+/* biology */
+#big-menu #menu-1222-2 ul{
+    border:solid 2px #a0d13e;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#big-menu #menu-1222-2 {
+    background-image: url(../cssimgs/theme-bullet-biology.png);
+}
+
+#big-menu #menu-1222-2 ul li{
+    border-bottom:solid 1px #a0d13e;
+}
+#big-menu #menu-1222-2 ul li a:hover{
+    background-color: #a0d13e;
+    color:#fff;
+}
+
+
+/* social interaction */
+
+#big-menu #menu-1223-2 ul{
+    border:solid 2px  #cd5a24;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#big-menu #menu-1223-2 {
+    background-image: url(../cssimgs/theme-bullet-social_interaction.png);
+    
+}
+
+#big-menu #menu-1223-2 ul li{
+    border-bottom:solid 1px #cd5a24;
+}
+#big-menu #menu-1223-2 ul li a:hover{
+    background-color: #cd5a24;
+    color:#fff;
+}
+/* all */
+
+
+#big-menu #menu-1227-2 ul li{
+    border-bottom:solid 2px #000;
+}
+#big-menu #menu-1227-2 ul li a:hover{
+    background-color: #000;
+    color:#fff;
+}
+
+
+ul#superfish-2 li li  {
+margin: 0!important;
+padding: 0;
+}
+
+ul#superfish-2 li li a {
+   font-size:16px;
+   
+}
+ul#superfish-2 li li:first-child a {
+   
+   border-radius:12px 12px 0 0 ;
+   
+}
+ul#superfish-2 li li:last-child a {
+   
+   border-radius:0 0  12px 12px ;
+   
+}
+ul#superfish-2 li li:last-child  {
+   
+   border:0 !important ;
+   
 }
 /* /secondary menu */
 
@@ -174,15 +289,56 @@ float:left;
 
 }
 
+#search-header {
+    
+    
+
+float: left;
+width: 23px;
+height: 23px;
+background: url('../cssimgs/search-button.png') no-repeat;
+color: #C2C2C2;
+
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+
+-moz-box-shadow: 0px 1px 0px rgba(207,207,207,1), inset 0px -1px 0px rgba(255,255,255,0.7);
+-webkit-box-shadow: 0px 1px 0px rgba(207, 207, 207, 1), inset 0px -1px 0px rgba(255, 255, 255, 0.7);
+text-shadow:1px 1px 0px rgba(255, 255, 255, 1), 0px 1px 0px rgba(255, 255, 255, 0.3);
+margin-top: 2px;
+margin-right:7px;
+}
+#search-header a{
+  background: -moz-linear-gradient( top, #FDFDFD 0%, #F2F2F3);
+background: -webkit-gradient( linear, left top, left bottom, from(#FDFDFD), to(#F2F2F3));
+
+}
+#search-block {
+    display:none;
+}
+
 
 #logoRssPortada {
 margin-top:1px;
-
 float:left;
 width:24px;
 height:24px;
 background:url('../cssimgs/logos-sociales/logoSocial_rssConOver.png') no-repeat;
+}
 
+#logovimeoPortada {
+margin-right: 6px;
+float: left;
+width: 24px;
+height: 23px;
+background: url('../cssimgs/logos-sociales/logoSocial_VimeoConOver.png') no-repeat;
+margin-top: 2px;
+}
+
+#logovimeoPortada:hover {
+
+background-position:0% 100%;
 }
 
 
@@ -356,7 +512,7 @@ div.theme {
   background-image: url(../cssimgs/theme-icons.png);
   float:left;
   margin:0px 4px;
-  margin-top:2px;
+  margin-top:5px;
 }
 .theme span {
   display: none;
@@ -418,9 +574,9 @@ text-align: left;
 line-height:1.2em;
 }
 .assets-list .theme-icons {
-  font-size: 10px;
-  text-align: left;
-
+    font-size: 10px;
+    text-align: left;
+    text-transform: uppercase;
 }
 
 
@@ -684,13 +840,12 @@ float:left;
  }
  
 #project-timeline span.title {
-   border-top: solid 2px #35ABE6;
-    border-radius: 3px 3px 3px 3px;
+   border-top: solid 4px #35ABE6;
     color: #35ABE6;
     display: block;
     font-size: 16px;
     font-weight: bold;
-    padding: 5px;
+    padding: 0px;
     margin-bottom: 10px;
     width: 500px;
     
@@ -779,6 +934,7 @@ margin-bottom:10px;
     padding-right:10px;
     text-align: center;
     width: 300px;
+    height:150px;
 }
 .partners-list img {
     margin-right: 10px;
@@ -788,7 +944,7 @@ margin-bottom:10px;
 .item-list .pager {
     clear: both;
     float: right;
-    margin-top: -55px;
+    margin-top: -95px;
     text-align: center;
 }
 .li a.active {
@@ -796,6 +952,11 @@ margin-bottom:10px;
 }
 #project-timeline span.no-line{
     border: 0;
+    text-transform: uppercase;
+	
+	
+	
+	
 }
 
 #project-contents a {

@@ -121,13 +121,19 @@
     $view_assets->set_arguments(array($eventsIdsrelated));
     $view_assets->set_display("block_1");
     $view_assets->execute();
-    
-       //$render=views_embed_view($viewName, "block_1", $eventsIdsrelated);
-       $render_assets=$view_assets->render();
+    $render_assets=$view_assets->render();
+     
+     
        ?>
       
       
-   <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
+   <?php
+   $image_uri = render($node_content['field_stlab_mainimage']);
+   $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long")):"";
+   $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long")):"";
+   //$image_title=($node_content['field_stlab_mainimage']['#items'][0]['title']);
+   ?>
+  
                    
         
 
@@ -147,19 +153,21 @@
             
                 <div id="ph-left">
                 <article>
-                <h1 class="project-title"> <?php print $title; ?> </h1>
+                 <?php print render($node_content['field_stlab_theme']); ?> <h1 class="project-title"> <?php print $title; ?> </h1>
                               
-                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
+               <span class="date"><?php print render($node_content['field_stlab_strand']); ?></span>
                 <br/>
-                <span class="date"><?= date("j M Y ", $node->field_stlab_duration['und']['0']['value'])." ". t('to'). " " .date("j M Y ", $node->field_stlab_duration['und']['0']['value2']); ?></span>
-                <br/>
-                 <?php print render($node_content['field_stlab_hashtag']); ?>
-                <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
-                <?php  print $service_links;  ?>
+                
+                <div class="date_range">               
+                <?= $from_date?><?= $to_date?> 
                 </div>
                 
-                
-                <img src="<?= $image_uri ?>"/>
+                 <?php  print render($node_content['field_stlab_hashtag']); ?>
+                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
+                <?php  print $service_links;  ?>
+                </div>                
+                <?= $image_uri ?>
+                <?php print $image_title;?>
             </div>
              <div class="clearfix"></div>
         </div>

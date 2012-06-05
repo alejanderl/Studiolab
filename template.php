@@ -213,7 +213,7 @@ function Studiolab_form_alter(&$form, &$form_state, $form_id) {
             //print_r($form);
             }
          $form['#default_value'] = t('Search'); // Set a default value for the textfield
-         $form['basic']['submit']= array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/cssimgs/search.png');
+         //$form['basic']['submit']= array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/cssimgs/search.png');
                
                   $form['basic']['keys'] = array(
     '#type' => 'textfield', 
@@ -240,7 +240,12 @@ function Studiolab_process_page(&$variables) {
      
     
         }
-       
+       $page_content=array("promote","toggle");
+       $intersect=count(array_intersect($page_content,arg()));
+
+       if($intersect>0){        
+         $variables['theme_hook_suggestions'] = 'page';
+       }//*/
        
    if (($variables['is_front'])){
    
@@ -341,3 +346,18 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+function DateRange($dates,$format_date){
+     $first_date=format_date($dates[0]['value'],$format_date);
+    if(count($dates)>1){
+       
+        $last_date=format_date($dates[count($dates)-1]['value'],$format_date);
+        $date=sprintf("%s %s <br/> %s %s",t('from'),$first_date,t('to'),$last_date);
+          return $date ;
+    }else{
+        return $first_date;
+    }
+
+  
+    
+    
+}

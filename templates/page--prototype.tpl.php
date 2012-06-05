@@ -146,10 +146,10 @@
                 <article>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
                               
-                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
+
                 <br/>
                 
-                 <?php print render($node_content['field_stlab_hashtag']); ?>
+                <?php print render($node_content['field_stlab_hashtag']); ?>
                 <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
                 <?php  print $service_links;  ?>
                 </div>

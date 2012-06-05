@@ -36,6 +36,7 @@ top: 0;
 border-radius: 35px;
 width:460px;
 box-shadow: 0 40px 35px -50px black ;
+box-shadow: 0 25px 5px -20px #CCCCCC;
 
 }
 
@@ -323,4 +324,9 @@ top: -120px;
 margin-bottom: -20px;
 float: left;
 
+}
+.inner-text .fasttoggle {
+    float:left;
+    margin-top:-50px;
+    background-color:#cc3333;
 }

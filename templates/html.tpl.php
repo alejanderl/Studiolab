@@ -102,20 +102,31 @@
     <![endif]-->
   <?php endif; ?>
     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
-<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 <?php if($is_front_page): ?>
   <link type="text/css" rel="stylesheet" href="<?php print $base_path .$directory; ?>/css/Studiolab-css/pagefront.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+  
 <script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js?random=<?php echo rand(3,89898);?>"></script>
   <script type="text/javascript" >
     $(document).ready (function (){
 								 //div afected, transitiontime, stop time
-        themainID=new sliderFront ("#big-slider-centered",1000,4000);
+        themainID=new sliderFront ("#big-slider-centered",1500,5000);
          });
 </script>
 <?php endif; ?>
+
+
+<script type="text/javascript" >
+    $(document).ready (function (){
+        $('#search-header').click(function() {
+        $('#search-block').toggle("slow");
+        $('#search-header').toggle("fast");
+      });
+   });
+</script>
+
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 <div id="top-menu">
@@ -123,10 +134,11 @@
 
                 
                 <?php
-        $block = module_invoke('superfish', 'block_view', 1);
-        print render($block['content']);
+        $main_menu = module_invoke('superfish', 'block_view', 1);
+        print render($main_menu['content']);
         //print render($block);
       ?>
+
       </div>
       
       
@@ -150,29 +162,20 @@
                 </div>
                 <div id="big-menu">
                 <nav>
-                <ul class="oswald-bold">
-                <li><a href="<?= $base_path; ?>projects/water"><div class="theme menu theme-water "></div><span>Water </span></a></li>
-                <li><a href="<?= $base_path; ?>projects/biology"><div class="theme menu theme-biology "></div><span>Biology </span></a></li>
-                <li><a href="<?= $base_path; ?>projects/social-interaction"><div class="theme menu theme-social_interaction "></div><span>Social Interaction </span></a></li>
-                <li><a href="<?= $base_path; ?>projects/all"><span>All</span></a>
-                </ul>
-                    
-                      <?php
-                          /*
-                          $block2 = module_invoke('menu', 'block_view', 'menu-projects-menu');
-                          print render($block2['content']);
-                          //print render($block);//*/
-                        ?>
+                       <?php
+        $themes_menu = module_invoke('superfish', 'block_view', 2);
+        print render($themes_menu['content']);
+        //print render($block);
+      ?>
+
                     </nav>
-                      
 
-
-                   
-                                       
                 </div>
                  <div id="socialIcons" class="floatRight">
-             <a href="https://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="https://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
+             <a href="javascript:void(0)" alt="Studiolab Search " title="Studiolab Search"  id="search-header"  > <span> Search </span></a>
+             <a href="http://www.vimeo.com/studiolabproject" alt="Studiolab Vimeo " title="Studiolab Vimeo"  id="logovimeoPortada" target="_blank" > <span> Vimeo </span></a>
+             <a href="http://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
+             <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
              <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
              <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
              <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>

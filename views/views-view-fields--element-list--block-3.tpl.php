@@ -28,7 +28,7 @@ $title=$fields['title']->content ;
 $image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_listimage']->content:$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
-$date=date("d / m - H:i",$predate[0]);
+$date=format_date($predate[0],"short");
 //$event_type=$fields['field_stlab_eventype']->content ;
    //miKrumo($fields);        
 ?>

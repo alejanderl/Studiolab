@@ -29,21 +29,22 @@ $image=$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 $date="";//format_date($predate[0],"short");
-$summary=substr($fields['body']->content,0,100); ;
+//$summary=substr($fields['body']->content,0,100); ;
 $hashtag=(isset($fields['field_stlab_hashtag']))?sprintf(' <strong>/</strong> <span class="hash">%s</span>',$fields['field_stlab_hashtag']->content) :"";
-$theme=$fields['field_stlab_theme']->content ;
-  // miKrumo($fields);    
+$theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme']->content:NULL ;
+
 ?>
 
  <li>
             
       <?= $image; ?>
      <div class="inner-text">
+     <?php print ($fields['promote_node']->content);?>   
      <?php // print flag_create_link('preomoto_to_frontpage', $fields['nid']->raw); ?>
          <h2 ><?= $title; ?></h2><br/>
+          
+   
          
- <?php // miKrumo($fields['field_stlab_hashtag']); ?>   
-         <div class="intro-text"><?= $summary; ?></div><br/>
          <div class="dates water-spot" ><?= $theme; ?><?= $place; ?>  <?= $date; ?><?= $hashtag; ?></div>
      </div>
 </li>

@@ -16,8 +16,8 @@ display:none;
 #content {
 width:100%;	
 }
-.altura1 {
-}
+
+
 </style>
 
 <?php
@@ -35,14 +35,21 @@ width:100%;
     
  
 
-<?php for ($n=0;$n<count($filas);$n++): 
+<?php
+  /**
+   *$filas is an array with the results of the view
+   */
+  for ($n=0;$n<4;$n++): 
 
  $diacomparar=date ("z",$filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value']);?>
 
-<?php if($diacomparar!=$diacomparar_antes&&$diacomparar): ?>
+<?php
+
+if($diacomparar!=$diacomparar_antes&&$diacomparar): ?>
 <div class="separar"></div>
     <div class="whatson-vacio">
-                                <div class="whatson-dia"><?= format_date($filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value'],'custom',"l, j/F/Y"); ?></div>
+                                <div class="whatson-dia"><?= format_date($filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value'],'custom',"l, j"); ?></div>
+    
     </div>
 <?php else: ?>
 <div class="whatson-vacio"></div>
@@ -53,18 +60,17 @@ width:100%;
    
     <div class="clearfix"></div>
 <?php endif; ?>
-<?php
+<?php $diacomparar2=date("z",$filas[$puntitos]->field_field_stlab_eventdate[0]['raw']['value']);
+if($diacomparar2!=$diacomparar_antes2):?>
 
-$diacomparar2=date("z",$filas[$puntitos]->field_field_stlab_eventdate[0]['raw']['value']);
-			    if($diacomparar2!=$diacomparar_antes2):
-			    ?>
-
-			    <div class="separador-dias separar"></div>
-			    <?php endif; ?>
+<div class="separador-dias separar"></div>
+<?php endif; ?>
     <?php
 	$puntitos++;
 	$diacomparar_antes2=$diacomparar2;
-	print $row; ?>
+	
+	print $row;
+	?>
 
 <?php endforeach; ?>
 <div class="clearfix"></div>

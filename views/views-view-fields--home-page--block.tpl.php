@@ -34,7 +34,7 @@ $date="";//format_date($predate[0],"short");
 
 //$hashtag=$fields['field_stlab_hashtag ']->content;
 
- $summary=$fields['body']->content ;
+ $summary="<p>".$fields['field_stlab_summary']->content."</p>";
  $path=$fields['path']->content ;
  $city=$fields['field_trm_location']->content;
 ?>

@@ -120,34 +120,31 @@ ob_end_clean();
 <?php if ($action_links): ?>
   <ul class="action-links"><?php print render($action_links); ?></ul>
 <?php endif; ?>
+<?php $image_uri = render($node_content['field_stlab_mainimage']);?>
+              
     
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
-        <div class="centered">
-       
+        <div class="centered">       
             <div id="project-header">
                 <div id="ph-left">
                 <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
-                <h1 class="project-title"> <?php print $title; ?> </h1>
-                <?php print render($node_content['field_stlab_theme']); ?><?php print render($node_content['field_stlab_strand']); ?>
-
-               <br/>
+                <?php print render($node_content['field_stlab_theme']); ?><h1 class="project-title"> <?php print $title; ?> </h1>
+                <?php print render($node_content['field_stlab_strand']); ?>
+                
                 <span class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></span>
                 <br/>
                 <span class="place"> <?php print render($node_content['field_stlab_place']); ?></span>
                 <br/>
-                <?php print render($node_content['field_stlab_eventdate']); ?>
-                <br/>
+                <div class="date_range"><?php print DateRange($node_content['field_stlab_eventdate']['#items'],"medium"); ?></div>
+
                 <?php print render($node_content['field_stlab_hashtag']); ?>
                 <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span>
-                
                 <br/>
-                <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
-                                 <?php //print flag_create_link('preomoto_to_frontpage', $node->nid); ?>               
+                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php  print $service_links;  ?>
-                </div>               
-                <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
-               <img src="<?= $image_uri ?>"/>
+                </div>
+                <?= $image_uri ?>
             </div>
             <div class="event-separator clearfix">
                 </div>

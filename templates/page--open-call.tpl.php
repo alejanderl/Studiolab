@@ -97,22 +97,36 @@
      </ul>
      </div>
 <?php
-$render_opencalls =($view_opencalls->result!=NULL)? ob_get_contents():"";
-
-ob_end_clean();
-
- ?>
- 
-<?php
-    $view_assets = views_get_view($viewName);
-    $view_assets->set_arguments(array($node->nid));
-    $view_assets->set_display("block_1");
-    $view_assets->execute();
-    $render_assets=$view_assets->render();
-/**
- *end of logic blocks
- */
-?>
+    
+     $viewName='element_list';
+     $display_id='block_3';
+     $myArgs=array($node_content['field_stlab_relproject']['#items']['0']['nid']);
+     
+     
+     $view_event_belonged= views_get_view($viewName);
+     $view_event_belonged->set_arguments($myArgs);
+     $view_event_belonged->set_display($display_id);
+     $view_event_belonged->execute();
+     miKrumo($view_event_belonged->result[0]->field_field_stlab_relproject);
+     
+     $arg_project=array ($view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid']);
+     $view_project_belonged= views_get_view($viewName);
+     $view_project_belonged->set_arguments($arg_project);
+     $view_project_belonged->set_display($display_id);
+     $view_project_belonged->execute();
+     
+     $eventsIdsrelated=array();
+     /**
+      *Need to get the ids of all related nodes to look for all the media assets related to the project.
+     */
+     foreach($view_event_belonged->result as $event ){
+         
+        array_push($eventsIdsrelated,$event->nid);
+     }
+        
+        
+        $eventsIdsrelated=implode("+",$eventsIdsrelated);
+        ?>
 
 <?php print ($is_admin)?$messages:""; ?>
 <?php print render($tabs); ?>
@@ -137,11 +151,8 @@ ob_end_clean();
 
                 <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span><span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
                 <br/>
-                <p class="intro-tex"><?=  $node->body['en']['0']['summary'];?></p>
-                <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
+                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
                 
-                <p class=" terms"><?php print render($node_content['field_stlab_theme']); ?><?= t("Theme")?>:<?php print render($node_content['field_stlab_theme'][0]["#markup"]); ?> <?= t("Strand")?><?php print render($node_content['field_stlab_strand']); ?></p> 
-                 <?php //print flag_create_link('preomoto_to_frontpage', $node->nid); ?>               
                 <?php  print $service_links;  ?>
                 </div>               
                 <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
@@ -160,13 +171,16 @@ ob_end_clean();
            <?php  print $render_opencalls;?>
                 
                          <div id="related-assets">
-                         <?php print ($view_assets->result!=NULL)?'<span class="title">'.t('Media assets')."</span>":""; ?>
-                    <ul>
-                   
-                        <?php print  $render_assets; ?>
-                            
-                       
-                    </ul>
+                          <span class="title"><?=t('Belongs to:')?></span>
+ 
+              <ul>
+            
+               <h3><?php print l($view_project_belonged->result[0]->node_title,"node/".$arg_project); ?></h3>
+             
+               <?php print $view_event_belonged->render(); ?>
+
+
+                </ul>
                 </div>
                 
               
