@@ -71,7 +71,11 @@
 ?>
 
                 
-<?php //$argumentos_para_view= implode (',',$nodepasafotos);
+<?php
+
+
+
+//$argumentos_para_view= implode (',',$nodepasafotos);
     
      $viewName='element_list';
      $display_id='page';
@@ -144,7 +148,7 @@
 <?php if ($action_links): ?>
 <ul class="action-links"><?php print render($action_links); ?></ul>
 <?php endif; ?>
-    
+  
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
@@ -152,22 +156,25 @@
             <div id="project-header">
             
                 <div id="ph-left">
-                <article>
-                 <?php print render($node_content['field_stlab_theme']); ?> <h1 class="project-title"> <?php print $title; ?> </h1>
-                              
-               <span class="date"><?php print render($node_content['field_stlab_strand']); ?></span>
-                <br/>
                 
+                 <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div>
+                 <br/>
+                 <h1 class="project-title"> <?php print $title; ?> </h1>
+                     <span class="content-type">Project</span>
+                     <?= $strand; ?>
+                     <?= $place; ?>
+                     <?= $organizer;?>
+                     
                 <div class="date_range">               
                 <?= $from_date?><?= $to_date?> 
                 </div>
-                
-                 <?php  print render($node_content['field_stlab_hashtag']); ?>
-                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
-                <?php  print $service_links;  ?>
+                     <?= $URL_associated;?>
+                     <?php print $hashtag; ?>
+                     <?php print $admission; ?>
+                     <?php  print $service_links;  ?>
                 </div>                
                 <?= $image_uri ?>
-                <?php print $image_title;?>
+                
             </div>
              <div class="clearfix"></div>
         </div>
@@ -185,10 +192,11 @@
             <div id="project-contents">
                
                 <br/>
-                <div class="content">
+                <div class="content expandable">
+                <p class="intro-text-inline"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php print render($node_content['body']); ?>
                 </div>
-                </article>                   
+                                  
             </div>
             <div id="project-timeline">
             <?php  print ($view->result!=NULL)?'<span class="title no-line">'.t('Upcoming events')."</span>":"";?>

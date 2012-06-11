@@ -176,9 +176,27 @@ function Studiolab_preprocess_html(&$variables, $hook) {
 function Studiolab_preprocess_page(&$variables) {
   $nid = arg(1);
   
+  if(arg(0)=="taxonomy"){
+    drupal_goto($base_path);
+  }
   if (arg(0) == 'node' && is_numeric($nid)) {
-    if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
-      $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
+    
+   if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
+     $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
+     $node_content=$variables['node_content'];
+     
+     $variables['call_type']=(isset($node_content['field_stlab_calltype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">%s</span> / %s  </p>',t("Open call"),render($node_content['field_stlab_calltype'])):"";;
+     
+     $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";;
+     $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">Event</span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";;
+     $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";;
+     $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strand"),render($node_content['field_stlab_strand'])):"";;
+     $variables['organizer']=(isset($node_content['field_stlab_org']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Organizer"),render($node_content['field_stlab_org'])):"";;
+     $variables['URL_associated']=(isset($node_content['field_stlab_link']))?sprintf ( '<p class="place">%s  </p>',render($node_content['field_stlab_link'])):"";;
+    
+    
+     $variables['hashtag']=(isset($node_content['field_stlab_hashtag']))?sprintf ( '%s  <br/>',render($node_content['field_stlab_hashtag'])):"";;
+     $variables['admission']=(isset($node_content['field_stlab_admission']))?sprintf ( '<span class="admission">%s</span><br/>     <br/>',render($node_content['field_stlab_admission'])):"";;
     }
   }
   
@@ -188,40 +206,29 @@ function Studiolab_preprocess_page(&$variables) {
 	  
 	   */
 	   $laURL=arg();
-	   //echo ($laURL);
-	  if (1){
-                            //$vars['language']->language;
-                            $attributes = array('attributes' => array('title' => t('Add to my agenda')), 'html' => TRUE);
-                            $attributes_rss = array('attributes' => array('title' => t("Suscribe to this project's RSS")), 'html' => TRUE);
-                            
-                            $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
-                            $image_rss_path= $variables['base_path'].path_to_theme()."/cssimgs/rss.png";
-                            
-                $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://cursos.dabne.net/studiolab/project-ical/'.arg(1), $attributes);
-                $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://cursos.dabne.net/studiolab/rss/'.arg(1), $attributes_rss);
-                        
-                           
-                           
-                           };
+        if (1){
+        //$vars['language']->language;
+            $attributes = array('attributes' => array('title' => t('Add to my agenda')), 'html' => TRUE);
+            $attributes_rss = array('attributes' => array('title' => t("Suscribe to this project's RSS")), 'html' => TRUE);
+            $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
+            $image_rss_path= $variables['base_path'].path_to_theme()."/cssimgs/rss.png";
+            $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://cursos.dabne.net/studiolab/project-ical/'.arg(1), $attributes);
+            $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://cursos.dabne.net/studiolab/rss/'.arg(1), $attributes_rss);
+        };
 }
 
 function Studiolab_form_alter(&$form, &$form_state, $form_id) {
     
     
     if ($form_id == 'search_form') {
-         if(user_is_admin()){
-            //print_r($form);
-            }
-         $form['#default_value'] = t('Search'); // Set a default value for the textfield
-         //$form['basic']['submit']= array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/cssimgs/search.png');
-               
-                  $form['basic']['keys'] = array(
-    '#type' => 'textfield', 
-    '#title' => "", 
-    '#default_value' => t('Search'), 
-    '#size' => 20, 
-    '#maxlength' => 255,
-    '#onfocus'=>'this.value = &#039;&#039;',
+    $form['#default_value'] = t('Search'); // Set a default value for the textfield
+    $form['basic']['keys'] = array(
+        '#type' => 'textfield', 
+        '#title' => "", 
+        '#default_value' => t('Search'), 
+        '#size' => 20, 
+        '#maxlength' => 255,
+        '#onfocus'=>'this.value = &#039;&#039;',
   );
                   $form['basic']['keys']['#attributes']=array (
                     'onfocus'=>'this.value = "";',
@@ -236,16 +243,22 @@ function Studiolab_process_page(&$variables) {
   
 	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])&&!in_array("page__node__38",$variables['theme_hook_suggestions'])){
     $variables['theme_hook_suggestions'][] = 'page__'. $variables['node']->type;
-    
-     
-    
-        }
+       }
+       // Need print standard ations.
        $page_content=array("promote","toggle");
        $intersect=count(array_intersect($page_content,arg()));
-
-       if($intersect>0){        
+        if($intersect>0){        
          $variables['theme_hook_suggestions'] = 'page';
-       }//*/
+       }
+       // TPL for lists. Need to control de menu for upcoming or past results.
+       $page_lists=array("opencalls","events","projects");
+       
+       if(in_array(arg(0),$page_lists)){
+       
+         $variables['theme_hook_suggestions'][] = 'page__lists';
+          
+       }
+       
        
    if (($variables['is_front'])){
    
@@ -347,17 +360,37 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
 }
 // */
 function DateRange($dates,$format_date){
-     $first_date=format_date($dates[0]['value'],$format_date);
-    if(count($dates)>1){
+     $first_date=$dates[0]['#markup'];
+    if(count($dates['#items'])>1){
        
-        $last_date=format_date($dates[count($dates)-1]['value'],$format_date);
+        $last_date=$dates[count($dates['#items'])-1]['#markup'];
         $date=sprintf("%s %s <br/> %s %s",t('from'),$first_date,t('to'),$last_date);
           return $date ;
     }else{
         return $first_date;
     }
 
-  
-    
-    
 }
+
+function DateRangeWhatson($dates,$format_date,$specific_month){
+    $found_first_date=false;
+    foreach ($dates as $date){
+        print date("m",$date['value']);
+        if ($specific_month==date("m",$date['value'])&&!$found_first_date){
+            $first_date=format_date($date['value'],$format_date);
+            $found_first_date=true;
+        }else{
+            $last_date=format_date($date['value'],$format_date);
+        }      
+    }
+}
+
+function ContentType2Print($content_type){
+     
+     $allowed_content= array("Project","Event","Media Asset","Prototyping");
+     if (in_array($content_type,$allowed_content)){
+          return $content_type;
+     }else{
+          return NULL;
+     }
+};

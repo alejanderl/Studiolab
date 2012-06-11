@@ -10,7 +10,7 @@ var sliderFront = function (divID,time,stoptime) {
         //$("head ").append('<link type="text/css" rel="stylesheet" href="./css/FullScreenSLider.css" />');
         //set the end of the loop 
           var _this = this;  
- $(this.divID + " ul").prepend('<li class="black forward"></div>');
+	 //$(this.divID + " ul").prepend('<li class="black forward"></div>');
         //$(this.divID + " ul").append('<div class="clearfix"></div>');
 	 first_element=$(_this.divID + " ul ").html();
 	if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){

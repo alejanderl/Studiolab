@@ -48,13 +48,11 @@ $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 
 
-   //miKrumo($fields);        
+        
 ?>
-  <li>
+<li>
+    
+   <?= $image; ?>
+   <?= $asset_type?><h3 ><?= $title; ?></h3>
    
-        
-        <?= $image; ?>
-                                <?= $asset_type?><h3 > // <?= $title; ?></h3>
-        
-        
-    </li>
+ </li>

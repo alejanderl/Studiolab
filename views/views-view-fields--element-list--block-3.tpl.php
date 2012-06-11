@@ -29,14 +29,11 @@ $image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_l
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 $date=format_date($predate[0],"short");
-//$event_type=$fields['field_stlab_eventype']->content ;
-   //miKrumo($fields);        
+$event_type=$fields['field_stlab_eventtype']->content ;     
 ?>
   <li>
-    
-        
         <?= $image; ?>
-                                <span class=""><?= $place; ?> // <?= $date; ?> / <?= $event_type; ?> </span><h3 ><a href="#"><?= $title; ?></a></h3>
-        
-        
-    </li>
+        <span class=""><?= $place; ?> // <?= $event_type; ?> </span>
+        <h3 ><a href="#"><?= $title; ?></a></h3>
+        <?= $date; ?> 
+  </li>

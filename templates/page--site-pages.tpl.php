@@ -71,7 +71,7 @@
 ?>
 
                 
-<?php miKrumo($variables);
+<?php
     if (arg(1)==38){
                
          $block_title=t("Partners"   );
@@ -113,7 +113,10 @@
    
 
       
-   <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
+   <?php
+   
+  $image_uri = render($node_content['field_stlab_mainimage']);
+  ?>
                    
         
 
@@ -132,18 +135,16 @@
             
                 <div id="ph-left">
                 <article>
-                <h1 class="project-title"> <?php print $title; ?> </h1>
+                <h1 class="site-page-title"> <?php print $title; ?> </h1>
                               
-                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
-                <br/>
-                
-                <?php print render($node_content['field_stlab_hashtag']); ?>
-                <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
+               
+
+                <p class="intro-text"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php  print $service_links;  ?>
                 </div>
                 
                 
-                <img src="<?= $image_uri ?>"/>
+                <?= $image_uri ?>
             </div>
              <div class="clearfix"></div>
         </div>

@@ -71,6 +71,13 @@
 ?>
 
  <?php
+  $image_uri = render($node_content['field_stlab_mainimage']);
+  $hashtag=(isset($node_content['field_stlab_hashtag']))?sprintf ( '%s  <br/>',render($node_content['field_stlab_hashtag'])):"";;
+  $strands=(isset($node_content['field_stlab_strand']))?sprintf ('<span class="date">%s</span>    <br/>  ' ,render($node_content['field_stlab_strand'])) :"" ;      
+  $themes=(isset($node_content['field_stlab_theme']))?sprintf ('<span class="date">%s</span>    <br/>  ' ,render($node_content['field_stlab_theme'])) :"" ;      
+  $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long")):"";
+  $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long")):"";
+  
  /**
   *Beginning of logic blocks
   * - $view           Object for events variables.
@@ -89,7 +96,7 @@
     $view_opencalls->set_arguments(array($node->nid));
     $view_opencalls->set_display("block_2");
     $view_opencalls->execute();
-  ob_start();?>
+  ?>
    <div id="related-opencalls">
     <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Opencalls')."</span>":"";?>
      <ul>
@@ -107,9 +114,10 @@
      $view_event_belonged->set_arguments($myArgs);
      $view_event_belonged->set_display($display_id);
      $view_event_belonged->execute();
-     miKrumo($view_event_belonged->result[0]->field_field_stlab_relproject);
      
-     $arg_project=array ($view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid']);
+     
+     $arg_project=$view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid'];
+     
      $view_project_belonged= views_get_view($viewName);
      $view_project_belonged->set_arguments($arg_project);
      $view_project_belonged->set_display($display_id);
@@ -141,58 +149,52 @@
        
             <div id="project-header">
                 <div id="ph-left">
-                <div class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></div>
+                <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div><br/>
                 <h1 class="project-title"> <?php print $title; ?> </h1>
-                
-                <span class="place"> <?php print render($node_content['field_stlab_place']); ?></span>
-                <br/>
-                <?php print render($node_content['field_stlab_eventdate']); ?>
-                <br/>
 
-                <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span><span class="hashtag"> <?php print render($node_content['field_stlab_hashtag']); ?></span>
-                <br/>
-                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
+                     <?= $call_type ; ?>
+                     <?= $event_type ; ?>
+                     
+                     <?= $strand; ?>                
+                     <?= $place; ?>
+                     <?= $organizer; ?>
+                     <div class="date_range">               
+                     <?= $from_date?><?= $to_date?> 
+                     </div>
+                     <?php print $hashtag; ?>
+                     <?php print $admission; ?>
+                     <?php  print $service_links;  ?>
+
                 
-                <?php  print $service_links;  ?>
+
                 </div>               
-                <?php $image_uri = image_style_url('l4-bigimage', $node->field_stlab_mainimage['und'][0]['uri']);  theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));?>
-               <img src="<?= $image_uri ?>"/>
+                <?= $image_uri ?>
             </div>
             <div class="event-separator clearfix">
                 </div>
             <div id="event-contents">
                 <br/>
-                <div class="content">
+                <div class="content expandable">
+                <p class="intro-text-inline"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php print render($node_content['body']); ?>
                 </div>
             </div>
 
             <div id="project-timeline">
-           <?php  print $render_opencalls;?>
+             <?php  print $render_opencalls;?>
                 
-                         <div id="related-assets">
-                          <span class="title"><?=t('Belongs to:')?></span>
- 
-              <ul>
-            
+              <div id="related-assets">
+               <span class="title"><?=t('Belongs to:')?></span>
+               <ul>
                <h3><?php print l($view_project_belonged->result[0]->node_title,"node/".$arg_project); ?></h3>
-             
                <?php print $view_event_belonged->render(); ?>
-
-
-                </ul>
-                </div>
-                
-              
-                  
-                    
-
-                
+               </ul>
+              </div>
               <span class="others"><?php print ($view->result!=NULL)?'<span class="title">'.t('Other related events')."</span>":""; ?>  </span>
               <ul>
              <?php print $view->render(); // Print Related events ?>       
                 </ul>
-             <div>
+            
        </div>
     </div>
     <div class="clearfix"></div> 

@@ -47,7 +47,7 @@
 
     <?php foreach ($items as $delta => $item): ?>
   
-      <div class="field-item theme theme-<?php print transliteration_clean_filename(strtolower(render($item))); ?> <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><span><?php print render($item); ?></span></div>
+      <div  title="<?php print render($item); ?>" class="field-item theme theme-<?php print transliteration_clean_filename(strtolower(render($item))); ?> <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><span><?php print render($item); ?></span></div>
     <?php endforeach; ?>
 
 

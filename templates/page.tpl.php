@@ -73,18 +73,23 @@
 
         
      
-  <div id="mainBody" style="min-height:20px;width:100%; ">
+  <div id="mainBody" class="grey-stripe" style="min-height:20px;width:100%; ">
       <div class="centered">
-
+      <?php if ($title): ?>
+      
+      <h1 class="title" id="page-title"><?php print $title; ?></h1>
+      <?php endif; ?>
+      </div>
+  </div>
+      
+        <div id="mainBody" style="min-height:20px;width:100%; ">
+      <div class="centered">
     <div id="content" class="column" role="main">
       <?php print render($page['highlighted']); ?>
       <?php //print $breadcrumb; ?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
       
-      <h1 class="title" id="page-title"><?php print $title; ?></h1>
-      <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print ($is_admin)?$messages:""; ?>
       <?php print render($tabs); ?>

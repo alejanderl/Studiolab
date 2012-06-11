@@ -71,6 +71,7 @@
 ?>
 
  <?php
+   
  /**
   *Beginning of logic blocks
   * - $view           Object for events variables.
@@ -98,10 +99,8 @@
      </div>
 <?php
 $render_opencalls =($view_opencalls->result!=NULL)? ob_get_contents():"";
-
 ob_end_clean();
-
- ?>
+?>
  
 <?php
     $view_assets = views_get_view($viewName);
@@ -114,6 +113,7 @@ ob_end_clean();
  */
 ?>
 
+
 <?php print ($is_admin)?$messages:""; ?>
 <?php print render($tabs); ?>
 <?php print render($page['help']); ?>
@@ -121,63 +121,51 @@ ob_end_clean();
   <ul class="action-links"><?php print render($action_links); ?></ul>
 <?php endif; ?>
 <?php $image_uri = render($node_content['field_stlab_mainimage']);?>
-              
-    
+
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">       
             <div id="project-header">
                 <div id="ph-left">
-                <p class="project-related"><?php print ($node_content['field_stlab_relproject']['#items'])?t("Project").":".render($node_content['field_stlab_relproject']):""; ?></p>
-                <?php print render($node_content['field_stlab_theme']); ?><h1 class="project-title"> <?php print $title; ?> </h1>
-                <?php print render($node_content['field_stlab_strand']); ?>
-                
-                <span class="event-pre-title"><?php echo render($node_content['field_stlab_eventtype'])?></span>
-                <br/>
-                <span class="place"> <?php print render($node_content['field_stlab_place']); ?></span>
-                <br/>
-                <div class="date_range"><?php print DateRange($node_content['field_stlab_eventdate']['#items'],"medium"); ?></div>
-
-                <?php print render($node_content['field_stlab_hashtag']); ?>
-                <span class="admission"><?php print render($node_content['field_stlab_admission']); ?></span>
-                <br/>
-                <p class="intro-tex"><?php print render($node_content['field_stlab_summary']); ?></p>
-                <?php  print $service_links;  ?>
-                </div>
-                <?= $image_uri ?>
+                    <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div><br/>
+                     <h1 class="project-title"> <?php print $title; ?> </h1>
+                     <?= $event_type ; ?>
+                     <?= $related_project ;?>
+                     <?= $strand; ?>                
+                     <?= $place; ?>
+                     <?= $organizer; ?>
+                     <div class="date_range">
+                     <?php miKrumo($node_content['field_stlab_eventdate']); ?>
+                        <?php print DateRange($node_content['field_stlab_eventdate'],"long"); ?>
+                     </div>
+                     <?php print $hashtag; ?>
+                     <?php print $admission; ?>
+                     <?php  print $service_links;  ?>
+                   </div>
+                 <?= $image_uri ?>
             </div>
-            <div class="event-separator clearfix">
-                </div>
+            <div class="event-separator clearfix"></div>
             <div id="event-contents">
                 <br/>
-                <div class="content">
+                <div class="content expandable" >
+                 <p class="intro-text-inline"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php print render($node_content['body']); ?>
                 </div>
             </div>
-
             <div id="project-timeline">
-           <?php  print $render_opencalls;?>
-                
-                         <div id="related-assets">
-                         <?php print ($view_assets->result!=NULL)?'<span class="title">'.t('Media assets')."</span>":""; ?>
-                    <ul>
-                   
-                        <?php print  $render_assets; ?>
-                            
-                       
-                    </ul>
-                </div>
-                
-              
-                  
-                    
-
-                
-              <span class="others"><?php print ($view->result!=NULL)?'<span class="title">'.t('Other related events')."</span>":""; ?>  </span>
+                <?php  print $render_opencalls;?>                
+                <div id="related-assets">
+                   <?php print ($view_assets->result!=NULL)?'<span class="title">'.t('Media assets')."</span>":""; ?>
+                   <ul>                   
+                       <?php print  $render_assets; ?>             
+                   </ul>
+               </div>
+              <span class="others">
+              <?php print ($view->result!=NULL)?'<span class="title">'.t('Other related events')."</span>":""; ?>  </span>
               <ul>
-             <?php print $view->render(); // Print Related events ?>       
-                </ul>
-             <div>
-       </div>
+                 <?php print $view->render(); // Print Related events ?>       
+              </ul>
+         </div>
+         <div class="clearfix"></div>
+        </div>
     </div>
-    <div class="clearfix"></div> 

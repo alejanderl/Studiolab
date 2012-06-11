@@ -25,6 +25,8 @@
 
 <?php
 
+ $from_date=format_date($fields['field_stlab_eventdate']->content,'short_notime');
+ $to_date=($fields['field_stlab_eventdate']->content!=$fields['field_stlab_eventdate_1']->content)?" to ".format_date($fields['field_stlab_eventdate_1']->content,'short_notime'):NULL;
  
   $title=$fields['title']->content;
   $summary="<p>".$fields['field_stlab_summary']->content."</p>";
@@ -35,8 +37,6 @@
   //$theme=field_view_value('node',$node,'field_stlab_theme');//$content['field_stlab_theme']['und'][0]['tid'];
   
 $place=$fields['field_stlab_place']->content ;
-
-
 
 ?>
 
@@ -54,15 +54,11 @@ $place=$fields['field_stlab_place']->content ;
           
                 <?php print $image; ?>
                 
-                <div class="theme-icons">
-                 <?php print ($fields['field_stlab_theme']->content);?><span class="data"><?= $place;?><b>//</b><?= $event_type; ?></span>
-               
-	       
-               
-               </div>
-	      
+                <div class="theme-icons"><?php print ($fields['field_stlab_theme']->content);?></div>
+		<div class="taxos"><span class="data"><?= $place;?><b>//</b><?= $event_type; ?></span></div>	      
                 <h2 class="list"><?php echo $title; ?>//</h2>
-                <?php echo $summary ?>
+                <div class="taxos"><span class="data"><span class="data"><?php echo $from_date ?>
+		<?php echo $to_date ?> </span></div>
                 
             
 

@@ -23,8 +23,14 @@ VERSION:2.0<?php print ("\r\n") ?>
 METHOD:PUBLISH<?php print ("\r\n") ?>
 X-WR-CALNAME: <?php print ($node->title) ?> | StudioLab <?php print ("\r\n") ?> PRODID:-//Drupal// StudioLab<?php print ("\r\n") ?>
 <?php foreach($view->result as $event):
-		$time=($event->field_field_stlab_eventdate[0]['raw']['value']);
-		$time2=($event->field_field_stlab_eventdate[0]['raw']['value2']);
+		$time=($event->field_data_field_stlab_eventdate_field_stlab_eventdate_value);
+		foreach($event->field_field_stlab_eventdate as $finaltime){			
+		 if ($finaltime['raw']['value']==$time){
+		 $time2=($finaltime['raw']['value2']);
+		 break;
+		 }
+		}
+		
 		$fecha2=date('Ymd\THis', $time2);
 		$fecha=date('Ymd\THis', $time);
 		$fechaZ=date('Ymd\THis', $time).Z;  

@@ -104,11 +104,12 @@
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script src="<?php print $base_path .$directory; ?>/js/jquery.expander.js"></script>
 
 <?php if($is_front_page): ?>
   <link type="text/css" rel="stylesheet" href="<?php print $base_path .$directory; ?>/css/Studiolab-css/pagefront.css" />
   
-<script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js?random=<?php echo rand(3,89898);?>"></script>
+<script src="<?php print $base_path .$directory; ?>/js/FullScreenSlider.js?>"></script>
   <script type="text/javascript" >
     $(document).ready (function (){
 								 //div afected, transitiontime, stop time
@@ -125,7 +126,43 @@
         $('#search-header').toggle("fast");
       });
    });
+    
+    
+    
+    
+    // you can override default options globally, so they apply to every .expander() call
+$.expander.defaults.slicePoint = 1120;
+
+$(document).ready(function() {
+  // simple example, using all default options unless overridden globally
+ /* $('div.expandable ').expander();*/
+
+  // *** OR ***
+
+  // override default options (also overrides global overrides)
+  $('div.expandable').expander({
+      // whether to keep the last word of the summary whole (true) or let it slice in the middle of a word (false)
+  preserveWords: true,
+    slicePoint:       1010,  // default is 100
+    expandPrefix:     ' ', // default is '... '
+    expandText:       '... [read more]', // default is 'read more'
+    collapseTimer:    0, // re-collapses after 5 seconds; default is 0, so no re-collapsing
+    userCollapseText: '[^read less]',  // default is 'read less'
+    // effects for expanding and collapsing
+  expandEffect: 'fadeIn',
+  expandSpeed: 250,
+  collapseEffect: 'fadeOut',
+  collapseSpeed: 200
+  });
+
+});
 </script>
+
+
+
+
+
+
 
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
@@ -138,7 +175,7 @@
         print render($main_menu['content']);
         //print render($block);
       ?>
-
+<div class="clearfix"></div>
       </div>
       
       
@@ -146,7 +183,7 @@
     
     
                 
-                <div class="clearfix"></div>
+                
 </div><!-- //top-menu -->
 
 
@@ -171,8 +208,9 @@
                     </nav>
 
                 </div>
-                 <div id="socialIcons" class="floatRight">
+            <div id="socialIcons" class="floatRight">
              <a href="javascript:void(0)" alt="Studiolab Search " title="Studiolab Search"  id="search-header"  > <span> Search </span></a>
+             <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab Youtube " title="Studiolab Youtube"  id="logoyoutubePortada" target="_blank" > <span> Youtube </span></a>
              <a href="http://www.vimeo.com/studiolabproject" alt="Studiolab Vimeo " title="Studiolab Vimeo"  id="logovimeoPortada" target="_blank" > <span> Vimeo </span></a>
              <a href="http://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
              <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
@@ -180,9 +218,9 @@
              <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
              <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div>
-                   <div id="search-block">
+            <div id="search-block">
              <?php  print drupal_render(drupal_get_form('search_form'));?>
-              </div>
+            </div>
                 <div class="clearfix"></div>                 
                 
             </div>
@@ -197,14 +235,116 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  
+  
+  
+  
+  
   <div id="footer">
-        <div id="studioLabText" class="centered">
-         <img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="37" width="146"/> <p>For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091	     info@sciencegallery.com	        www.sciencegallery.com</p>
-        </div>
-        <div id="sevencapacitiesText" class="centered">
-             <img src="<?= $base_path.$directory; ?>/images/7capacities.png" height="46" width="59"/> <p>For Information: Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland+353 1 896 4091 info@sciencegallery.com   www.sciencegallery.com</p>
+   <div class="centered">
+  
+  <div class="container_12 ">
+
+  <div class="grid_12">
+
+	<h2 class="top">Studiolab Partner Information</h2>
+
+  </div>
+  <!-- end .grid_12 -->
+  <div class="clear"></div>
+
+  <div class="hr-line"></div>
+
+  <div class="grid_4">
+  
+      <div class="left-info f-partners">
+
+		<a href="http://www.sciencegallery.com">Science Gallery, Trinity College, Dublin</a>
+		<a href="http://www.lelaboratoire.org/">Le Laboratoire, Paris</a>
+		<a href="http://www.rca.ac.uk/">The Royal College of Art, London</a>
+		<a href="http://www.aec.at/">Ars Electronica, Linz</a>
+
+
+		
+	</div>
+
+  </div>
+  <!-- end .grid_4 -->
+  <div class="grid_4">
+		
+      <div class="left-info f-partners">
+
+		<a href="http://medialab-prado.es/">MediaLab Prado, Madrid</a>
+		<a href="http://www.isi.it/">ISI Foundation, Turin</a>
+		<a href="http://www.optofonica.com/">Optofonica, Amsterdam</a>
+		<a href="http://www.erg.be/">Ecole de Recherche Graphique, Brussels</a>
+		<a href="http://www.olats.org/">Leonardo/Olats, France</a>
+		
+	</div>
+
+	
+  </div>
+  <!-- end .grid_4 -->
+    <div class="grid_4">
+    
+    	       <div class="left-info f-partners">
+
+			<a href="http://www.ciant.cz/">CIANT, Prague</a>
+			<a href="http://rixc.lv/">RIX-C - The Center for New Media Culture, Riga</a>
+			<a href="http://www.museion.ku.dk/">Medical Museion, Copenhagen </a>
+			<a href="http://www.mada.org.il/en">Bloomfield Science Museum, Jerusalem</a>
+
+			</div>
+
+    
+		
+
+
+	
+  </div>
+  <!-- end .grid_4 -->
+  <div class="clear"></div>
+
+<div class="hr-line" style="margin: 20px 0 0;"></div>
+
+
+  <div class="grid_12">
+	
+	
+	<div class="right-info ">
+
+		<span class="contact">For Information - <i>Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland</i>		
+		<span style="color: #666;">+353 1 896 4091</span>
+		<a href="mailto:info@sciencegallery.com">info@sciencegallery.com</a	>
+		<a href="http://www.sciencegallery.com">www.sciencegallery.com</a></span>
+
+	</div>
+
+
+  </div>
+  <!-- end .grid_12 -->
+  <div class="clearfix"></div>
+<div class="hr-line" style="margin: 20px 0 0;"></div>
+
+    <div class="grid_12">
+
+      		<img src="<?= $base_path.$directory; ?>/images/fp7.png"  class="fp7"/> 
+     
+
+			<p>
+Studiolab is a project funded by the European Commission. The views and opinions here expressed do not necessarily reflect those of the European Community and the Community is not liable for any use that may be made of the information contained therein.			
+			</p>
+	
+
+      <!-- end .grid_12 -->
+  <div class="clearfix"></div>
+
+</div>	
+  
+  
+    <div id="studioLabText" class="centered">
         
-        </div>
+  </div>
     </div>
 </body>
 </html>

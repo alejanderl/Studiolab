@@ -45,7 +45,7 @@ width:100%;
 
 <?php
 
-if($diacomparar!=$diacomparar_antes&&$diacomparar): ?>
+if(0/*$diacomparar!=$diacomparar_antes&&$diacomparar*/): ?>
 <div class="separar"></div>
     <div class="whatson-vacio">
                                 <div class="whatson-dia"><?= format_date($filas[$puntitos+$n]->field_field_stlab_eventdate[0]['raw']['value'],'custom',"l, j"); ?></div>

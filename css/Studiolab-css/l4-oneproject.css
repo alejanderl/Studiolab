@@ -16,13 +16,13 @@ margin-bottom: 20px;
     width:450px;
     text-align: left;
     fon-family:arial;
-    font-size:16px;
+    font-size:14px;
     line-height: 1,5em;
     color:rgb(51,51,51);
 }
 
 #ph-left span {
-    margin-left:25px;
+   
 }
 
 #ph-left span.date-display-single {
@@ -45,12 +45,12 @@ margin-bottom: 20px;
 
 .project-separator {
     
-   
+   margin-bottom: 20px;
     width: 100%;
-    background-color:#35ABE6;
+    background-color:#F3F1F1;
 }
 .project-separator .centered {
-  background-color:#35ABE6;
+  background-color:#F3F1F1;
   padding:5px;
   font-style: strong;
   
@@ -61,11 +61,12 @@ width: 400px;
 float: left;
 }
 
-#project-timeline { 
-float: right;
-width: 500px;
 
-font-style: weight;
+#project-timeline {
+    float: right;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 500px;
 }
 
 #project-contents ul  {
@@ -85,15 +86,10 @@ float: left;
 float:left;
 border-radius: 10px;
 display: inline;
-m
+
 }
 
-#project-timeline {
-    float: right;
-    margin-bottom: 0px;
-    margin-top: 20px;
-    width: 500px;
-}
+
 
 #project-timeline ul  {
 display: table;
@@ -106,7 +102,7 @@ width: 500px;
 list-style: none;
 width: 500px;
 margin-bottom: 10px;
-margin-top: 10px;
+margin-top: 0px;
 display: table-cell;
 float: left;
 font-size:12px;
@@ -123,14 +119,32 @@ float:left;
 border-radius: 25px;
 margin-right:10px;
 box-shadow: 0 18px 5px -15px #666666;
+transition: all 0.2s;
+-moz-transition: all 0.2s;
+-webkit-transition: all 0.2s;
+-o-transition: all 0.2s;
 }
+
+#project-timeline ul img:hover  {
+margin-top:-5px;
+margin-bottom:5px;
+box-shadow: 0 25px 15px -10px #ccc;
+}
+
+
+
 #project-timeline h3 {
     margin: 0;
 }
 #project-timeline h3 a{
     font-size:18px;
     text-decoration:none;
-    color:#666;
+    color:#000;
+    
+}
+#project-timeline h3 a:hover{
+background-color:#ddd;
+color: #333;
     
 }
 .project-separator .related-projects a {
@@ -145,7 +159,8 @@ h1.project-title {
     font-size: 28px;
     margin: 0;
     margin-bottom:10px;
-    margin-left: 25px;
+    text-align: left;
+
     
 }
 .pager li {
@@ -227,10 +242,19 @@ h1.project-title {
   color:#fff;
   background-color: #000;
 }
-.intro-tex {
+
+.intro-text-inline {
+    
   font-size: 17px;
     line-height: 1.5em;
-    min-height: 150px;
+    font: normal 20px/28px Arial, "Times New Roman", Times, serif;
+	letter-spacing: 0px;
+	 color:#35ABE6;
+}
+.intro-text {
+  font-size: 17px;
+    line-height: 1.5em;
+
 }
 
 
@@ -261,5 +285,27 @@ min-height: 50px !important;
     
 }
 div.date_range {
-    margin-left:25px;
+   
+}
+.content-type {
+ margin: 0;
+padding: 0;
+margin-top: -6px;
+font-size: 18px;
+color: #666;
+text-transform: uppercase;
+}
+.place .lineage-item, .place span.element {
+    padding-right: 5px;
+    border-right: 1px solid #ccc;
+}
+
+.place .lineage-item:last-child, .place span.element:last-child{
+    border-right: none;
+}
+
+ .place span.element {
+    padding-left: 3px;
+    padding-right: 0px;
+    border-right: 1px solid #ccc;
 }

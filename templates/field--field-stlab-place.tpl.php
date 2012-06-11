@@ -47,6 +47,6 @@
 
 
     <?php foreach ($items as $delta => $item): ?>
-      <a href="<?php echo $element['#items'][0]['taxonomy_term']->field_trm_glink[$lang][0]['value']?>" target="_blank"><?php print render($item); ?></a> - <?php echo $element['#items'][0]['taxonomy_term']->field_trm_location[$lang][0]['city']?>
+      <a href="<?php echo $element['#items'][0]['taxonomy_term']->field_trm_glink[$lang][0]['value']?>" target="_blank" title="Find in a map"><?php print render($item); ?></a> - <?php echo $element['#items'][0]['taxonomy_term']->field_trm_location[$lang][0]['city']?>
     <?php endforeach; ?>
 

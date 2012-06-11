@@ -133,9 +133,7 @@
         <div class="full-width">
          <div class="centered">
             <div id="project-contents">
-                <p class="summary">
-                
-                <?=  $node->body['en']['0']['summary'];?></p>
+                <p class="summary"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?=  render($node_content['field_stlab_doc']);?>
                 <?= $services_links; ?>
                 <?php print render($node_content['body']); ?>

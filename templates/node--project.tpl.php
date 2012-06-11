@@ -91,7 +91,7 @@
   $hashtag=render($content['field_stlab_hashtag']);
   $image=field_view_field('node',$node,'field_stlab_listimage');
   $image_uri=image_style_url('225x90imagelist', $node->field_stlab_listimage['und'][0]['uri']);
-  $imagelist=theme('image-style', array('style_name' => 'l4-bigimage', 'path' => file_build_uri($image_uri   )));
+  $imagelist=theme('image-style', array('style_name' => '225x90imagelist', 'path' => file_build_uri($image_uri )));
 ?>
 
 

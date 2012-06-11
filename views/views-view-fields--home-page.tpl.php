@@ -24,15 +24,17 @@
  */
 ?>
 <?php
+
+$pre_type=ContentType2Print($fields['type']->content);
+$type=($pre_type!=NULL) ? "<span>". $pre_type." </span> ":NULL ;
 $title=$fields['title']->content ;
 $image=$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
-$date="";//format_date($predate[0],"short");
-//$summary=substr($fields['body']->content,0,100); ;
+$date="";
 $hashtag=(isset($fields['field_stlab_hashtag']))?sprintf(' <strong>/</strong> <span class="hash">%s</span>',$fields['field_stlab_hashtag']->content) :"";
 $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme']->content:NULL ;
-
+ $city=$fields['field_trm_location']->content;
 ?>
 
  <li>
@@ -41,11 +43,11 @@ $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme
      <div class="inner-text">
      <?php print ($fields['promote_node']->content);?>   
      <?php // print flag_create_link('preomoto_to_frontpage', $fields['nid']->raw); ?>
-         <h2 ><?= $title; ?></h2><br/>
+         <div class="theme-home" ><?= $theme; ?> </div></h2> <h2 ><?= $title; ?></h2><br/>
           
    
          
-         <div class="dates water-spot" ><?= $theme; ?><?= $place; ?>  <?= $date; ?><?= $hashtag; ?></div>
+         <div class="dates water-spot" ><?= $type; ?> <?= $place; ?> <?= $city; ?> <?= $date; ?> </div>
      </div>
 </li>
 
