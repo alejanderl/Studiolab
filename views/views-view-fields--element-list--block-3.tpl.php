@@ -33,8 +33,8 @@ $date=format_date($predate[0],"short_notime");
 $event_type=$fields['field_stlab_eventtype']->content ;     
 ?>
   <li>
-        <?= $image; ?>
-        <span class=""><?= $place; ?> // <?= $event_type; ?> </span>
-        <h3 ><a href="#"><?= $title; ?></a></h3>
-        <?= $date; ?> 
+        <?php print $image; ?>
+        <span class=""><?php print $place; ?> // <?php print $event_type; ?> </span>
+        <h3 ><a href="#"><?php print $title; ?></a></h3>
+        <?php print $date; ?> 
   </li>

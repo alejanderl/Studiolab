@@ -41,15 +41,15 @@ $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme
 
  <li>
             
-      <?= $image; ?>
+      <?php print $image; ?>
      <div class="inner-text">
      <?php print ($fields['promote_node']->content);?>   
      <?php // print flag_create_link('preomoto_to_frontpage', $fields['nid']->raw); ?>
-         <div class="theme-home" ><?= $theme; ?> </div></h2> <h2 ><?= $title; ?></h2><br/>
+         <div class="theme-home" ><?php print $theme; ?> </div></h2> <h2 ><?php print $title; ?></h2><br/>
           
    
          
-         <div class="dates water-spot" ><?= $type; ?> <?= $place; ?> <?= $city; ?> <?= $date; ?> </div>
+         <div class="dates water-spot" ><?php print $type; ?> <?php print $place; ?> <?php print $city; ?> <?php print $date; ?> </div>
      </div>
 </li>
 

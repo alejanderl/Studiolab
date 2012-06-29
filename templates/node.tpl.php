@@ -116,8 +116,8 @@
                <?php print render($content['field_stlab_theme']); ?>
                <?php print render($content['field_stlab_strand']); ?>
                </div>
-                <h2 class="list"><?= l($title,'node/'.$node->nid); ?>//</h2>
-                <?= $summary ?>
+                <h2 class="list"><?php print l($title,'node/'.$node->nid); ?>//</h2>
+                <?php print $summary ?>
                 
             </div>
 

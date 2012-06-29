@@ -129,21 +129,21 @@ ob_end_clean();
                 <div id="ph-left">
                     <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div><br/>
                      <h1 class="project-title"> <?php print $title; ?> </h1>
-                     <?= $event_type ; ?>
-                     <?= $related_project ;?>
-                     <?= $strand; ?>                
-                     <?= $place; ?>
-                     <?= $organizer; ?>
+                     <?php print $event_type ; ?>
+                     <?php print $related_project ;?>
+                     <?php print $strand; ?>                
+                     <?php print $place; ?>
+                     <?php print $organizer; ?>
                      <div class="date_range">
                      
                         <?php print DateRange($node_content['field_stlab_eventdate'],"long"); ?>
                      </div>
-                     <?= $URL_associated;?>
+                     <?php print $URL_associated;?>
                      <?php print $hashtag; ?>
                      <?php print $admission; ?>
                      <?php  print $service_links;  ?>
                    </div>
-                 <?= $image_uri ?>
+                 <?php print $image_uri ?>
             </div>
             <div class="event-separator clearfix"></div>
             <div id="event-contents">

@@ -65,7 +65,7 @@ $date="";//format_date($predate[0],"short");
 
  <li>
       
-       <?= $image; ?>
+       <?php print $image; ?>
 
 
 </li>

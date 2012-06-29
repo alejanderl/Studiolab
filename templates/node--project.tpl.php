@@ -108,8 +108,8 @@
                <?php print render($content['field_stlab_strand']); ?>
                </div>
                <?php //print flag_create_link('preomoto_to_frontpage', $node->nid); ?>
-                <h2 class="list"><?= l($title,'node/'.$node->nid); ?>//</h2>
-                <?= $summary ?>
+                <h2 class="list"><?php print l($title,'node/'.$node->nid); ?>//</h2>
+                <?php print $summary ?>
                 
             </div>
 

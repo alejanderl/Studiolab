@@ -195,7 +195,7 @@ $(document).ready(function() {
             <div id="topmid-menu">
             
                 <div id="logo">
-                    <a href="<?= $base_path; ?>"><img src="<?= $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/></a>
+                    <a href="<?php print $base_path; ?>"><img src="<?php print $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/></a>
                 </div>
                 <div id="big-menu">
                 <nav>
@@ -216,7 +216,7 @@ $(document).ready(function() {
              <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
              <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
              <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="<?= $base_path; ?>feed" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+             <a href="<?php print $base_path; ?>feed" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div>
             <div id="search-block">
              <?php  print drupal_render(drupal_get_form('search_form'));?>
@@ -328,7 +328,7 @@ $(document).ready(function() {
 
     <div class="grid_12">
 
-      		<img src="<?= $base_path.$directory; ?>/images/fp7.png"  class="fp7"/> 
+      		<img src="<?php print $base_path.$directory; ?>/images/fp7.png"  class="fp7"/> 
      
 
 			<p>

@@ -215,8 +215,8 @@ function Studiolab_preprocess_page(&$variables) {
             $attributes_rss = array('attributes' => array('title' => t("Suscribe to this project's RSS")), 'html' => TRUE);
             $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
             $image_rss_path= $variables['base_path'].path_to_theme()."/cssimgs/rss.png";
-            $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://cursos.dabne.net/studiolab/project-ical/'.arg(1), $attributes);
-            $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://cursos.dabne.net/studiolab/rss/'.arg(1), $attributes_rss);
+            $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://studiolabproject.eu/project-ical/'.arg(1), $attributes);
+            $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://studiolabproject.eu/studiolab/rss/'.arg(1), $attributes_rss);
         };
 }
 

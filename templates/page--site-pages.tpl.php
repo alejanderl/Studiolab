@@ -144,7 +144,7 @@
                 </div>
                 
                 
-                <?= $image_uri ?>
+                <?php print $image_uri ?>
             </div>
              <div class="clearfix"></div>
         </div>

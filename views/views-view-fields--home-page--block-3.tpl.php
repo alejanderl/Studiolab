@@ -40,7 +40,7 @@ $image=$fields['field_stlab_mainimage']->content ;
      
      
           
-         <div class="intro"><?= $summary.$fields['edit_node']->content; ?></div>
+         <div class="intro"><?php print ($summary.$fields['edit_node']->content); ?></div>
          
 
 

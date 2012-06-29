@@ -43,8 +43,8 @@ $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme
  <li>
      
      
-              <span><?php //print $theme; ?><?= (isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):"";  ?></span>        
-         <h3 ><a href="<?= $path; ?>"><?= $summary; ?></a></h3><br/>
+              <span><?php //print $theme; ?><?php print (isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):"";  ?></span>        
+         <h3 ><a href="<?php print $path; ?>"><?php print $summary; ?></a></h3><br/>
          
 
 </li>

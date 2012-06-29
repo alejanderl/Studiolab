@@ -163,19 +163,19 @@
                  <br/>
                  <h1 class="project-title"> <?php print $title; ?> </h1>
                      <span class="content-type">Project</span>
-                     <?= $strand; ?>
-                     <?= $place; ?>
-                     <?= $organizer;?>
+                     <?php print $strand; ?>
+                     <?php print $place; ?>
+                     <?php print $organizer;?>
                      
                 <div class="date_range">               
-                <?= $from_date?><?= $to_date?> 
+                <?php print $from_date?><?php print $to_date?> 
                 </div>
-                     <?= $URL_associated;?>
+                     <?php print $URL_associated;?>
                      <?php print $hashtag; ?>
                      <?php print $admission; ?>
                      <?php  print $service_links;  ?>
                 </div>                
-                <?= $image_uri ?>
+                <?php print $image_uri ?>
                 
             </div>
              <div class="clearfix"></div>
@@ -184,8 +184,8 @@
             <div class=" centered">
                 <span class="about">About this project</span>
                 <span class="rss-ical">
-                    <?= $rssURL ?>
-                    <?= $icalURL ?>
+                    <?php print $rssURL ?>
+                    <?php print $icalURL ?>
                </span>
             </div>
         </div>

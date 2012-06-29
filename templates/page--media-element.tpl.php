@@ -111,7 +111,7 @@
    
         <div class="media-separator">
             <div class=" centered" >
-                <?= print render($node_content['field_stlab_video']); ?><?= print render($node_content['field_stlab_flickrset']); ?>
+                <?php print print render($node_content['field_stlab_video']); ?><?php print print render($node_content['field_stlab_flickrset']); ?>
             </div>
         </div>
          <div id="mainBody" style="min-height:20px;width:100%; ">
@@ -130,8 +130,8 @@
          <div class="centered">
             <div id="project-contents">
                 <p class="summary"><?php print render($node_content['field_stlab_summary']); ?></p>
-                <?=  render($node_content['field_stlab_doc']);?>
-                <?= $services_links; ?>
+                <?php print  render($node_content['field_stlab_doc']);?>
+                <?php print $services_links; ?>
                 <?php print render($node_content['body']); ?>
                 <br/>
                 
@@ -147,7 +147,7 @@
                     
                 </div>
                 
-                     <span class="title"><?=t('Belongs to:')?></span>
+                     <span class="title"><?php print t('Belongs to:')?></span>
  
               <ul>
             
