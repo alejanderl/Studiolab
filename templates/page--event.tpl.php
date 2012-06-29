@@ -92,7 +92,7 @@
     $view_opencalls->execute();
   ob_start();?>
    <div id="related-opencalls">
-    <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Opencalls')."</span>":"";?>
+    <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Open calls')."</span>":"";?>
      <ul>
           <?php print $view_opencalls->render();  ?>       
      </ul>
@@ -135,9 +135,10 @@ ob_end_clean();
                      <?= $place; ?>
                      <?= $organizer; ?>
                      <div class="date_range">
-                     <?php miKrumo($node_content['field_stlab_eventdate']); ?>
+                     
                         <?php print DateRange($node_content['field_stlab_eventdate'],"long"); ?>
                      </div>
+                     <?= $URL_associated;?>
                      <?php print $hashtag; ?>
                      <?php print $admission; ?>
                      <?php  print $service_links;  ?>

@@ -77,40 +77,36 @@
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif;
       // services links
-   
       ?>
       <?php
-    //$argumentos_para_view= implode (',',$nodepasafotos);
-                            
-                             $viewName='element_list';
-                             $display_id='block_3';
-                             $myArgs=array($node_content['field_stlab_relproject']['#items']['0']['nid']);
-                             
-                             
-                             $view_event_belonged= views_get_view($viewName);
-                             $view_event_belonged->set_arguments($myArgs);
-                             $view_event_belonged->set_display($display_id);
-                             $view_event_belonged->execute();
-                             miKrumo($view_event_belonged->result[0]->field_field_stlab_relproject);
-                             
-                             $arg_project=array ($view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid']);
-                             $view_project_belonged= views_get_view($viewName);
-                             $view_project_belonged->set_arguments($arg_project);
-                             $view_project_belonged->set_display($display_id);
-                             $view_project_belonged->execute();
-                             
-                             $eventsIdsrelated=array();
-                             /**
-                              *Need to get the ids of all related nodes to look for all the media assets related to the project.
-                             */
-                             foreach($view_event_belonged->result as $event ){
-                                 
-                                array_push($eventsIdsrelated,$event->nid);
-                             }
-                                
-                                
-                                $eventsIdsrelated=implode("+",$eventsIdsrelated);
-                                ?>
+        $viewName='element_list';
+        $display_id='block_3';
+        $myArgs=array($node_content['field_stlab_relproject']['#items']['0']['nid']);
+        
+        
+        $view_event_belonged= views_get_view($viewName);
+        $view_event_belonged->set_arguments($myArgs);
+        $view_event_belonged->set_display($display_id);
+        $view_event_belonged->execute();
+         
+        $arg_project=array ($view_event_belonged->result[0]->field_field_stlab_relproject[0]["raw"]['nid']);
+        $view_project_belonged= views_get_view($viewName);
+        $view_project_belonged->set_arguments($arg_project);
+        $view_project_belonged->set_display($display_id);
+        $view_project_belonged->execute();
+        
+        $eventsIdsrelated=array();
+        /**
+         *Need to get the ids of all related nodes to look for all the media assets related to the project.
+        */
+        foreach($view_event_belonged->result as $event ){
+            
+           array_push($eventsIdsrelated,$event->nid);
+        }
+           
+           
+           $eventsIdsrelated=implode("+",$eventsIdsrelated);
+           ?>
     <div class="clearfix"></div>        
    
         <div class="media-separator">
@@ -155,15 +151,13 @@
  
               <ul>
             
-               <h3><?php print l($view_project_belonged->result[0]->node_title,"node/".$arg_project); ?></h3>
+              <h3><?php  print l($view_project_belonged->result[0]->node_title,"node/".$arg_project[0]); ?></h3>
              
                <?php print $view_event_belonged->render(); ?>
 
 
                 </ul>
-                 <?php if($rendered_view!=NULL):?>
-                     <span class="title"><?=t('Related assets:')?></span><?= $rendered_view?>
-                    <?php endif ?>
+                 
     
             <div>
         

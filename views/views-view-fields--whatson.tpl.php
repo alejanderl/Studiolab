@@ -41,7 +41,7 @@ $place=$fields['field_stlab_place']->content ;
 ?>
 
 
- <div class="assets-list">
+ <div class="assets-list ">
         
         
        
@@ -56,7 +56,7 @@ $place=$fields['field_stlab_place']->content ;
                 
                 <div class="theme-icons"><?php print ($fields['field_stlab_theme']->content);?></div>
 		<div class="taxos"><span class="data"><?= $place;?><b>//</b><?= $event_type; ?></span></div>	      
-                <h2 class="list"><?php echo $title; ?>//</h2>
+                <h2 class="list"><?php echo $title; ?></h2>
                 <div class="taxos"><span class="data"><span class="data"><?php echo $from_date ?>
 		<?php echo $to_date ?> </span></div>
                 

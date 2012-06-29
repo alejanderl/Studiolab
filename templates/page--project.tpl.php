@@ -133,9 +133,11 @@
       
    <?php
    $image_uri = render($node_content['field_stlab_mainimage']);
-   $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long")):"";
-   $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long")):"";
+   $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long_no_time")):"";
+   $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long_no_time")):"";
    //$image_title=($node_content['field_stlab_mainimage']['#items'][0]['title']);
+   
+   
    ?>
   
                    
@@ -205,12 +207,14 @@
               </ul>
  
              <div id="related-assets">
+             <ul>
                 <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
                 <?php print $render_assets;?>
+                </ul>
              </div>
              
              <div id="related-opencalls">
-                 <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
+                 <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related open calls')."</span>":""; ?>
                  <ul>
                  <?php  print $render_opencalls;?>
                  </ul>

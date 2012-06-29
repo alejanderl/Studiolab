@@ -154,7 +154,12 @@ function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
  */
 
 function Studiolab_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+  
+  if(arg(0)=="feed"){
+    //miKrumo($variables);
+     $variables['theme_hook_suggestions'][]='html__rss';
+    
+  }
 
   
 
@@ -184,19 +189,17 @@ function Studiolab_preprocess_page(&$variables) {
    if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
      $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
      $node_content=$variables['node_content'];
-     
-     $variables['call_type']=(isset($node_content['field_stlab_calltype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">%s</span> / %s  </p>',t("Open call"),render($node_content['field_stlab_calltype'])):"";;
-     
-     $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";;
-     $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">Event</span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";;
-     $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";;
-     $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strand"),render($node_content['field_stlab_strand'])):"";;
-     $variables['organizer']=(isset($node_content['field_stlab_org']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Organizer"),render($node_content['field_stlab_org'])):"";;
-     $variables['URL_associated']=(isset($node_content['field_stlab_link']))?sprintf ( '<p class="place">%s  </p>',render($node_content['field_stlab_link'])):"";;
-    
-    
+     $variables['call_type']=sprintf ( '<p class="event-pre-title"><span class="content-type">%s</span>  %s  </p>',t("Open call"),"");
+     $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";
+     $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">Event</span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";
+     $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";
+     $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strand"),render($node_content['field_stlab_strand'])):"";
+     $variables['organizer']=(isset($node_content['field_stlab_org']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Organizer"),render($node_content['field_stlab_org'])):"";
+     $variables['URL_associated']=(isset($node_content['field_stlab_link']))?sprintf ( '<p class="place">%s  </p>',render($node_content['field_stlab_link'])):"";
      $variables['hashtag']=(isset($node_content['field_stlab_hashtag']))?sprintf ( '%s  <br/>',render($node_content['field_stlab_hashtag'])):"";;
-     $variables['admission']=(isset($node_content['field_stlab_admission']))?sprintf ( '<span class="admission">%s</span><br/>     <br/>',render($node_content['field_stlab_admission'])):"";;
+     $variables['admission']=(isset($node_content['field_stlab_admission']))?sprintf ( '<span class="admission">%s</span><br/>     <br/>',render($node_content['field_stlab_admission'])):"";
+     //$variables['call_type']=(isset($node_content['field_stlab_calltype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">%s</span> / %s  </p>',t("Open call"),render($node_content['field_stlab_calltype'])):"";
+     
     }
   }
   
@@ -258,6 +261,7 @@ function Studiolab_process_page(&$variables) {
          $variables['theme_hook_suggestions'][] = 'page__lists';
           
        }
+       
        
        
    if (($variables['is_front'])){
@@ -385,11 +389,13 @@ function DateRangeWhatson($dates,$format_date,$specific_month){
     }
 }
 
-function ContentType2Print($content_type){
-     
-     $allowed_content= array("Project","Event","Media Asset","Prototyping");
+function ContentType2Print($content_type,$event_type){
+   
+     $allowed_content= array("Project","Media Asset","Prototyping","Open Call");
      if (in_array($content_type,$allowed_content)){
           return $content_type;
+     }else if ($content_type=="Event"){
+        return $event_type; 
      }else{
           return NULL;
      }

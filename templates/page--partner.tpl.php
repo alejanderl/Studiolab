@@ -67,55 +67,55 @@
  * @see template_preprocess_page()
  * @see zen_preprocess_page()
  * @see template_process()
- */ 
+ */
 ?>
 
-
-               
-<?php  $prototyping_events=array();
-     
-     foreach($node_content['field_stlab_relprotproject']['#items'] as $event ){        
-        array_push($prototyping_events,$event['nid']);        
-     }
-     
- $prototyping_events=implode("+",$prototyping_events);
-
-     $viewName='element_list';
-     $display_id='block_3';
-     $myArgs=array ($node->nid);
-     $view_prototyping_events = views_get_view($viewName);
-     $view_prototyping_events->set_display($display_id);
-     $view_prototyping_events->set_arguments(array($prototyping_events));
-     //$view->init_display();
-     $view_prototyping_events->execute();   
-     $eventsIdsrelated=array();
-     
-     /**
-      *Need to get the ids of all related nodes to look for all the media assets related to the project.
-     */
-     foreach($view_prototyping_events->result as $event ){          
-        array_push($eventsIdsrelated,$event->nid);
-     }
-    $eventsIdsrelated=implode("+",$eventsIdsrelated);
-
-     $view_opencalls = views_get_view($viewName);
-     $view_opencalls->set_arguments(array($eventsIdsrelated));
-     $view_opencalls->set_display("block_2");
-     $view_opencalls->execute();
-     $render_opencalls=$view_opencalls->render();
-     
-?>
+                
 <?php
-     $view_assets = views_get_view($viewName);
-     $view_assets->set_arguments(array($eventsIdsrelated));
-     $view_assets->set_display("block_1");
-     $view_assets->execute();
-     $render_assets=$view_assets->render();
+    if (arg(1)==38){
+               
+         $block_title=t("Partners"   );
+     $viewName='element_list';
+     $display_id='block_4';
+     $myArgs=array ($node->nid);
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     //$view->set_arguments($myArgs);
+     //$view->init_display();
+     $view->execute();
+     $render_partners=$view->render();
+     
+     }
+     
+       if (arg(1)==12){
+               
+        $block_title=t("Prototyping");
+     $viewName='element_list';
+     $display_id='prototyping';
+     $myArgs=array ($node->nid);
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     //$view->set_arguments($myArgs);
+     //$view->init_display();
+     $view->execute();
+     $render_prototyping=$view->render();
+     
+     }
+    
+     
 ?>
-      
-           
-   <?php $image_uri = render($node_content['field_stlab_mainimage']);?>
 
+    
+   
+
+      
+   <?php  $image_uri = render($node_content['field_stlab_mainimage']);?>
+                   
+        
 
 <?php print ($is_admin)?$messages:""; ?>
 <?php print render($tabs); ?>
@@ -131,69 +131,53 @@
             <div id="project-header">
             
                 <div id="ph-left">
-    <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div>
-                 <br/>
-                 <h1 class="project-title"> <?php print $title; ?> </h1>
-                     <span class="content-type">Prototype</span>
-                     <?= $strand; ?>
-                     <?= $place; ?>
-                     <?= $organizer; ?>
-                <div class="date_range">               
-                <?= $from_date?><?= $to_date?> 
+                <article>
+          
+                <h1 class="project-title"> <?php print $title; ?> </h1>
+                   <p class="place"><span class="blue-title"><?php print render($node_content['field_stlab_partnertype']); ?></span></p>           
+                <?php print render($node_content['field_stlab_theme']); ?> <?php print render($node_content['field_stlab_strand']); ?>
+                       <p class="place"><?php print render($node_content['field_stlab_link']); ?></p>
+              <p class="place"><?php print render($node_content['field_stlab_place']); ?></p>
+                <br/>
+                
+                <?php print render($node_content['field_stlab_hashtag']); ?>
+                <p class="intro-text"><?php print render($node_content['field_stlab_summary']); ?></p>
+                <p class="intro-tex"><?php print render($node_content['body']['#items'][0]['summary']); ?></p>
+              
+              
+                <?php  print $service_links;  ?>
                 </div>
                 
-                     <?php print $hashtag; ?>
-
-               
-                     <?php print $admission; ?>
-                     <?php  print $service_links;  ?>
-                </div>                
+                
                 <?= $image_uri ?>
             </div>
              <div class="clearfix"></div>
         </div>
-        <div class="project-separator">
-            <div class=" centered">
-                <span class="about"><?= t("About this prototyping");?></span>
-                <span class="rss-ical">
-                    
-               </span>
-            </div>
+        
         </div>
         <div class="full-width">
          <div class="centered">
-            <div id="project-contents">
+            <div id="project-contents" class="site-pages ">
                
                 <br/>
-                <div class="content expandable">
-                <p class="intro-text-inline"><?php print render($node_content['field_stlab_summary']); ?></p>
+                <div class="content">
                 <?php print render($node_content['body']); ?>
                 </div>
-                              
+                </article>                   
             </div>
-            <div id="project-timeline">
-            <?php  print ($view_prototyping_events->result!=NULL)?'<span class="title">'.t('Events for prototyping')."</span>":"";?>
+           
+            <div id="partners">
+            <?php print ($view->result!=NULL)?'<span class="title">'.$block_title."</span>":"";?>
               <ul>
-               <?php print $view_prototyping_events->render();  ?>
+               <?php print $render_partners;  ?>
+               <?php print $render_prototyping;  ?>
               </ul>
- 
-             <div id="related-assets">
-                <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
-                <?php print $render_assets;?>
-             </div>
-             
-             <div id="related-opencalls">
-                 <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
-                 <ul>
-                 <?php  print $render_opencalls;?>
-                 </ul>
-             </div>
             <div>     
-        
+        <div class="clearfix"></div>  
          </div>
         </div>
     </div>
-<div class="clearfix"></div>  
+
     
     
 

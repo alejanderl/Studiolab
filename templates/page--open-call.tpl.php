@@ -75,8 +75,8 @@
   $hashtag=(isset($node_content['field_stlab_hashtag']))?sprintf ( '%s  <br/>',render($node_content['field_stlab_hashtag'])):"";;
   $strands=(isset($node_content['field_stlab_strand']))?sprintf ('<span class="date">%s</span>    <br/>  ' ,render($node_content['field_stlab_strand'])) :"" ;      
   $themes=(isset($node_content['field_stlab_theme']))?sprintf ('<span class="date">%s</span>    <br/>  ' ,render($node_content['field_stlab_theme'])) :"" ;      
-  $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long")):"";
-  $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long")):"";
+  $from_date=(isset($node->field_stlab_duration['und']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node->field_stlab_duration['und']['0']['value'],"long_no_time")):"";
+  $to_date=(isset($node->field_stlab_duration['und']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node->field_stlab_duration['und']['0']['value2'],"long_no_time")):"";
   
  /**
   *Beginning of logic blocks

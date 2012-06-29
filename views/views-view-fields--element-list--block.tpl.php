@@ -53,6 +53,6 @@ $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
 <li>
     
    <?= $image; ?>
-   <?= $asset_type?><h3 ><?= $title; ?></h3>
+   <span class="data"><?= $asset_type?></span><h3 ><?= $title; ?></h3>
    
  </li>

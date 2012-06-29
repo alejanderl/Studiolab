@@ -111,7 +111,7 @@
       </ul>
       </div>
       <div class="center">
-      <a href="<?= $base_path ?>whatson"><img src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
+      <a href="<?= $base_path ?>whatson"><img class="whatson-front" src="<?= $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
                     <ul id="whats-on">
                     
                    <?php 
@@ -130,8 +130,8 @@
      $myArgs="";
      //$myArgs=$argumentos_para_view;
      print views_embed_view($viewName, $display_id, $myArgs);               
-     ?>
-     <img src="<?= $base_path.$directory; ?>/images/joinus.png">
+     ?><a href="http://community.studiolabproject.eu/" target="_blank">
+     <img src="<?= $base_path.$directory; ?>/images/joinus.png"></a>
       </div>
       
       </div>

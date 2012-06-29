@@ -28,7 +28,8 @@ $title=$fields['title']->content ;
 $image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_listimage']->content:$fields['field_stlab_mainimage']->content ;
 $place=$fields['field_stlab_place']->content ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
-$date=format_date($predate[0],"short");
+$date=format_date($predate[0],"short_notime");
+
 $event_type=$fields['field_stlab_eventtype']->content ;     
 ?>
   <li>

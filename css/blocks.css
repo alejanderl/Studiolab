@@ -199,16 +199,32 @@ h2.top {
     line-height: 20px;
     padding: 20px 0;
 }
-.f-partners a {
+.f-partners a{
     clear: left;
     color: #666666;
     display: block;
     float: left;
-    font-size: 13px;
+    font-size: 11px;
     margin: 3px;
     text-align: left;
     text-decoration: none;
-    width: 100%;
+    border: 1px solid #fff;
+    padding: 0 3px;
+    
+}
+
+.f-partners a:hover {
+    
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    transition-duration: 1s;
+    -moz-transition-duration: 1s; /* Firefox 4 */
+   -webkit-transition-duration: 1s; /* Safari and Chrome */
+   -o-transition-duration: 1s; /* Opera */ 
+}
+#footer a {
+  color:#666;
+  text-decoration: none;
 }
 .right-info, .right-info p {
     color: #666666;

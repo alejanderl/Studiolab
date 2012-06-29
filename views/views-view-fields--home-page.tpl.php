@@ -25,7 +25,9 @@
 ?>
 <?php
 
-$pre_type=ContentType2Print($fields['type']->content);
+$event_type=$fields['field_stlab_eventtype']->content ;
+
+$pre_type=ContentType2Print($fields['type']->content,$event_type);
 $type=($pre_type!=NULL) ? "<span>". $pre_type." </span> ":NULL ;
 $title=$fields['title']->content ;
 $image=$fields['field_stlab_mainimage']->content ;

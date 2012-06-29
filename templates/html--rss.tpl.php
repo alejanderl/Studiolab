@@ -9,9 +9,11 @@ $myArg=arg(1);
 <?php
 		
 		$viewName='ical';
-                             $display_id='rss';
+                             $display_id=(arg(0)=="feed")?'studiolab_rss':'rss';
+			     		
+
                              
-                             $myArgs=array ($myArg);
+                             $myArgs=(arg(0)=="feed")?'':array ($myArg);
                              
                              //$myArgs=$argumentos_para_view;
                              $view1 = views_get_view($viewName);
@@ -20,11 +22,13 @@ $myArg=arg(1);
                              //$view->init_display();
                              $view1->execute();
 		
-		
 
-$node=node_load($myArg);
+if(arg(0)!="feed"){
+		
+		$node=node_load($myArg);
 		$node_content=node_view($node);
-               
+		
+		}
                
 $eventsIdsrelated=array();
 foreach($view1->result as $event ){
@@ -32,7 +36,10 @@ foreach($view1->result as $event ){
         array_push($eventsIdsrelated,$event->nid);
      }
      array_push($eventsIdsrelated,$node->nid);
-     $myArgs=implode("+",$eventsIdsrelated);
+     $display_id=(arg(0)=="feed")?'studiolab_rss':'rss';
+     $myArgs=(arg(0)=="feed")?'':implode("+",$eventsIdsrelated);
+
+
      $view = views_get_view($viewName);
      $view->set_display($display_id);
      $view->set_arguments(array($myArgs));
@@ -62,11 +69,11 @@ foreach($view1->result as $event ){
 
 
 <?php foreach($view->result as $event):
-
+//miKrumo($event);
 ?>
 <item>
  <title><?php print($event->node_title )?></title>
-      <description><?php print($event->field_body[0]['raw']['summary'] ); ?></description>
+      <description><?php print($event->field_field_stlab_summary[0]["rendered"]['#markup']); ?></description>
       <link><?php print url( "node/".$event->nid,  array('absolute' => TRUE))?></link>
       <guid><?php print url( "",  array('absolute' => TRUE))."node/".$event->nid?></guid>
       <pubDate><?php print(format_date($event->node_changed,"long")); ?></pubDate>

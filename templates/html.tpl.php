@@ -145,7 +145,7 @@ $(document).ready(function() {
   preserveWords: true,
     slicePoint:       1010,  // default is 100
     expandPrefix:     ' ', // default is '... '
-    expandText:       '... [read more]', // default is 'read more'
+    expandText:       '[+read more]', // default is 'read more'
     collapseTimer:    0, // re-collapses after 5 seconds; default is 0, so no re-collapsing
     userCollapseText: '[^read less]',  // default is 'read less'
     // effects for expanding and collapsing
@@ -177,7 +177,7 @@ $(document).ready(function() {
       ?>
 <div class="clearfix"></div>
       </div>
-      
+<div class="clearfix"></div>
       
     
     
@@ -216,7 +216,7 @@ $(document).ready(function() {
              <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
              <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
              <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="/rss.xml" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+             <a href="<?= $base_path; ?>feed" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
            </div>
             <div id="search-block">
              <?php  print drupal_render(drupal_get_form('search_form'));?>

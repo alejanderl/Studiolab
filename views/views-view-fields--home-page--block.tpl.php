@@ -33,6 +33,7 @@ $place=(isset($fields['field_stlab_place']->content))?$fields['field_stlab_place
 $date="";//format_date($predate[0],"short");
 
 //$hashtag=$fields['field_stlab_hashtag ']->content;
+$theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme']->content:NULL ;
 
  $summary="<p>".$fields['field_stlab_summary']->content."</p>";
  $path=$fields['path']->content ;
@@ -42,7 +43,7 @@ $date="";//format_date($predate[0],"short");
  <li>
      
      
-              <?= (isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):"";  ?>        
+              <span><?php //print $theme; ?><?= (isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):"";  ?></span>        
          <h3 ><a href="<?= $path; ?>"><?= $summary; ?></a></h3><br/>
          
 

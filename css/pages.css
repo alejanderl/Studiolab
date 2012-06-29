@@ -13,6 +13,13 @@ a {
 -webkit-transition: all 0.2s;  /* Safari and Chrome */
 -o-transition:  all 0.2s;
 }
+* {
+    transition-timing-function: ease-in !important;
+    -moz-transition-timing-function: ease-in !important;
+    -webkit-transition-timing-function: ease-in !important;;
+    -o-transition-timing-function: ease-in !important;;
+    
+}
 
 
 .centered {
@@ -45,12 +52,7 @@ padding-top: 10px;
 
 
  
-.date-nav {
-    float: left;
-    padding-bottom: 1.5em;
-    width: 100%;
-	height:100px;
-  }
+
  
 
 #menu-globes li{
@@ -107,6 +109,12 @@ margin-top: -5px;
   font-weight: normal;
   text-decoration: none;
   padding:3px;
+  pointer-events: none;
+}
+
+#big-menu li li a{
+
+  pointer-events:auto;
 }
 #big-menu li:last-child {
   margin-left:20px;
@@ -434,8 +442,8 @@ background-position:0% 100%;
 
 #top-menu{
     background-color: #000;
-    line-height: 0;
-    
+    line-height: 1em;
+    height: 36px;
     box-shadow: 0 5px 5px -2px #ccc;
 }
 
@@ -443,7 +451,6 @@ background-position:0% 100%;
     float:right;
     width: auto;
     background-color: #000;
-    
 }
 
 #top-menu li {
@@ -591,7 +598,7 @@ padding: 0 10px;
   }
   .assets-list img:hover {
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 30px 10px -10px #ccc;
+    box-shadow: 0 20px 20px -5px #CCC;
     font-size: 12px;
     margin-top:-5px;
     margin-bottom: 15px;
@@ -660,17 +667,16 @@ line-height:1.2em;
 }
 
 
-#footer  a{
-    text-decoration: none;
-    color:#666;
-}
+
 /* /footer */
 
 
 h1.title {
  
-  font-size:16px;
-  padding:5px 15px;
+    color: #666666;
+    font-size: 16px;
+    padding: 5px 15px;
+    text-shadow: 0 1px 0 #FFFFFF;
   
 }
 .grey-stripe {
@@ -765,14 +771,7 @@ background-color:#0072ca;
 
 
 
-.date-heading h3 {
-    color: #F3F1F1;
-float: left;
-font-family: Arial,sans serif;
-font-size: 55px;
-margin-top: -44px!important;
 
-}
 
 
 .item-list .pager li {
@@ -1010,18 +1009,13 @@ margin-bottom:10px;
 }
 
 
-.view-whatson .item-list .pager {
-    clear: both;
-    float: right;
-    margin-top: -129px;
-    text-align: center;
-}
+
 .li a.active {
     font-weight: bold;
 }
 #project-timeline span.no-line{
     border: 0;
-    text-transform: uppercase;
+   
 	
 	
 	
@@ -1057,9 +1051,9 @@ margin-bottom:10px;
 
 #project-contents a:hover , #event-contents a:hover{
     background-color:#333;
-    color:#fff;
-    font-weight: 600;
-    font-size: 0.9em;
+    color:#ccc;
+    
+  
 }
 
 
@@ -1155,11 +1149,58 @@ background-color:#F3F1F1;
      color: #35ABE6;
 }
 
-#top-menu .active-trail {
-    background-color: #35ABE6;
+#top-menu .active-trail a{
+    color: #35ABE6;
+  
     
 }
 
+#top-menu li li.sf-depth-2 a{
+      color: #fff;
+     
+}
 #top-menu li li.active-trail a{
-      background-color: #35ABE6;
+      color: #35ABE6;
+      
+}
+#top-menu li li.active-trail a:hover{
+      color: #fff;
+      
+}
+
+/*
+ *Pager
+ */
+.date-nav-wrapper .date-nav {
+    float: left;
+    padding-bottom: 1.5em;
+    width: 100%;
+	
+  }
+ .date-nav-wrapper  .date-heading h3 {
+    color: #F3F1F1;
+float: left;
+font-family: Arial,sans serif;
+font-size: 55px;
+margin-top: -28px!important;
+
+}
+.view-whatson .item-list .pager {
+text-align: center;
+width: 170px;
+float: right;
+position: relative;
+top: -90px;
+}
+
+/**
+ *end of pager
+ */
+
+h2.list a:hover{
+    background-color: #ccc;
+    color:#333;
+}
+.read-less, .read-more {
+    float: right;
 }

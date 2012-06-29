@@ -75,10 +75,10 @@ margin: 0;
 }
 
 #project-contents ul li  {
-list-style: none;
+
 width: 450px;
 margin-bottom: 10px;
-display: table-cell;
+
 float: left;
 }
 
@@ -144,6 +144,7 @@ box-shadow: 0 25px 15px -10px #ccc;
 }
 #project-timeline h3 a:hover{
 background-color:#ddd;
+
 color: #333;
     
 }
@@ -196,6 +197,7 @@ h1.project-title {
     font-size: 12px;
     min-height: 80px;
     margin-bottom:10px;
+    height: 100px;
     
 }
 #related-assets .flickr-citation {
@@ -212,7 +214,17 @@ h1.project-title {
     text-align: left;
     
 }
-
+div.flickr-photoset-img img {
+    border-radius: 15px;
+    
+}
+div.flickr-photoset-img {
+    width: 100px;
+    min-height: 100px;
+    float: left;
+    text-align: center;
+    apdding-right:5px;
+}
 
 
 
@@ -308,4 +320,8 @@ text-transform: uppercase;
     padding-left: 3px;
     padding-right: 0px;
     border-right: 1px solid #ccc;
+}
+
+#related-assets span {
+    padding-left:10px;
 }
