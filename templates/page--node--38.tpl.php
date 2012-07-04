@@ -157,7 +157,7 @@
                 </div>
                 </article>                   
             </div>
-           
+           <div class="clearfix"></div>
             <div id="partners">
             <?php print ($view->result!=NULL)?'<span class="title">'.$block_title."</span>":"";?>
               <ul>

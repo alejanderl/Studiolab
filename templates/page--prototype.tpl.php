@@ -90,12 +90,30 @@
      $view_prototyping_events->execute();   
      $eventsIdsrelated=array();
      
+      $prototyping_assets=array();     
+      foreach($node_content['field_stlab_relmedia']['#items'] as $asset ){        
+        array_push($prototyping_assets,$asset['nid']);        
+     }
+      $prototyping_assets_string=implode("+",$prototyping_assets);
+     $viewName='element_list';
+     $display_id='block_5';
+     $myArgs=array ($node->nid);
+     $view_prototyping_assets = views_get_view($viewName);
+     $view_prototyping_assets->set_display($display_id);
+     $view_prototyping_assets->set_arguments(array($prototyping_assets_string));
+     //$view->init_display();
+     $view_prototyping_assets->execute();
+     
+      
+     
      /**
       *Need to get the ids of all related nodes to look for all the media assets related to the project.
      */
      foreach($view_prototyping_events->result as $event ){          
         array_push($eventsIdsrelated,$event->nid);
      }
+     $array_eventsIdsRelated=$eventsIdsrelated;
+     
     $eventsIdsrelated=implode("+",$eventsIdsrelated);
 
      $view_opencalls = views_get_view($viewName);
@@ -106,45 +124,60 @@
      
 ?>
 <?php
-     $view_assets = views_get_view($viewName);
-     $view_assets->set_arguments(array($eventsIdsrelated));
-     $view_assets->set_display("block_1");
-     $view_assets->execute();
-     $render_assets=$view_assets->render();
-?>
+     /**
+      * I get all the ids of the media assets pointing to this prototype, to disscard the media assets that the prototype is pointiting
+      * to and had been painted before.
+      //*/
       
-           
-   <?php $image_uri = render($node_content['field_stlab_mainimage']);?>
+      $view_assets = views_get_view($viewName);
+      $view_assets->set_arguments(array($eventsIdsrelated));
+      $view_assets->set_display("block_1");
+      $view_assets->execute();
+      
+      $array_eventsIdsRelated=array();
+      foreach($view_assets->result as $asset ){          
+        array_push($array_eventsIdsRelated,$asset->nid);
+      }
+      
+      $eventsIdsrelated=implode("+",array_diff ($array_eventsIdsRelated,$prototyping_assets));
+      $view_assets = views_get_view($viewName);
+      $view_assets->set_arguments(array($eventsIdsrelated));
+      $view_assets->set_display("block_5");
+      $view_assets->execute();
+      $render_assets=$view_assets->render();
+     ?>
+     
+<?php
+ $from_date=(isset($node_content['field_stlab_duration']['#items']['0']['value']))?sprintf ("%s %s <br />",t("From"),format_date( $node_content['field_stlab_duration']['#items']['0']['value'],"long_no_time")):"";
+   $to_date=(isset($node_content['field_stlab_duration']['#items']['0']['value2']))?sprintf (" %s %s",t("to"),format_date( $node_content['field_stlab_duration']['#items']['0']['value2'],"long_no_time")):"";
+ 
+$image_uri = render($node_content['field_stlab_mainimage']);?>
 
 
 <?php print ($is_admin)?$messages:""; ?>
 <?php print render($tabs); ?>
 <?php print render($page['help']); ?>
 <?php if ($action_links): ?>
-<ul class="action-links"><?php print render($action_links); ?></ul>
+      <ul class="action-links"><?php print render($action_links); ?></ul>
 <?php endif; ?>
     
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
         <div class="centered">
-
             <div id="project-header">
             
                 <div id="ph-left">
-    <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div>
-                 <br/>
-                 <h1 class="project-title"> <?php print $title; ?> </h1>
+                     <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div>
+                     <br/>
+                     <h1 class="project-title"> <?php print $title; ?> </h1>
                      <span class="content-type">Prototype</span>
                      <?php print $strand; ?>
                      <?php print $place; ?>
                      <?php print $organizer; ?>
-                <div class="date_range">               
-                <?php print $from_date?><?php print $to_date?> 
-                </div>
-                
+                     <div class="date_range">               
+                         <?php print $from_date?><?php print $to_date?> 
+                     </div>                
                      <?php print $hashtag; ?>
-
-               
                      <?php print $admission; ?>
                      <?php  print $service_links;  ?>
                 </div>                
@@ -155,9 +188,7 @@
         <div class="project-separator">
             <div class=" centered">
                 <span class="about"><?php print t("About this prototyping");?></span>
-                <span class="rss-ical">
-                    
-               </span>
+                <span class="rss-ical"></span>
             </div>
         </div>
         <div class="full-width">
@@ -172,22 +203,24 @@
                               
             </div>
             <div id="project-timeline">
-            <?php  print ($view_prototyping_events->result!=NULL)?'<span class="title">'.t('Events for prototyping')."</span>":"";?>
-              <ul>
-               <?php print $view_prototyping_events->render();  ?>
-              </ul>
- 
-             <div id="related-assets">
-                <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
-                <?php print $render_assets;?>
-             </div>
-             
-             <div id="related-opencalls">
-                 <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
-                 <ul>
-                 <?php  print $render_opencalls;?>
-                 </ul>
-             </div>
+                <?php  print ($view_prototyping_assets->result!=NULL)?'<span class="title">'.t('Media assets for prototyping')."</span>":"";?>
+                <ul>
+                 <?php print $view_prototyping_assets->render();  ?>
+                </ul>
+                <?php  print ($view_prototyping_events->result!=NULL)?'<span class="title">'.t('Events and projects for prototyping')."</span>":"";?>
+                <ul>
+                <?php print $view_prototyping_events->render();  ?>
+                </ul>
+                <div id="related-assets">
+                    <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
+                    <?php print $render_assets;?>
+                </div>
+                     <div id="related-opencalls">
+                        <?php  print ($view_opencalls->result!=NULL)?'<span class="title">'.t('Related opencalls')."</span>":""; ?>
+                        <ul>
+                        <?php  print $render_opencalls;?>
+                        </ul>
+                    </div>
             <div>     
         
          </div>

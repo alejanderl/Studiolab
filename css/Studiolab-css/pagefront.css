@@ -85,17 +85,16 @@ margin: 10px 5px;
     background-image: url(../../cssimgs/strips-zebra-crossings-crosses.gif);
 }
 .controller {
-        top:0px!important;      /* PARA QUE AL HACER OVER SOBRE EL SLIDER LA BANDA NEGRA LLEGUE ARRIBA */
-        cursor: pointer;
-	    margin-top: 150px;
-	        font-size: 24px;
-    z-index: 4;
-   width:100px;
-    float: left;
-
-    height: 340px;
+     top:0px!important;      /* PARA QUE AL HACER OVER SOBRE EL SLIDER LA BANDA NEGRA LLEGUE ARRIBA */
+     cursor: pointer;
+     margin-top: 120px;
+     font-size: 24px;
+     z-index: 4;
+     width:100px;
+     float: left;
+     height: 340px;
      background-color: rgba(255, 255, 255, 0.8);
-    position: absolute;
+     position: absolute;
 }
 
 .arrow {
@@ -334,7 +333,7 @@ div.theme span {
 
 .right .intro {
     color:#35abe6;
-    font-size:12px;
+    font-size:14px;
     line-height: 2em;
     text-align: left;margin-bottom: 40px;
     
@@ -368,7 +367,7 @@ img.whatson-front {
     box-shadow:0 0px 1px -3px #fff;
      transition: all 0.2s; 
 -moz-transition:all 0.2s;  /* Firefox 4 */
--webkit-transition: all 0.2s;  /* Safari and Chrome */
+-webkit-transition: all 0.2s; /* Safari and Chrome */
 -o-transition:  all 0.2s;
 
 }

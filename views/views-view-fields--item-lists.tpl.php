@@ -24,15 +24,33 @@
  */
 ?>
 <?php
+$types_special=array("Open Call","Project");
 $title=$fields['title']->content ;
 $image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_listimage']->content:$fields['field_stlab_mainimage']->content ;
 $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme']->content:NULL ;
 $strand=(isset($fields['field_stlab_strand']->content))?$fields['field_stlab_strand']->content:NULL ;
 $summary="<p>".$fields['field_stlab_summary']->content."</p>";
 $place=$fields['field_stlab_place']->content ;
+$type=($fields['type']->content);
+
+$event_type=($fields['field_stlab_eventtype']->content!=NULL)?' <b>//</b> '.$fields['field_stlab_eventtype']->content:"" ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
-$date=format_date($predate[0],"short");
+ if (in_array($type,$types_special)):
+ $predate=explode(",",strip_tags($fields['field_stlab_duration']->content ));
+
+ $place='<span class="blue-title ">'.$type.'</span>';
+ 
+ endif;
+
+
+     $days_length=count($predate);
+     
+     $final_day=str_replace(" ", "", $predate[($days_length-1)]);
+     $from_date=format_date($predate[0],'short_notime');
     
+ $to_date=($days_length>1)?" to ".format_date( $final_day,'short_notime'):NULL;
+ 
+
 ?>
 
     
@@ -49,9 +67,11 @@ $date=format_date($predate[0],"short");
                <?php print $theme; ?>  
                
                </div>
-              
+              <div class="taxos"><span class="data"><?php print $place;?><?php print $event_type; ?></span></div>	      
+                
                 <h2 class="list"> <?php print $title; ?>  </h2>
-                <?php print $summary ?>
-                <?php print $place ?>
+                <div class="taxos"><span class="data"><span class="data"><?php echo $from_date ?>
+		<?php echo $to_date ?> </span></div>
+               
                 
             </div>

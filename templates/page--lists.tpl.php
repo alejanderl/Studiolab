@@ -95,6 +95,7 @@
                         break;
                     
                     default:
+                      $title=$bullet.t("All that has passed in Studiolab").$term;
                         break;
                 }
                 
@@ -127,7 +128,7 @@
                         break;
                     
                     default:
-                         $title=$bullet.t("Open calls in progress").$term;
+                         $title=$bullet.t("All in progress").$term;
                         break;
                 }
                 

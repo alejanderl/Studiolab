@@ -69,7 +69,7 @@ padding-top: 10px;
 
 #topmid-menu #logo {
  float: left;
- margin-left: 30px;
+ margin-left: 2px;
 }
 
 
@@ -80,16 +80,21 @@ padding-top: 10px;
 
 #topmid-menu #big-menu {
  float: right;
- padding-top: 20px;
- width: 470px;    
+padding-top: 41px;
+ width: 622px;
+ margin-right: -20px;
 }
 
 #topmid-menu #big-menu li ul{
  width: 100px;
  background-color:#fff;
  box-shadow:0 10px 10px -10px #666;
- margin-left: 15px;
+ margin-left: 18px;
 margin-top: -5px;
+}
+#topmid-menu #big-menu li:last-child ul{
+
+ margin-left: 0px;
 }
 
 #big-menu li div {
@@ -105,11 +110,12 @@ margin-top: -5px;
 }
 #big-menu li a{
   color:#333;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   text-decoration: none;
   padding:3px;
-  pointer-events: none;
+ 
+  line-height: 1em;
 }
 
 #big-menu li li a{
@@ -117,7 +123,8 @@ margin-top: -5px;
   pointer-events:auto;
 }
 #big-menu li:last-child {
-  margin-left:20px;
+  margin-left:0px;
+  padding-left:0px;
 }
 
 
@@ -128,10 +135,11 @@ background: none;
 ul#superfish-2 li {
   padding-left:18px;
    background-repeat: no-repeat;
-  background-position: 0px 10px;
+  background-position: 0px 8px;
   float:left;
   margin:0px 4px;
   margin-top:5px;
+  max-width: 190px;
 }
 
 /* water */
@@ -232,6 +240,10 @@ ul#superfish-2 li li:last-child  {
 #blue-menu li{    
     display:inline;
     position: relative;
+    }
+    #header {
+	margin-bottom: 20px ;
+	margin-top: 10px ;
     }
 /*       /end header            */
 
@@ -451,6 +463,7 @@ background-position:0% 100%;
     float:right;
     width: auto;
     background-color: #000;
+    margin-right: 0px;
 }
 
 #top-menu li {
@@ -556,17 +569,17 @@ div.theme {
   display: none;
 }
 
-.theme-food{
+.theme-future_of_food{
   background-position: 0 !important;
 }
 
-div.theme-water {
+div.theme-future_of_water {
   background-position: -18px 0 !important;
 }
-div.theme-biology {
+div.theme-synthetic_biology {
   background-position: -36px 0 !important;
 }
-div.theme-social_interaction {
+div.theme-future_of_social_interaction {
   background-position: -54px 0 !important;
 }
 
@@ -575,7 +588,9 @@ div.theme-social_interaction {
 /*
  * Item list
  **/
-
+.view-item-lists .view-content {
+   margin-left: -10px; 
+}
 .assets-list {
 float: left;
 display: table-cell;
@@ -660,7 +675,7 @@ line-height:1.2em;
   border-top:solid 1px #ccc;
   padding:20px;
   padding-bottom:50px;
-  margin-top:20px;
+  margin-top:-15px;
   font-size: 10px;
   line-height:1.1em;
   color:#888;
@@ -675,7 +690,7 @@ h1.title {
  
     color: #666666;
     font-size: 16px;
-    padding: 5px 15px;
+    padding: 5px 0px;
     text-shadow: 0 1px 0 #FFFFFF;
   
 }
@@ -1015,7 +1030,7 @@ margin-bottom:10px;
 }
 #project-timeline span.no-line{
     border: 0;
-   
+    
 	
 	
 	
@@ -1058,7 +1073,7 @@ margin-bottom:10px;
 
 
 #project-contents.site-pages {
-    width: 900px;
+    width: 930px;
   -moz-column-count:2; /* Firefox */
 -webkit-column-count:2; /* Safari and Chrome */
 column-count:2;
@@ -1203,4 +1218,7 @@ h2.list a:hover{
 }
 .read-less, .read-more {
     float: right;
+}
+#project-timeline .flickr-citation {
+    display: none;
 }

@@ -224,6 +224,7 @@ div.flickr-photoset-img {
     float: left;
     text-align: center;
     apdding-right:5px;
+    margin-right: 10px;
 }
 
 
@@ -300,6 +301,7 @@ div.date_range {
    
 }
 .content-type {
+    font-weight: bold;
  margin: 0;
 padding: 0;
 margin-top: -6px;
@@ -322,6 +324,3 @@ text-transform: uppercase;
     border-right: 1px solid #ccc;
 }
 
-#related-assets span {
-    padding-left:10px;
-}

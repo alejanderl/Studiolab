@@ -207,8 +207,9 @@
               </ul>
  
              <div id="related-assets">
-             <ul>
+             
                 <?php  print ($view_assets->result!=NULL)?'<span class="title">'.t('Related assets')."</span>":"";?>
+                <ul>
                 <?php print $render_assets;?>
                 </ul>
              </div>

@@ -44,10 +44,21 @@
 ?>
 
 
+<?php $node1=$element['#object'];
+$nodes_arrays=array( "34" =>"Synthetic Biology","33"=>"Future of Social Interaction","70"=>"Future of Water" );
+
+?>
 
     <?php foreach ($items as $delta => $item): ?>
-  
-      <div  title="<?php print render($item); ?>" class="field-item theme theme-<?php print transliteration_clean_filename(strtolower(render($item))); ?> <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><span><?php print render($item); ?></span></div>
-    <?php endforeach; ?>
+    <?php
+    $key=array_search(render($item),$nodes_arrays);
+    
+    ?>
+         <a href="<?php print url('node/'.$key); ?>">
+      <div  title="<?php print render($item); ?>" class="field-item theme theme-<?php print transliteration_clean_filename(strtolower(render($item))); ?>       <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>
+      <span>
+      <?php print render($item); ?></span>
+      </div>
+      </a><?php endforeach; ?>
 
 

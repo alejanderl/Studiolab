@@ -109,7 +109,30 @@
      
 ?>
 
+    <?php
+    $myArgs=$node->nid;
+    $node_values_themes=array(3=>33,2=>34,1=>70,5=>37,4=>35,6=>36);
+    $tid_theme=array_search($myArgs,$node_values_themes);
+   
+    if($tid_theme!=FALSE):
+    $d_term=taxonomy_term_load($tid_theme);
+    $block_title=t("All elements for ".$d_term->name);
+      $viewName='item_lists';
+     $display_id='page_6';
+     
+     
+     //$myArgs=$argumentos_para_view;
+     $view = views_get_view($viewName);
+     $view->set_display($display_id);
+     $view->set_arguments(array($tid_theme));
+     //$view->init_display();
+     $view->execute();
+     $render_prototyping=$view->render();
     
+    endif;
+    
+    
+    ?>
    
 
       
@@ -160,7 +183,7 @@
                 </div>
                 </article>                   
             </div>
-           
+           <div class="clearfix"></div>
             <div id="partners">
             <?php print ($view->result!=NULL)?'<span class="title">'.$block_title."</span>":"";?>
               <ul>

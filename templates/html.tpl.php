@@ -195,7 +195,8 @@ $(document).ready(function() {
             <div id="topmid-menu">
             
                 <div id="logo">
-                    <a href="<?php print $base_path; ?>"><img src="<?php print $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/></a>
+                
+                    <a href="<?php print $GLOBALS['base_url'] ?>"><img src="<?php print $base_path.$directory; ?>/images/logoStudiolab.png" height="74" width="293"/></a>
                 </div>
                 <div id="big-menu">
                 <nav>
@@ -208,21 +209,7 @@ $(document).ready(function() {
                     </nav>
 
                 </div>
-            <div id="socialIcons" class="floatRight">
-             <a href="javascript:void(0)" alt="Studiolab Search " title="Studiolab Search"  id="search-header"  > <span> Search </span></a>
-             <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab Youtube " title="Studiolab Youtube"  id="logoyoutubePortada" target="_blank" > <span> Youtube </span></a>
-             <a href="http://www.vimeo.com/studiolabproject" alt="Studiolab Vimeo " title="Studiolab Vimeo"  id="logovimeoPortada" target="_blank" > <span> Vimeo </span></a>
-             <a href="http://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
-             <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
-             <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
-             <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
-             <a href="<?php print $base_path; ?>feed" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
-           </div>
-            <div id="search-block">
-             <?php  print drupal_render(drupal_get_form('search_form'));?>
-            </div>
-                <div class="clearfix"></div>                 
-                
+            
             </div>
         
         </div>
@@ -234,10 +221,25 @@ $(document).ready(function() {
 
   <?php print $page_top; ?>
   <?php print $page; ?>
-  <?php print $page_bottom; ?>
+  <?php print $page_bottom; ?> 
   
-  
-  
+  <div id="down-social-icons"><div class="centered">
+    <div id="socialIcons" class="floatRight ">
+               <a href="javascript:void(0)" alt="Studiolab Search " title="Studiolab Search"  id="search-header"  > <span> Search </span></a>
+               <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab Youtube " title="Studiolab Youtube"  id="logoyoutubePortada" target="_blank" > <span> Youtube </span></a>
+               <a href="http://www.vimeo.com/studiolabproject" alt="Studiolab Vimeo " title="Studiolab Vimeo"  id="logovimeoPortada" target="_blank" > <span> Vimeo </span></a>
+               <a href="http://twitter.com/#!/StudiolabEurope" alt="Studiolab Twitter " title="Studiolab Twitter"  id="logotwitterPortada" target="_blank" > <span> Twitter </span></a>
+               <a href="http://www.facebook.com/studiolabproject" alt="Studiolab Facebook " title="Studiolab Facebook"  id="logoFacebookPortada" target="_blank"> <span> Facebook </span></a>
+               <a href="http://www.flickr.com/photos/studiolabproject/" alt="Studiolab Flickr" title="Studiolab Flickr"  id="logoFlickrPortada" target="_blank" > <span> Flickr </span></a>
+               <a href="http://www.youtube.com/StudiolabProject" alt="Studiolab YouTube  " title="Studiolab YouTube "  id="logoYouTubePortada" target="_blank" > <span> YouTube </span></a>
+               <a href="<?php print $base_path; ?>feed" alt="RSS" title="RSS"  id="logoRssPortada" target="_blank"> <span> RSS </span></a>
+             </div>
+              <div id="search-block">
+               <?php  print drupal_render(drupal_get_form('search_form'));?>
+              </div>
+                  <div class="clearfix"></div>
+  </div></div>
+
   
   
   <div id="footer">
@@ -259,10 +261,10 @@ $(document).ready(function() {
   
       <div class="left-info f-partners">
 
-		<a href="http://www.sciencegallery.com">Science Gallery, Trinity College, Dublin</a>
-		<a href="http://www.lelaboratoire.org/">Le Laboratoire, Paris</a>
-		<a href="http://www.rca.ac.uk/">The Royal College of Art, London</a>
-		<a href="http://www.aec.at/">Ars Electronica, Linz</a>
+		<a href="<?php print url("node/45"); ?>">Science Gallery, Trinity College, Dublin</a>
+		<a href="<?php print url("node/48"); ?>">Le Laboratoire, Paris</a>
+		<a href="<?php print url("node/47"); ?>">The Royal College of Art, London</a>
+		<a href="<?php print url("node/42"); ?>">Ars Electronica, Linz</a>
 
 
 		
@@ -274,11 +276,11 @@ $(document).ready(function() {
 		
       <div class="left-info f-partners">
 
-		<a href="http://medialab-prado.es/">MediaLab Prado, Madrid</a>
-		<a href="http://www.isi.it/">ISI Foundation, Turin</a>
-		<a href="http://www.optofonica.com/">Optofonica, Amsterdam</a>
-		<a href="http://www.erg.be/">Ecole de Recherche Graphique, Brussels</a>
-		<a href="http://www.olats.org/">Leonardo/Olats, France</a>
+		<a href="<?php print url("node/39"); ?>">MediaLab Prado, Madrid</a>
+		<a href="<?php print url("node/76"); ?>">ISI Foundation, Turin</a>
+		<a href="<?php print url("node/46"); ?>">Optofonica, Amsterdam</a>
+		<a href="<?php print url("node/67"); ?>">Ecole de Recherche Graphique, Brussels</a>
+		<a href="<?php print url("node/73"); ?>">Leonardo/Olats, France</a>
 		
 	</div>
 
@@ -289,10 +291,10 @@ $(document).ready(function() {
     
     	       <div class="left-info f-partners">
 
-			<a href="http://www.ciant.cz/">CIANT, Prague</a>
-			<a href="http://rixc.lv/">RIX-C - The Center for New Media Culture, Riga</a>
-			<a href="http://www.museion.ku.dk/">Medical Museion, Copenhagen </a>
-			<a href="http://www.mada.org.il/en">Bloomfield Science Museum, Jerusalem</a>
+			<a href="<?php print url("node/71"); ?>">CIANT, Prague</a>
+			<a href="<?php print url("node/75"); ?>">RIX-C - The Center for New Media Culture, Riga</a>
+			<a href="<?php print url("node/74"); ?>">Medical Museion, Copenhagen </a>
+			<a href="<?php print url("node/68"); ?>">Bloomfield Science Museum, Jerusalem</a>
 
 			</div>
 
@@ -311,7 +313,7 @@ $(document).ready(function() {
   <div class="grid_12">
 	
 	
-	<div class="right-info ">
+	<div class="right-info "> 
 
 		<span class="contact">For Information - <i>Science Gallery, Trinity College Dublin, Pearse St, Dublin 2, Ireland</i>		
 		<span style="color: #666;">+353 1 896 4091</span>

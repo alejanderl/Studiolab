@@ -254,7 +254,7 @@ function Studiolab_process_page(&$variables) {
          $variables['theme_hook_suggestions'] = 'page';
        }
        // TPL for lists. Need to control de menu for upcoming or past results.
-       $page_lists=array("opencalls","events","projects");
+       $page_lists=array("opencalls","events","projects","all");
        
        if(in_array(arg(0),$page_lists)){
        

@@ -70,45 +70,32 @@
  */
 ?>
 
-                
-<?php
-    if (arg(1)==38){
-               
-         $block_title=t("Partners"   );
-     $viewName='element_list';
-     $display_id='block_4';
-     $myArgs=array ($node->nid);
+ <?php
+    $myArgs=$node->nid;
+    $node_values_themes=array(3=>33,2=>34,1=>70,5=>37,4=>35,6=>36,61=>46,53=>45,43=>71,39=>48,41=>73,38=>42,63=>76,64=>75,65=>74,66=>74,66=>68,67=>67,68=>47,39=>69);
+    $tid_theme=array_search($myArgs,$node_values_themes);
+   
+    if($tid_theme!=FALSE):
+    miKrumo($node);
+    $d_term=taxonomy_term_load($tid_theme);
+    $block_title=t("All elements for ".$d_term->name);
+      $viewName='item_lists';
+     $display_id='page_6';
+     
      
      //$myArgs=$argumentos_para_view;
      $view = views_get_view($viewName);
      $view->set_display($display_id);
-     //$view->set_arguments($myArgs);
-     //$view->init_display();
-     $view->execute();
-     $render_partners=$view->render();
-     
-     }
-     
-       if (arg(1)==12){
-               
-        $block_title=t("Prototyping");
-     $viewName='element_list';
-     $display_id='prototyping';
-     $myArgs=array ($node->nid);
-     
-     //$myArgs=$argumentos_para_view;
-     $view = views_get_view($viewName);
-     $view->set_display($display_id);
-     //$view->set_arguments($myArgs);
+     $view->set_arguments(array($tid_theme));
      //$view->init_display();
      $view->execute();
      $render_prototyping=$view->render();
-     
-     }
     
-     
-?>
-
+    endif;
+    
+    
+    ?>
+   
     
    
 
@@ -165,7 +152,7 @@
                 </div>
                 </article>                   
             </div>
-           
+            <div class="clearfix"></div>  
             <div id="partners">
             <?php print ($view->result!=NULL)?'<span class="title">'.$block_title."</span>":"";?>
               <ul>
