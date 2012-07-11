@@ -37,7 +37,7 @@
   //$theme=field_view_value('node',$node,'field_stlab_theme');//$content['field_stlab_theme']['und'][0]['tid'];
   
 $place=$fields['field_stlab_place']->content ;
-
+$organizer=($fields['field_stlab_org']->content!=NULL)?$fields['field_stlab_org']->content:"" ;
 ?>
 
 
@@ -55,7 +55,7 @@ $place=$fields['field_stlab_place']->content ;
                 <?php print $image; ?>
                 
                 <div class="theme-icons"><?php print ($fields['field_stlab_theme']->content);?></div>
-		<div class="taxos"><span class="data"><?php print $place;?><b>//</b><?php print $event_type; ?></span></div>	      
+		<div class="taxos"><span class="data"><?php print $organizer;?> // <?php print $event_type; ?></span></div>	      
                 <h2 class="list"><?php echo $title; ?></h2>
                 <div class="taxos"><span class="data"><span class="data"><?php echo $from_date ?>
 		<?php echo $to_date ?> </span></div>

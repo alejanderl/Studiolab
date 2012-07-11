@@ -24,25 +24,29 @@
  */
 ?>
 <?php
-$types_special=array("Open Call","Project");
+
 $title=$fields['title']->content ;
 $image=(isset($fields['field_stlab_listimage']->content))?$fields['field_stlab_listimage']->content:$fields['field_stlab_mainimage']->content ;
 $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme']->content:NULL ;
 $strand=(isset($fields['field_stlab_strand']->content))?$fields['field_stlab_strand']->content:NULL ;
 $summary="<p>".$fields['field_stlab_summary']->content."</p>";
 $place=$fields['field_stlab_place']->content ;
-$type=($fields['type']->content);
 
-$event_type=($fields['field_stlab_eventtype']->content!=NULL)?' <b>//</b> '.$fields['field_stlab_eventtype']->content:"" ;
+
+$event_type=($fields['field_stlab_eventtype']->content!=NULL)?' // '.$fields['field_stlab_eventtype']->content:"" ;
 $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
- if (in_array($type,$types_special)):
- $predate=explode(",",strip_tags($fields['field_stlab_duration']->content ));
 
- $place='<span class="blue-title ">'.$type.'</span>';
- 
+ //Check if the result is type open call or Project.
+ $type=($fields['type']->content);
+ $types_special=array("Open Call","Project");
+ if (in_array($type,$types_special)):
+     $predate=explode(",",strip_tags($fields['field_stlab_duration']->content ));
+    
+     $special_type='// <span class="blue-title ">'.$type.'</span>';
+     
  endif;
 
-
+$organizer=($fields['field_stlab_org']->content!=NULL)?$fields['field_stlab_org']->content:"" ;
      $days_length=count($predate);
      
      $final_day=str_replace(" ", "", $predate[($days_length-1)]);
@@ -67,7 +71,7 @@ $predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
                <?php print $theme; ?>  
                
                </div>
-              <div class="taxos"><span class="data"><?php print $place;?><?php print $event_type; ?></span></div>	      
+              <div class="taxos"><span class="data"><?php print $organizer;?><?php print $special_type;?><?php print $event_type; ?></span></div>	      
                 
                 <h2 class="list"> <?php print $title; ?>  </h2>
                 <div class="taxos"><span class="data"><span class="data"><?php echo $from_date ?>

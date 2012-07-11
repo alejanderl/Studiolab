@@ -92,7 +92,7 @@ margin: 10px 5px;
      z-index: 4;
      width:100px;
      float: left;
-     height: 340px;
+     height: 350px;
      background-color: rgba(255, 255, 255, 0.8);
      position: absolute;
 }
@@ -141,7 +141,8 @@ text-decoration: none;
     
 }
 #big-slide-list div.dates {
-     color:#fff;
+    cursor: default;
+    color:#fff;
     margin-left: 10px;
     margin-top:0;
     min-width: 80px;
@@ -385,6 +386,7 @@ div.flickr-photoset-img {
 }
 
 #central-block  div.data {
+    pointer-event:none;
     font-size: 13px;
 }
 

@@ -129,11 +129,13 @@
         <div class="full-width">
          <div class="centered">
             <div id="project-contents">
-                <p class="summary"><?php print render($node_content['field_stlab_summary']); ?></p>
+                <p class="intro-text-inline"><?php print render($node_content['field_stlab_summary']); ?></p>
                 <?php print  render($node_content['field_stlab_doc']);?>
                 <?php print $services_links; ?>
+                <div class="content">
                 <?php print render($node_content['body']); ?>
                 <br/>
+                </div>
                 
                 
             </div>

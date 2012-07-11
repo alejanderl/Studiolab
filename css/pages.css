@@ -82,7 +82,7 @@ padding-top: 10px;
  float: right;
 padding-top: 41px;
  width: 622px;
- margin-right: -20px;
+ margin-right: -40px;
 }
 
 #topmid-menu #big-menu li ul{
@@ -90,7 +90,7 @@ padding-top: 41px;
  background-color:#fff;
  box-shadow:0 10px 10px -10px #666;
  margin-left: 18px;
-margin-top: -5px;
+margin-top: -6px;
 }
 #topmid-menu #big-menu li:last-child ul{
 
@@ -135,11 +135,11 @@ background: none;
 ul#superfish-2 li {
   padding-left:18px;
    background-repeat: no-repeat;
-  background-position: 0px 8px;
+  background-position: 0px 7px;
   float:left;
-  margin:0px 4px;
+  margin:0px 0px;
   margin-top:5px;
-  max-width: 190px;
+  max-width: 201px;
 }
 
 /* water */
@@ -456,8 +456,10 @@ background-position:0% 100%;
     background-color: #000;
     line-height: 1em;
     height: 36px;
+   
     box-shadow: 0 5px 5px -2px #ccc;
 }
+
 
 #top-menu ul {
     float:right;
@@ -516,6 +518,12 @@ background-image:none;
   background-color:transparent;
   margin-top: -10px;
 }
+@-moz-document url-prefix() { 
+  #top-menu ul ul {
+     color:lime;
+       margin-top: -7px;
+  }
+}
 #top-menu li li {    
 min-width: 150px;
 margin: 0;
@@ -539,7 +547,7 @@ padding: 10px;
 background-color:#35ABE6;
 border-bottom: 1px solid #fff;
 margin: 0;
-padding: 10px;
+
 
 }
 
@@ -596,7 +604,7 @@ float: left;
 display: table-cell;
 text-align: center;
 width: 210px;
-padding: 0 10px;
+padding: 0 12px;
   
 }
 
@@ -654,6 +662,7 @@ line-height:1.2em;
     line-height: 1.2em;
     text-align: left;
     text-transform: uppercase;
+    cursor:default;
 }
 
 .assets-list .theme-icons  {
@@ -926,6 +935,22 @@ float:left;
     width: 500px;
     
  }
+ /* Test in grey 
+  #project-timeline span.title {
+border-top: 1px dotted #CCC;
+color: #888;
+display: block;
+font-size: 16px;
+font-weight: bold;
+padding: 10px;
+margin-bottom: 10px;
+width: auto;
+background-color: #EEE;
+padding: 10px;
+text-shadow: 0 1px 0 white;
+    
+ }
+ */
 
  
 .date-heading  {
@@ -1171,6 +1196,7 @@ background-color:#F3F1F1;
 }
 
 #top-menu li li.sf-depth-2 a{
+     font-size: 12px;
       color: #fff;
      
 }
@@ -1222,3 +1248,18 @@ h2.list a:hover{
 #project-timeline .flickr-citation {
     display: none;
 }
+
+@-moz-document url-prefix() { 
+  #top-menu  {
+height: 34px;
+  }
+}
+@-moz-document url-prefix() { 
+  #top-menu li.last {
+    padding-left: 19px;
+  }
+}
+
+#top-menu li li.last {
+    padding-left: 15px;
+  }

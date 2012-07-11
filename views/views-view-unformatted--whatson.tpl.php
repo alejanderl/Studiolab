@@ -73,6 +73,7 @@ if($diacomparar2!=$diacomparar_antes2):?>
 	?>
 
 <?php endforeach; ?>
+<div class="separador-dias separar"></div>
 <div class="clearfix"></div>
 
  

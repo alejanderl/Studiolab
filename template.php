@@ -193,7 +193,7 @@ function Studiolab_preprocess_page(&$variables) {
      $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";
      $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">Event</span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";
      $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";
-     $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strand"),render($node_content['field_stlab_strand'])):"";
+     $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strands"),render($node_content['field_stlab_strand'])):"";
      $variables['organizer']=(isset($node_content['field_stlab_org']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Organizer"),render($node_content['field_stlab_org'])):"";
      $variables['URL_associated']=(isset($node_content['field_stlab_link']))?sprintf ( '<p class="place">%s  </p>',render($node_content['field_stlab_link'])):"";
      $variables['hashtag']=(isset($node_content['field_stlab_hashtag']))?sprintf ( '%s  <br/>',render($node_content['field_stlab_hashtag'])):"";;
@@ -241,7 +241,8 @@ function Studiolab_form_alter(&$form, &$form_state, $form_id) {
     
     
 }
-
+error_reporting(E_ALL); 
+ini_set( 'display_errors','1');
 function Studiolab_process_page(&$variables) {
   
 	if (isset($variables['node'])&&isset($variables['theme_hook_suggestions'])&&!in_array("page__node__38",$variables['theme_hook_suggestions'])){
@@ -400,3 +401,7 @@ function ContentType2Print($content_type,$event_type){
           return NULL;
      }
 };
+
+function Studiolab_date_all_day_label() {
+  return '';
+}

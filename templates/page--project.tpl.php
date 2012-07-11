@@ -162,7 +162,7 @@
                  <div id="title-themes"><?php print render($node_content['field_stlab_theme']); ?> </div>
                  <br/>
                  <h1 class="project-title"> <?php print $title; ?> </h1>
-                     <span class="content-type">Project</span>
+                     <span class="content-type"><a href="<?php print url("projects/all");?>">Project</a></span>
                      <?php print $strand; ?>
                      <?php print $place; ?>
                      <?php print $organizer;?>

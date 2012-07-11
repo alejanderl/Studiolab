@@ -72,8 +72,8 @@ foreach($view1->result as $event ){
 //miKrumo($event);
 ?>
 <item>
- <title><?php print($event->node_title )?></title>
-      <description><?php print($event->field_field_stlab_summary[0]["rendered"]['#markup']); ?></description>
+ <title><![CDATA[<?php print($event->node_title )?>]]></title>
+      <description><![CDATA[<?php print($event->field_field_stlab_summary[0]["rendered"]['#markup']); ?>]]></description>
       <link><?php print url( "node/".$event->nid,  array('absolute' => TRUE))?></link>
       <guid><?php print url( "",  array('absolute' => TRUE))."node/".$event->nid?></guid>
       <pubDate><?php print(format_date($event->node_changed,"long")); ?></pubDate>

@@ -46,7 +46,7 @@
 
 <?php foreach ($items as $delta => $item): ?>
 
-<span class="element"> <a href="<?php echo $element['#items'][$delta]['taxonomy_term']->field_trm_orglink[$lang][0]['value']?>" target="_blank" title="Visit <?php print render($item); ?>'s website "><?php print render($item); ?></a> </span>
+<span class="element"> <a href="<?php echo $element['#items'][$delta]['taxonomy_term']->field_trm_orglink[$lang][0]['value']?>" target="_top" title="Organizer" ><?php print render($item); ?></a> </span>
 
 <?php endforeach; ?>
 

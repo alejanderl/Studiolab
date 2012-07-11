@@ -265,6 +265,7 @@ $(document).ready(function() {
 		<a href="<?php print url("node/48"); ?>">Le Laboratoire, Paris</a>
 		<a href="<?php print url("node/47"); ?>">The Royal College of Art, London</a>
 		<a href="<?php print url("node/42"); ?>">Ars Electronica, Linz</a>
+                <a href="<?php print url("node/39"); ?>">MediaLab-Prado, Madrid</a>
 
 
 		
@@ -276,7 +277,7 @@ $(document).ready(function() {
 		
       <div class="left-info f-partners">
 
-		<a href="<?php print url("node/39"); ?>">MediaLab Prado, Madrid</a>
+		
 		<a href="<?php print url("node/76"); ?>">ISI Foundation, Turin</a>
 		<a href="<?php print url("node/46"); ?>">Optofonica, Amsterdam</a>
 		<a href="<?php print url("node/67"); ?>">Ecole de Recherche Graphique, Brussels</a>

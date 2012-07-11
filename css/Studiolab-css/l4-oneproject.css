@@ -13,7 +13,7 @@ margin-bottom: 20px;
 
 #ph-left {
     float:left;
-    width:450px;
+    width:440px;
     text-align: left;
     fon-family:arial;
     font-size:14px;
@@ -74,7 +74,7 @@ display: table;
 margin: 0;
 }
 
-#project-contents ul li  {
+#project-timeline ul li  {
 
 width: 450px;
 margin-bottom: 10px;
@@ -93,9 +93,10 @@ display: inline;
 
 #project-timeline ul  {
 display: table;
-margin-left: -25px;
+margin-left: 0px;
 margin-top:20px;
 width: 500px;
+padding: 0;
 }
 
 #project-timeline ul li  {
@@ -237,7 +238,7 @@ div.flickr-photoset-img {
 
 .data a {
       background-color: #333;
-    color:#fff;
+    color:#fff !important;
     text-decoration: none;
     padding: 0 3px;
     
@@ -257,17 +258,16 @@ div.flickr-photoset-img {
 }
 
 .intro-text-inline {
-    
-  font-size: 17px;
+    padding-top: 5px;
+    font-size: 17px;
     line-height: 1.5em;
     font: normal 20px/28px Arial, "Times New Roman", Times, serif;
-	letter-spacing: 0px;
-	 color:#35ABE6;
+    letter-spacing: 0px;
+    color:#35ABE6;
 }
 .intro-text {
-  font-size: 17px;
+    font-size: 17px;
     line-height: 1.5em;
-
 }
 
 
@@ -309,8 +309,29 @@ font-size: 18px;
 color: #666;
 text-transform: uppercase;
 }
+
+.content-type a{
+        font-weight: bold;
+ margin: 0;
+padding: 0;
+margin-top: -6px;
+font-size: 18px;
+color: #666;
+text-transform: uppercase;
+text-decoration: none;
+    
+}
+
+.content-type a:hover{
+background-color: #666;
+color: #fff;
+padding:0 5px;
+
+    
+}
 .place .lineage-item, .place span.element {
-    padding-right: 5px;
+    padding-right: 1px;
+    padding-left: 2px;
     border-right: 1px solid #ccc;
 }
 
