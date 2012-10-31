@@ -159,6 +159,11 @@ $(document).ready(function() {
 </script>
 
 
+<?php 
+$canonical= (in_array("node-type-partner",$variables['classes_array']))?sprintf('<link rel="canonical" href="%s"/>',url("node/".$node->nid, array("absolute"=>TRUE))):"";//;
+print($canonical);
+print($index_follow);
+?>
 
 
 

@@ -605,6 +605,7 @@ display: table-cell;
 text-align: center;
 width: 210px;
 padding: 0 12px;
+padding-right: 13px;
   
 }
 
@@ -1262,4 +1263,9 @@ height: 34px;
 
 #top-menu li li.last {
     padding-left: 15px;
+  }
+  .rss-ical-pages {
+    float: right;
+margin-right: 5px;
+margin-top:5px;
   }

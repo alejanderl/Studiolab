@@ -113,7 +113,7 @@ h2.block-title { /* Block title */
   margin-right:-30px;
 }
 
-#search-block #edit-keys, #menuArribaAgenda .form-text {
+#search-block #edit-keys, #menuArribaAgenda .form-text, .search-form #edit-keys{
     -moz-border-bottom-colors: none;
     -moz-border-image: none;
     -moz-border-left-colors: none;
@@ -142,7 +142,7 @@ h2.block-title { /* Block title */
   
   
 }
-#search-block .form-submit {
+#search-block .form-submit , .search-form input.form-submit{
 
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;

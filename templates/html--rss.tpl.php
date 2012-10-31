@@ -9,11 +9,27 @@ $myArg=arg(1);
 <?php
 		
 		$viewName='ical';
-                             $display_id=(arg(0)=="feed")?'studiolab_rss':'rss';
+		switch (arg(0)){
+		 case 'feed':
+				$display_id='studiolab_rss';		
+				break;
+		 case 'rss':
+				$display_id='rss';
+				break;
+		 case 'term-feeds':
+				$display_id='term_rss';
+				
+				break;
+		 default:
+				break;
+				
+				
+		}
+                             //$display_id=(arg(0)=="feed")?'studiolab_rss':'rss';
 			     		
 
                              
-                             $myArgs=(arg(0)=="feed")?'':array ($myArg);
+                             $myArgs=(arg(0)!="feed")?array ($myArg):'';
                              
                              //$myArgs=$argumentos_para_view;
                              $view1 = views_get_view($viewName);
@@ -23,11 +39,17 @@ $myArg=arg(1);
                              $view1->execute();
 		
 
-if(arg(0)!="feed"){
+if(arg(0)=="rss"){
+		
 		
 		$node=node_load($myArg);
 		$node_content=node_view($node);
 		
+		}elseif(arg(0)=="term-feeds"){
+				
+				$node_values_themes=array(3=>33,2=>34,1=>70,5=>37,4=>35,6=>36);
+				$node=node_load($node_values_themes[arg(1)]);
+				$node_content=node_view($node);
 		}
                
 $eventsIdsrelated=array();
@@ -44,6 +66,7 @@ foreach($view1->result as $event ){
      $view->set_display($display_id);
      $view->set_arguments(array($myArgs));
     $view->execute();
+    $the_results=(arg(0)=="term-feeds")? $view1->result: $view->result;
 		?>
 <?php print ("<?xml") ?> version="1.0" encoding="utf-8" ?>
 
@@ -68,7 +91,7 @@ foreach($view1->result as $event ){
 
 
 
-<?php foreach($view->result as $event):
+<?php foreach($the_results as $event):
 //miKrumo($event);
 ?>
 <item>

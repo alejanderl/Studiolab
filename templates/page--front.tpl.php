@@ -111,8 +111,8 @@
       </ul>
       </div>
       <div class="center">
-      <a href="<?php print $base_path ?>whatson"><img class="whatson-front" src="<?php print $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
-                    <ul id="whats-on">
+   <?php //<a href="<?php print $base_path whatson">//Antigua URL ?><a href="<?php print $base_path?>all/all/"><img class="whatson-front" src="<?php print $base_path.$directory; ?>/images/L1-whatson.png" height="50" width="402"/></a>
+                       <ul id="whats-on">
                     
                    <?php 
                 $viewName='home_page';

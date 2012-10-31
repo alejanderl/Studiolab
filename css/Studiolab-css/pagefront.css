@@ -195,6 +195,7 @@ text-decoration: none;
     width:300px;
      float:left;
      padding-top:0px;
+     margin: 0 25px;
  
 }
 #central-block .right {
@@ -205,7 +206,28 @@ text-decoration: none;
     float:right;
     
 }
+ #central-block .left li  {
+     display: block;
+    list-style: none outside none;
+    width: 200px;
+      
+    
+}
 
+#central-block .left ul {
+ float:right;
+}
+#central-block .left li img {
+    box-shadow: 0px 0px 5px -0px #CCC;
+    border-radius: 25px 25px 25px 25px;
+    margin-bottom: 10px;
+    
+}
+
+#central-block .flickr-citation {
+    
+    display:none;
+}
 
 /**
  *whatson
@@ -264,29 +286,7 @@ color: #333;
     width:220px
     }
     
-    #central-block .left li  {
-     display: block;
-    list-style: none outside none;
-    width: 200px;
-      
-    
-}
-
-#central-block .left ul {
-    display: block;
-    margin: 20px auto;
-}
-#central-block .left li img {
-    box-shadow: 0px 0px 5px -0px #CCC;
-    border-radius: 25px 25px 25px 25px;
-    margin-bottom: 10px;
-    
-}
-
-#central-block .flickr-citation {
-    
-    display:none;
-}
+   
 .location {
     display:inline-block;
 }
@@ -373,10 +373,10 @@ img.whatson-front {
 
 }
 img.whatson-front:hover {
-    border-radius: 0  0 10px 10px;
-    margin-top: -5px;
-    margin-bottom: 5px;
-    box-shadow:0 10px 5px -3px #ccc;
+    border-radius: 0 0 10px 10px;
+    margin-top: -2px;
+    margin-bottom: 2px;
+    box-shadow: 0 2px 15px -3px #CCC;
     width: 120% !important;
 }
 div.flickr-photoset-img {
@@ -395,3 +395,8 @@ div.theme {
     margin: 2px 4px 0 !important;
 
 }
+#whats-on li span.element a {
+    pointer-events:none;
+    font-size: 12px;
+}
+

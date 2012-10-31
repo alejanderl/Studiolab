@@ -155,11 +155,17 @@ function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
 
 function Studiolab_preprocess_html(&$variables, $hook) {
   
-  if(arg(0)=="feed"){
+  if(arg(0)=="feed"||arg(0)=="term-feeds"){
     //miKrumo($variables);
      $variables['theme_hook_suggestions'][]='html__rss';
     
   }
+  if(arg(0) == 'node' ) {
+  $variables['node'] = node_load(arg(1));
+  
+}
+ if(arg(0) != 'node' ){$variables['index_follow'] = '<meta name="robots" content="noindex,follow">';}
+
 
   
 
@@ -168,6 +174,11 @@ function Studiolab_preprocess_html(&$variables, $hook) {
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
 }
 // */
+
+function search_form_alter (&$form, &$form_state, $form_id){
+    miKrumo($form);
+    
+}
 
 /**
  * Override or insert variables into the page templates.
@@ -189,9 +200,9 @@ function Studiolab_preprocess_page(&$variables) {
    if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
      $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
      $node_content=$variables['node_content'];
-     $variables['call_type']=sprintf ( '<p class="event-pre-title"><span class="content-type">%s</span>  %s  </p>',t("Open call"),"");
+     $variables['call_type']=sprintf ( '<p class="event-pre-title"><span class="content-type"><a href="/opencalls/all">%s</a></span>  %s  </p>',t("Open call"),"");
      $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";
-     $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type">Event</span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";
+     $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type"><a href="/events/all")>Event</a></span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";
      $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";
      $variables['strand']=(isset($node_content['field_stlab_strand'][0]))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Strands"),render($node_content['field_stlab_strand'])):"";
      $variables['organizer']=(isset($node_content['field_stlab_org']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Organizer"),render($node_content['field_stlab_org'])):"";
@@ -216,7 +227,7 @@ function Studiolab_preprocess_page(&$variables) {
             $image_path= $variables['base_path'].path_to_theme()."/cssimgs/ical.png";
             $image_rss_path= $variables['base_path'].path_to_theme()."/cssimgs/rss.png";
             $variables['icalURL']=l('<img src="'.$image_path.'" alt="'.t('Add to my agenda').'">', 'webcal://studiolabproject.eu/project-ical/'.arg(1), $attributes);
-            $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://studiolabproject.eu/studiolab/rss/'.arg(1), $attributes_rss);
+            $variables['rssURL']=l('<img src="'.$image_rss_path.'" alt="'.t('Suscribe to RSS').'">', 'http://studiolabproject.eu/rss/'.arg(1), $attributes_rss);
         };
 }
 
@@ -404,4 +415,12 @@ function ContentType2Print($content_type,$event_type){
 
 function Studiolab_date_all_day_label() {
   return '';
+}
+
+function Studiolab_html_head_alter(&$head_elements) {
+  foreach ($head_elements as $key => $element) {
+  	if (isset($element['#attributes']['rel']) && $element['#attributes']['rel'] == 'canonical') {
+            unset($head_elements[$key]);  
+          } 
+     }
 }

@@ -2,43 +2,33 @@
 
 // defines a class to manage the slider in the page front
 var sliderFront = function (divID,time,stoptime) {
-        "use strict";
-		this.time=time;
-		this.stoptime=stoptime;
-        this.divID = divID;
-        //add the styles
-        //$("head ").append('<link type="text/css" rel="stylesheet" href="./css/FullScreenSLider.css" />');
-        //set the end of the loop 
-          var _this = this;  
+         "use strict";
+	 this.time=time;
+	 this.stoptime=stoptime;
+         this.divID = divID;
+	 //set the end of the loop 
+         var _this = this;  
 	 //$(this.divID + " ul").prepend('<li class="black forward"></div>');
-        //$(this.divID + " ul").append('<div class="clearfix"></div>');
+         //$(this.divID + " ul").append('<div class="clearfix"></div>');
 	 first_element=$(_this.divID + " ul ").html();
-	if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){
+	 if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<4){
 		    $(_this.divID + " ul").append(first_element);
 		    $(_this.divID + " ul").append(first_element);
 		    $(_this.divID + " ul").append(first_element);
-		    
-		    }else  if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<7){
-                  
-                        
-
-                    $(_this.divID + " ul").append(first_element);
+		}else  if(2<$(this.divID  + " ul li").length&&$(this.divID  + " ul li").length<7){
+			$(_this.divID + " ul").append(first_element);
 	 }
-	 var first_element="";
-                
-        $(this.divID ).append('<div class="clearfix"></div>');
-        this.position_top = ($(this.divID).position().top);
-        this.element_total = $(this.divID  + " ul li").length;
-        this.single_element_width = $(this.divID + " ul li").eq(1).outerWidth();
-        this.element_width = this.single_element_width*this.element_total;
-        this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
-              
-        this.li_index = 0;
-       
+	 var first_element="";                
+         $(this.divID ).append('<div class="clearfix"></div>');
+         this.position_top = ($(this.divID).position().top);
+         this.element_total = $(this.divID  + " ul li").length;
+         this.single_element_width = $(this.divID + " ul li").eq(1).outerWidth();
+         this.element_width = this.single_element_width*this.element_total;
+         this.element_height = $(this.divID + " ul li").eq(1).outerHeight();
+	 this.li_index = 0;       
         // match first element as active.
          $(this.divID + " ul li").eq(0).addClass("active");      
-          
-        
+              
          $(window).resize(function() {           
             _this.rescale ();
             _this.placeControllers ();
@@ -58,7 +48,7 @@ var sliderFront = function (divID,time,stoptime) {
                     $(_this.divID + " li" ).css({top:0,left:newPos});
                     $(_this.divID + " ul li").eq(0).remove();
                     $(_this.divID + " ul").append(first_element);
-                   //console.log ($(_this.divID + " ul li").eq(0).position().left+"position");
+                   
                 }else if ($(_this.divID + " ul li").eq(0).position().left>-500&&where2>0){
                    
                     var last_element = $(_this.divID + " ul li").eq(_this.element_total-1);

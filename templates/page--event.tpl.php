@@ -124,6 +124,7 @@ ob_end_clean();
 
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
+    <article>
         <div class="centered">       
             <div id="project-header">
                 <div id="ph-left">
@@ -153,6 +154,7 @@ ob_end_clean();
                 <?php print render($node_content['body']); ?>
                 </div>
             </div>
+            <aside>
             <div id="project-timeline">
                 <?php  print $render_opencalls;?>                
                 <div id="related-assets">
@@ -167,6 +169,8 @@ ob_end_clean();
                  <?php print $view->render(); // Print Related events ?>       
               </ul>
          </div>
+         </aside>
          <div class="clearfix"></div>
         </div>
+    </article>
     </div>

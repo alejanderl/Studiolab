@@ -153,6 +153,7 @@
   
     <div class="clearfix"></div>        
     <div id="mainBody" style="min-height:20px;width:100%; ">
+        <article>
         <div class="centered">
 
             <div id="project-header">
@@ -200,6 +201,7 @@
                 </div>
                                   
             </div>
+            <aside>
             <div id="project-timeline">
             <?php  print ($view->result!=NULL)?'<span class="title no-line">'.t('Upcoming events')."</span>":"";?>
               <ul>
@@ -231,7 +233,9 @@
         
          </div>
         </div>
-    </div>
+            </aside>
+         </div>
+    </article>
 <div class="clearfix"></div>  
     
     

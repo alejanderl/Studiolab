@@ -5,7 +5,7 @@ drupal_add_http_header('Content-Type', 'text/calendar; charset=utf-8');
 <?php
 		$myArgs=arg(1);
 		$viewName='ical';
-		$display_id='page';
+		$display_id='page_1';
 		$myArgs=array ($myArgs);
 		
 		//$myArgs=$argumentos_para_view;
@@ -21,7 +21,7 @@ drupal_add_http_header('Content-Type', 'text/calendar; charset=utf-8');
 BEGIN:VCALENDAR<?php print ("\r\n");?>
 VERSION:2.0<?php print ("\r\n") ?>
 METHOD:PUBLISH<?php print ("\r\n") ?>
-X-WR-CALNAME: <?php print ($node->title) ?> | StudioLab <?php print ("\r\n") ?> PRODID:-//Drupal// StudioLab<?php print ("\r\n") ?>
+X-WR-CALNAME:StudioLab | <?php print ($node->title) ?> <?php print ("\r\n") ?> PRODID:-//Drupal// StudioLab<?php print ("\r\n") ?>
 <?php foreach($view->result as $event):
 		$time=($event->field_data_field_stlab_eventdate_field_stlab_eventdate_value);
 		foreach($event->field_field_stlab_eventdate as $finaltime){			
