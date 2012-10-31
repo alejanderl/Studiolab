@@ -236,10 +236,10 @@ text-decoration: none;
 #whats-on li {
     list-style: none;
     border-top:1px solid #ccc;
-    margin-top:-22px;
-	height: 95px;
-	padding-top: 8px;
-	padding-bottom: 14px;
+    margin-top:-19px;
+    max-height: 105px;
+    padding-top: 8px;
+    padding-bottom: 18px;
 }
 #whats-on h3 {
     font-size:12px;
@@ -398,5 +398,16 @@ div.theme {
 #whats-on li span.element a {
     pointer-events:none;
     font-size: 12px;
+}#whats-on li:last-child {
+border-bottom:1px solid #ccc;
+padding-bottom: 0px;
 }
-
+.taxos {
+font-size: 10px;
+line-height: 1.2em;
+text-align: left;
+text-transform: uppercase;
+cursor: default;
+padding: 3px 0;
+font-weight:bold;
+}

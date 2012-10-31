@@ -85,7 +85,15 @@
     $view = views_get_view($viewName);
     $view->set_arguments($myArgs);
     $view->set_display($display_id);
-    $view->execute();    
+    $view->execute();
+    
+    
+    $view_project_belonged= views_get_view($viewName);
+    $view_project_belonged->set_arguments($myArgs);
+    $view_project_belonged->set_display('block_3');
+    $view_project_belonged->execute();
+   
+    
     $view_opencalls = views_get_view($viewName);
     $view_opencalls->set_arguments(array($node->nid));
     $view_opencalls->set_display("block_2");
@@ -156,13 +164,25 @@ ob_end_clean();
             </div>
             <aside>
             <div id="project-timeline">
-                <?php  print $render_opencalls;?>                
+            <?php  if (count($view_project_belonged->result)!=0):?>
+                <span class="title"><?php print t('Belongs to:')?></span>
+               <ul>
+                <?php print $view_project_belonged->render(); ?>
+               </ul>
+               <?php endif; ?>
+                <?php  print $render_opencalls;?>
+                
+                <?php  if (count($view_assets->result)!=0):?>
+                
                 <div id="related-assets">
+                
+
                    <?php print ($view_assets->result!=NULL)?'<span class="title">'.t('Media assets')."</span>":""; ?>
                    <ul>                   
                        <?php print  $render_assets; ?>             
                    </ul>
                </div>
+               <?php endif; ?>
               <span class="others">
               <?php print ($view->result!=NULL)?'<span class="title">'.t('Other related events')."</span>":""; ?>  </span>
               <ul>

@@ -40,14 +40,27 @@ $theme=(isset($fields['field_stlab_theme']->content))?$fields['field_stlab_theme
  $city=$fields['field_trm_location']->content;
  $organizer=($fields['field_stlab_org']->content!=NULL)?$fields['field_stlab_org']->content:"" ;
  $place=(isset($fields['field_stlab_place']->content))?sprintf('<div class="data water-spot" > %s  </div> ',$place ):""; 
+$predate=explode(",",strip_tags($fields['field_stlab_eventdate']->content ));
+$date=format_date($predate[0],"short_notime");
+ $days_length=count($predate);
+     
+     $final_day=str_replace(" ", "", $predate[($days_length-1)]);
+     $from_date=($days_length>1)?"From ".format_date($predate[0],'short_notime'):format_date($predate[0],'short_notime');
+    $organizer=($fields['field_stlab_org']->content!=NULL)?$fields['field_stlab_org']->content:"" ;
+ 
+ $to_date=($days_length>1)?" to ".format_date( $final_day,'short_notime'):NULL;
+        
+
+
 ?>
 
  <li>
      
      
               <span class="data"><?php //print $theme; ?><?php print $organizer ?></span>        
-         <h3 ><a href="<?php print $path; ?>"><?php print $summary; ?></a></h3><br/>
-         
+         <h3 ><a href="<?php print $path; ?>"><?php print $summary; ?></a></h3>
+         <div class="taxos"><span class="data"><?php echo t("Next")." ".$from_date ?><?php echo $to_date ?> </span></div>
+
 
 </li>
 

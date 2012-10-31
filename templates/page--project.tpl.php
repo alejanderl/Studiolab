@@ -91,7 +91,7 @@
      /**
       *Need to get the ids of all related nodes to look for all the media assets related to the project.
      */
-     
+     miKrumo($view);
      
      
      $view_pastEvents= views_get_view($viewName);

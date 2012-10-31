@@ -176,7 +176,7 @@ function Studiolab_preprocess_html(&$variables, $hook) {
 // */
 
 function search_form_alter (&$form, &$form_state, $form_id){
-    miKrumo($form);
+    
     
 }
 
@@ -200,7 +200,7 @@ function Studiolab_preprocess_page(&$variables) {
    if (isset($variables['page']['content']['system_main']['nodes'][$nid])) {
      $variables['node_content'] = & $variables['page']['content']['system_main']['nodes'][$nid];
      $node_content=$variables['node_content'];
-     $variables['call_type']=sprintf ( '<p class="event-pre-title"><span class="content-type"><a href="/opencalls/all">%s</a></span>  %s  </p>',t("Open call"),"");
+     $variables['call_type']=sprintf ( '<p class="event-pre-title"><span class="content-type"><a href="/opencalls/all">%s</a></span>  %s  </p>',t("Open call")," / ".render($node_content['field_stlab_calltype']));
      $variables['related_project']=(isset($node_content['field_stlab_relproject']))?sprintf ( '<p class="project-related"><span class="title">%s</span>:%s  </p>',t("Project"),render($node_content['field_stlab_relproject'])):"";
      $variables['event_type']=(isset($node_content['field_stlab_eventtype']))?sprintf ( '<p class="event-pre-title"><span class="content-type"><a href="/events/all")>Event</a></span> / %s  </p>',render($node_content['field_stlab_eventtype'])):"";
      $variables['place']=(isset($node_content['field_stlab_place']))?sprintf ( '<p class="place"><span class="title">%s</span>:%s  </p>',t("Venue"),render($node_content['field_stlab_place'])):"";
